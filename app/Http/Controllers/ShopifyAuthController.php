@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\ShopifyAuth;
+//use Request;
+use Illuminate\Http\Request; 
+
+
+
+class ShopifyAuthController extends Controller
+{
+    // auth to shopify store
+    public function register(Request $request)
+    {
+        $nameStore = $request->name;
+        $auth = 'https://'.$nameStore.'.myshopify.com/admin/oauth/authorize?client_id=' . env('API_KEY') . '&scope=read_products,read_fulfillments&redirect_uri=http://localhost:8000/shopify/authorise';
+            //return $auth;
+        return redirect($auth);
+    }
+    // authorise to shopify store
+    public function authorise(Request $request)
+    {
+        
+        try {
+            return redirect()->route('/access', [$request->input("code"), $request->input("shop")]);
+        } catch (Exception $e) {
+            //throw $th;
+        }
+    }
+    // get access Token from shopify store
+    public function access($code, $shop)
+    {
+        $url = 'https://'.$shop.'/admin/oauth/access_token';
+        $data = array("client_id" => env('API_KEY'), "client_secret" => env('client_secret'), "code" => $code);
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($ch);
+        $access_token = json_decode($result)->access_token;
+
+        curl_close($ch);
+        // register webhooks
+        // return $this->registerWebHooks($shop, $access_token);
+        
+        // save access token
+
+        //redirect to client dashboard
+        return $result;
+    }
+    private function registerWebHooks($shop,$token){
+        $url = 'https://'.$shop.'//admin/api/2020-01/webhooks.json';
+        $data = array("webhook"=>["topic"=> "orders/create","address"=> "https://5d9c58d5.ngrok.io/shopify/callback","format"=> "json"]);
+        return json_encode($data);
+        $ch = curl_init($url);
+        
+        //Create an array of custom headers.
+        $customHeaders = array(
+            'X-Shopify-Access-Token'=> $token
+        );
+        
+        //Use the CURLOPT_HTTPHEADER option to use our
+        //custom headers.
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $customHeaders);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        return $result;
+    }
+}
