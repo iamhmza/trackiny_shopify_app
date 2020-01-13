@@ -1,31 +1,29 @@
 @extends('layouts.install')
 
-@section('title', 'paypal')
+@section('title', 'woocommerce')
 
 @section('install')
-
 <section class="install">
     <a class="logo" href="/dashboard">
         <img src="{{asset('images/logo.png')}}" alt="logo" />
     </a>
 
     <h2 class="title-2">Link account</h2>
-    <img src="{{asset('images/paypal.png')}}" alt="paypal logo" />
+    <img src="{{asset('images/wc_logo.png')}}" alt="paypal logo" />
     <p class="sub-text">
-        We work with secure Paypal credentials. Paypal monitors and encrypts
-        this connection. This way your privacy and funds are 100% safe.
-        <br />Please log in to Paypal and provide your client and secret here!
+        <strong> Install Trackiny On : </strong>
+        <br />Please log in to woocommerce dashboard and provide your API consumer key and secret here!
         <br />Need Help ? Click
         <a href="#" style="text-decoration: underline;">
             <b>the link</b>
         </a>
         to see Video!
     </p>
-    <form action="{{url('/paypal/login')}}" method="post">
+    <form action="{{url('/wc/login')}}" method="post">
         {{csrf_field()}}
-        <input class="input" type="text" placeholder="API key" />
-        <input class="input" type="text" placeholder="API secret" />
-        <button class="cta paypal" type="submit">Install</button>
+        <input class="input" type="text" placeholder="Consumer key" />
+        <input class="input" type="text" placeholder="Consumer secret" />
+        <button class="cta wc" type="submit">Install</button>
     </form>
 </section>
 
@@ -37,18 +35,15 @@
         <defs>
             <linearGradient id="linear-gradient" x1="0.281" y1="0.283" x2="0.962" y2="0.931"
                 gradientUnits="objectBoundingBox">
-                <stop offset="0" stop-color="#263b80" />
+                <stop offset="0" stop-color="#945c87" />
                 <stop offset="1" stop-color="#016fff" stop-opacity="0" />
             </linearGradient>
         </defs>
-        <g id="Layer_2" data-name="Layer 2" transform="translate(0 55.092)">
-            <g id="Layer_1" data-name="Layer 1" transform="translate(0 -55.092)">
-                <path id="Path_12" data-name="Path 12"
-                    d="M1149.342,324.018V686.5L766.22,654.539V1042h-383.1V425.052L0,387.138V0L766.245,121.72V267.678l.2.623Z"
-                    fill="url(#linear-gradient)" />
-            </g>
-        </g>
+        <path id="Path_12" data-name="Path 12"
+            d="M1149.342,324.018V686.5L766.22,654.539V1042h-383.1V425.052L0,387.138V0L766.245,121.72V267.678l.2.623Z"
+            fill="url(#linear-gradient)" />
     </svg>
+
 
 
     <div class="hero_text">
@@ -57,5 +52,4 @@
         <p class="text">Log in to your Trackiny account to get back your tracks.</p>
     </div>
 </section>
-
 @endsection

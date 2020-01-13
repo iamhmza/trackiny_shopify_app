@@ -1,7 +1,7 @@
 <template>
     <nav>
         <a class="logo" href="/dashboard">
-            <img src="../../../public/assets/img/logo_w.png" alt="logo" />
+            <img src="../../images/logo_w.png" alt="logo" />
         </a>
 
         <div class="search">
@@ -24,7 +24,7 @@
                     <div>notification 2</div>
                 </div>
             </span>
-            <img src="../../../public/assets/img/admin.png" alt="admin" />
+            <img src="../../images/admin.png" alt="admin" />
             Admin
         </div>
     </nav>

@@ -11,7 +11,7 @@
 
         <button @click="redirect" class="cta">BACK TO HOME</button>
 
-        <img src="../../../public/assets/img/notfound.svg" alt="not_found_bg" />
+        <img src="../../images/notfound.svg" alt="not_found_bg" />
     </div>
 </template>
 

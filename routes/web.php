@@ -20,8 +20,15 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/', function () {
-    return view('paypal_install');
+    return view('welcome');
 });
+
+Route::group(['prefix' => 'install'], function () {
+    Route::get('/shopify', function () {return view('shopify_install');});
+    Route::get('/paypal', function () {return view('paypal_install');});
+    Route::get('/woocommerce', function () {return view('wc_install');});
+});
+
 /**CODE**/
 // Authentification With Shopify
 Route::group(['prefix' => "shopify"], function () {

@@ -240,6 +240,10 @@
   background-color: #263b80 !important;
 }
 
+#app .cta.wc {
+  background-color: #945c87 !important;
+}
+
 #app .form {
   width: 70%;
 }

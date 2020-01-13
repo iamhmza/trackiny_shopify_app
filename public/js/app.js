@@ -20792,10 +20792,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("img", {
-        attrs: {
-          src: __webpack_require__(/*! ../../../public/assets/img/admin.png */ "./public/assets/img/admin.png"),
-          alt: "admin"
-        }
+        attrs: { src: __webpack_require__(/*! ../../images/admin.png */ "./resources/images/admin.png"), alt: "admin" }
       }),
       _vm._v("\n        Admin\n    ")
     ])
@@ -20808,10 +20805,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("a", { staticClass: "logo", attrs: { href: "/dashboard" } }, [
       _c("img", {
-        attrs: {
-          src: __webpack_require__(/*! ../../../public/assets/img/logo_w.png */ "./public/assets/img/logo_w.png"),
-          alt: "logo"
-        }
+        attrs: { src: __webpack_require__(/*! ../../images/logo_w.png */ "./resources/images/logo_w.png"), alt: "logo" }
       })
     ])
   },
@@ -21307,10 +21301,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("img", {
-      attrs: {
-        src: __webpack_require__(/*! ../../../public/assets/img/notfound.svg */ "./public/assets/img/notfound.svg"),
-        alt: "not_found_bg"
-      }
+      attrs: { src: __webpack_require__(/*! ../../images/notfound.svg */ "./resources/images/notfound.svg"), alt: "not_found_bg" }
     })
   ])
 }
@@ -36733,10 +36724,10 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./public/assets/img/admin.png":
-/*!*************************************!*\
-  !*** ./public/assets/img/admin.png ***!
-  \*************************************/
+/***/ "./resources/images/admin.png":
+/*!************************************!*\
+  !*** ./resources/images/admin.png ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -36744,10 +36735,10 @@ module.exports = "/images/admin.png?8811e334338b7b1caef7915418aea7bd";
 
 /***/ }),
 
-/***/ "./public/assets/img/logo_w.png":
-/*!**************************************!*\
-  !*** ./public/assets/img/logo_w.png ***!
-  \**************************************/
+/***/ "./resources/images/logo_w.png":
+/*!*************************************!*\
+  !*** ./resources/images/logo_w.png ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -36755,10 +36746,10 @@ module.exports = "/images/logo_w.png?76fa0cb57e70c8466bd93f85d869db65";
 
 /***/ }),
 
-/***/ "./public/assets/img/notfound.svg":
-/*!****************************************!*\
-  !*** ./public/assets/img/notfound.svg ***!
-  \****************************************/
+/***/ "./resources/images/notfound.svg":
+/*!***************************************!*\
+  !*** ./resources/images/notfound.svg ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
