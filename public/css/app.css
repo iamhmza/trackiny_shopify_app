@@ -1,4 +1,4 @@
-/* variables*/
+@import url(https://fonts.googleapis.com/css?family=Nunito);/* variables*/
 
 /* app */
 
@@ -6,6 +6,167 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+/* mobile first */
+
+@media only screen and (max-width: 768px) {
+  .title-2 {
+    font-size: 24px !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .title-3 {
+    font-size: 20px;
+    margin-bottom: 1.2rem !important;
+  }
+
+  .text {
+    font-size: 14px !important;
+    line-height: 130%;
+    color: #888;
+  }
+
+  nav {
+    padding: 1rem !important;
+  }
+
+  nav .logo {
+    margin: 0 !important;
+  }
+
+  nav .logo img {
+    width: 120px !important;
+  }
+
+  nav .search {
+    display: none;
+  }
+
+  .form {
+    width: 100% !important;
+  }
+
+  .dashboard .main_wrapper aside {
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    width: 100% !important;
+    padding: 1rem !important;
+  }
+
+  .dashboard .main_wrapper aside ul {
+    display: -webkit-box !important;
+    display: flex !important;
+    justify-content: space-around;
+  }
+
+  .dashboard .main_wrapper aside ul li a {
+    padding: 0 !important;
+  }
+
+  .dashboard .main_wrapper aside ul li a span {
+    display: none;
+  }
+
+  .dashboard .main_wrapper main {
+    padding: 1.4rem 1rem !important;
+  }
+
+  .tuts .tuts_wrapper .video {
+    height: 240px !important;
+  }
+
+  .install .install_wrapper {
+    height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+  }
+
+  .install .install_wrapper > section {
+    padding: 2rem !important;
+    text-align: center;
+  }
+
+  .install .install_wrapper .install .logo {
+    display: block;
+    margin-bottom: 4rem !important;
+  }
+
+  .install .install_wrapper .install > img {
+    display: block;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+
+  .install .install_wrapper .install .input {
+    margin: auto;
+    width: 333px !important;
+  }
+
+  .install .install_wrapper .install .cta {
+    width: 100% !important;
+    margin: auto;
+  }
+
+  .install .install_wrapper .install .blue {
+    background-color: #263b80 !important;
+  }
+
+  .install .install_wrapper .hero {
+    background: #0291fe;
+    background: -webkit-gradient(linear, right top, left top, from(#0291fe), to(#0172ff));
+    background: linear-gradient(to left, #0291fe, #0172ff);
+    display: none;
+  }
+
+  .not_found > .cta {
+    width: 231px !important;
+    height: 45px !important;
+    font-size: 14px !important;
+  }
+
+  .not_found > img {
+    -webkit-transform: scale(3.2) !important;
+            transform: scale(3.2) !important;
+  }
+
+  .not_found > p {
+    width: 80% !important;
+    color: #fff !important;
+  }
+}
+
+@media only screen and (max-width: 999px) {
+  .tuts .tuts_wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+  }
+
+  .tuts .tuts_wrapper .list {
+    width: 100% !important;
+    -webkit-box-ordinal-group: 3;
+            order: 2;
+  }
+
+  .install .install_wrapper > section {
+    padding: 2rem !important;
+  }
+
+  .install .install_wrapper .install .input {
+    width: 300px !important;
+  }
+
+  .install .install_wrapper .hero .hero_text {
+    width: 80% !important;
+    margin-top: 6rem !important;
+  }
+
+  .install .install_wrapper .hero .hero_text .lg_text {
+    font-size: 60px !important;
+  }
 }
 
 #app {
@@ -79,6 +240,10 @@
   background-color: #263b80 !important;
 }
 
+#app .form {
+  width: 70%;
+}
+
 #app .input {
   display: block;
   width: 100%;
@@ -149,28 +314,6 @@
   background-color: #f2f6f9;
 }
 
-#app .dashboard .main_wrapper {
-  height: calc(100vh - 66px);
-}
-
-#app .dashboard .main_wrapper main {
-  float: left;
-  height: 100%;
-  width: calc(100% - 240px);
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  padding-top: 2rem;
-}
-
-#app .dashboard .main_wrapper main .container {
-  max-width: 992px;
-  width: 100%;
-}
-
-#app .dashboard .clear-fix {
-  clear: both;
-}
-
 #app .dashboard nav {
   height: 66px;
   padding: 0 3rem;
@@ -202,8 +345,8 @@
 }
 
 #app .dashboard nav .admin .notification_wrapper {
+  display: none;
   position: relative;
-  display: block;
   margin-right: 2rem;
   cursor: pointer;
 }
@@ -286,24 +429,28 @@
   color: #fff !important;
 }
 
-#app .dashboard aside {
-  height: 100%;
-  float: left;
+#app .dashboard .main_wrapper {
+  min-height: calc(100vh - 66px);
+  display: -webkit-box;
+  display: flex;
+}
+
+#app .dashboard .main_wrapper aside {
   width: 240px;
   padding: 2rem 0;
   background-color: #fff;
   box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#app .dashboard aside ul {
+#app .dashboard .main_wrapper aside ul {
   display: block;
 }
 
-#app .dashboard aside ul li {
+#app .dashboard .main_wrapper aside ul li {
   display: block;
 }
 
-#app .dashboard aside ul li a {
+#app .dashboard .main_wrapper aside ul li a {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -318,22 +465,22 @@
   transition: all 100ms ease-out;
 }
 
-#app .dashboard aside ul li a svg {
+#app .dashboard .main_wrapper aside ul li a svg {
   margin-right: 1rem;
   width: 18px;
 }
 
-#app .dashboard aside ul li a svg path {
+#app .dashboard .main_wrapper aside ul li a svg path {
   stroke: #a0a5b8 !important;
 }
 
-#app .dashboard aside ul li a:hover,
-#app .dashboard aside ul li a.router-link-active {
+#app .dashboard .main_wrapper aside ul li a:hover,
+#app .dashboard .main_wrapper aside ul li a.router-link-active {
   color: #016fff;
 }
 
-#app .dashboard aside ul li a:hover::after,
-#app .dashboard aside ul li a.router-link-active::after {
+#app .dashboard .main_wrapper aside ul li a:hover::after,
+#app .dashboard .main_wrapper aside ul li a.router-link-active::after {
   content: "";
   position: absolute;
   right: -1px;
@@ -344,36 +491,36 @@
   background-color: #016fff;
 }
 
-#app .dashboard aside ul li a:hover svg path,
-#app .dashboard aside ul li a.router-link-active svg path {
+#app .dashboard .main_wrapper aside ul li a:hover svg path,
+#app .dashboard .main_wrapper aside ul li a.router-link-active svg path {
   stroke: #016fff !important;
 }
 
-#app .dashboard .support .support_form {
-  width: 60%;
+#app .dashboard .main_wrapper main {
+  height: 100%;
+  width: 100%;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  padding-top: 2rem;
 }
 
-#app .dashboard .support .support_form .input {
-  margin-bottom: 2rem !important;
-}
-
-#app .dashboard .support .support_form button {
-  background-color: #016fff !important;
+#app .dashboard .main_wrapper main .container {
+  max-width: 992px;
+  width: 100%;
+  margin: auto;
 }
 
 #app .dashboard .tuts .tuts_wrapper {
   display: -webkit-box;
   display: flex;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: start;
           align-items: flex-start;
 }
 
 #app .dashboard .tuts .tuts_wrapper .list {
   display: block;
-  -webkit-box-flex: 0;
-          flex: 0 1 37%;
+  width: 37%;
+  margin-right: 2rem;
   background-color: #fff;
   color: #016fff;
 }
@@ -399,8 +546,7 @@
 }
 
 #app .dashboard .tuts .tuts_wrapper .video-container {
-  -webkit-box-flex: 0;
-          flex: 0 1 57%;
+  width: 100%;
   margin-bottom: 2rem;
 }
 
@@ -420,28 +566,12 @@
   text-align: justify;
 }
 
-#app .dashboard .setting .setting_form {
-  width: 60%;
-}
-
-#app .dashboard .setting .setting_form .cta {
-  background-color: #016fff !important;
-}
-
-#app .dashboard .setting .info_form {
-  width: 70%;
-}
-
 #app .dashboard .account .title-3 {
   color: #016fff;
 }
 
 #app .dashboard .account .text {
   margin-bottom: 2rem;
-}
-
-#app .dashboard .account .cta {
-  background-color: #016fff !important;
 }
 
 #app .install .install_wrapper {
@@ -505,68 +635,46 @@
   stop-color: #263b80;
 }
 
-@media only screen and (max-width: 999px) {
-  .install .install_wrapper > section {
-    padding: 2rem !important;
-  }
-
-  .install .install_wrapper .install .input {
-    width: 300px !important;
-  }
-
-  .install .install_wrapper .hero .hero_text {
-    width: 80% !important;
-    margin-top: 6rem !important;
-  }
-
-  .install .install_wrapper .hero .hero_text .lg_text {
-    font-size: 60px !important;
-  }
+#app .not_found {
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  color: #fff !important;
+  padding-top: 8rem;
 }
 
-@media only screen and (max-width: 768px) {
-  .install .install_wrapper {
-    height: 100vh;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column;
-  }
+#app .not_found > .cta {
+  width: 331px !important;
+  height: 61px !important;
+  margin: 2rem auto !important;
+  background-color: #fff !important;
+  color: #0290fe !important;
+  font-size: 18px !important;
+  font-weight: 700;
+}
 
-  .install .install_wrapper > section {
-    padding: 2rem !important;
-    text-align: center;
-  }
+#app .not_found > h1 {
+  font-size: 10rem;
+}
 
-  .install .install_wrapper .install .logo {
-    display: block;
-    margin-bottom: 4rem !important;
-  }
+#app .not_found > .title-2 {
+  text-transform: uppercase;
+}
 
-  .install .install_wrapper .install > img {
-    display: block;
-    margin: auto;
-    margin-bottom: 2rem;
-  }
+#app .not_found > img {
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(2.2);
+          transform: scale(2.2);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
 
-  .install .install_wrapper .install .input {
-    margin: auto;
-    width: 333px !important;
-  }
-
-  .install .install_wrapper .install .cta {
-    width: 100% !important;
-    margin: auto;
-  }
-
-  .install .install_wrapper .install .blue {
-    background-color: #263b80 !important;
-  }
-
-  .install .install_wrapper .hero {
-    background: #0291fe;
-    background: -webkit-gradient(linear, right top, left top, from(#0291fe), to(#0172ff));
-    background: linear-gradient(to left, #0291fe, #0172ff);
-    display: none;
-  }
+#app .not_found > p {
+  width: 40%;
+  margin: 1rem auto;
 }
 

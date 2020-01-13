@@ -9,17 +9,25 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
+// SPA
+Route::get('/dashboard/{path}', function () {
+    return view('dashboard');
+})->where('path', '(.*)');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
 
 Route::get('/', function () {
-    return view('shopify_install');
+    return view('paypal_install');
 });
 /**CODE**/
 // Authentification With Shopify
 Route::group(['prefix' => "shopify"], function () {
     Route::post('/login', 'ShopifyAuthController@register');
-    Route::get('/authorise','ShopifyAuthController@authorise');
-    Route::get('/access/{code}/{shop}','ShopifyAuthController@access')->name('/access');
+    Route::get('/authorise', 'ShopifyAuthController@authorise');
+    Route::get('/access/{code}/{shop}', 'ShopifyAuthController@access')->name('/access');
 
     Route::post('/webhooks/fullfilment', 'ShopifyWebhooksController@fullfill')->middleware('shopify');
     Route::post('/webhooks/transactions', 'ShopifyWebhooksController@transaction')->middleware('shopify');
@@ -27,18 +35,14 @@ Route::group(['prefix' => "shopify"], function () {
     Route::get('/charge', 'ShopifyChargeController@applyCharge');
     //Route::get('/charge', 'ShopifyChargeController@applyCharge')->middleware('shopifycharge');
 
-
 });
-// Authentification With Paypal 
+// Authentification With Paypal
 Route::group(['prefix' => "paypal"], function () {
     Route::get('/login', 'PaypalController@access');
 });
 
-// Authentification With Woocommerce 
+// Authentification With Woocommerce
 Route::group(['prefix' => "woocommerce"], function () {
     Route::post('/login', 'WooCommerceAuthController@login');
     Route::post('/webhooks', 'WooCommerceAuthController@getWebHooks');
 });
-
-
-
