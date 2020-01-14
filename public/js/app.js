@@ -36797,7 +36797,7 @@ Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
 var app = new Vue({
-  el: "#app",
+  el: '#app',
   router: _router__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 

@@ -314,6 +314,38 @@
   margin-right: 1rem;
 }
 
+#app .box {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  cursor: pointer;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+#app .box > img {
+  width: 100%;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+#app .box:hover img {
+  -webkit-filter: none;
+          filter: none;
+}
+
+#app .box:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
 #app .dashboard {
   background-color: #f2f6f9;
 }

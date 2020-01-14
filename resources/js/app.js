@@ -4,13 +4,12 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require("./bootstrap");
+require('./bootstrap');
 
-import VueRouter from "vue-router";
-window.Vue = require("vue");
+import VueRouter from 'vue-router';
+window.Vue = require('vue');
 
 Vue.use(VueRouter);
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -29,9 +28,9 @@ Vue.use(VueRouter);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-import router from "./router";
+import router from './router';
 
 const app = new Vue({
-    el: "#app",
-    router
+  el: '#app',
+  router
 });

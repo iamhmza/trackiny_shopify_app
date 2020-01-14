@@ -24,9 +24,10 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'install'], function () {
-    Route::get('/shopify', function () {return view('shopify_install');});
-    Route::get('/paypal', function () {return view('paypal_install');});
-    Route::get('/woocommerce', function () {return view('wc_install');});
+    Route::get('/choose', function () {return view('install.choose');});
+    Route::get('/shopify', function () {return view('install.shopify');});
+    Route::get('/paypal', function () {return view('install.paypal');});
+    Route::get('/woocommerce', function () {return view('install.woocommerce');});
 });
 
 /**CODE**/
