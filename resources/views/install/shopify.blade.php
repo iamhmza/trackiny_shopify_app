@@ -15,6 +15,9 @@
         Authenticate to your store by typing the name of the store .
         <br />you will be redirected to shopify for the authentication proccess.
     </p>
+    @error('name')
+    <div class="alert danger">{{ $message }}</div>
+    @enderror
     <form action="{{url('/shopify/login')}}" method="post">
         {{csrf_field()}}
         <input class="input" type="text" placeholder="Store name" name="name" />

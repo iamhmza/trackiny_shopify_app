@@ -328,8 +328,9 @@
   transition: all 200ms linear;
 }
 
-#app .box > img {
-  width: 100%;
+#app .box img {
+  width: 200px;
+  height: 57px;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
   -webkit-transition: all 200ms linear;
@@ -344,6 +345,30 @@
 #app .box:hover {
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+#app .alert {
+  padding: 1rem;
+  margin: 1rem 0;
+  max-width: 375px;
+}
+
+#app .alert.danger {
+  color: #ff5964;
+  border: 1px solid #ff5964;
+  background-color: #ff596444;
+}
+
+#app .alert.warning {
+  color: #ffbc42;
+  border: 1px solid #ffbc42;
+  background-color: #ffbc4244;
+}
+
+#app .alert.success {
+  color: #59cd90;
+  border: 1px solid #59cd90;
+  background-color: #59cd9044;
 }
 
 #app .dashboard {

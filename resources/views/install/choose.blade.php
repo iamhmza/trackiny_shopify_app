@@ -11,11 +11,18 @@
 
   <h2 class="title-2">Choose plateform</h2>
   <div class="box">
-    <img src="{{asset('images/shopify.png')}}" alt="paypal logo" />
+
+    <a href="{{url('/install/shopify')}}">
+      <img src="{{asset('images/shopify.png')}}" alt="shopify logo" />
+    </a>
   </div>
 
   <div class="box">
-    <img src="{{asset('images/wc_logo.png')}}" alt="paypal logo" />
+    <a href="/install/woocommerce">
+
+      <img src="{{asset('images/wc_logo.png')}}" alt="woocommerce logo" />
+
+    </a>
   </div>
 
   <button class="cta paypal" type="submit">Choose</button>
