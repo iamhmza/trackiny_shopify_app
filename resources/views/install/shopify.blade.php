@@ -18,7 +18,7 @@
     @error('name')
     <div class="alert danger">{{ $message }}</div>
     @enderror
-    <form action="{{url('/shopify/login')}}" method="post">
+    <form action="{{url('/shopify/register')}}" method="GET">
         {{csrf_field()}}
         <input class="input" type="text" placeholder="Store name" name="name" />
         <button class="cta shopify " type="submit">Install</button>

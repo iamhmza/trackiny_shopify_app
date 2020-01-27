@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/* variables*/
+/* variables*/
 
 /* app */
 
@@ -535,13 +535,11 @@
   stroke: #a0a5b8 !important;
 }
 
-#app .dashboard .main_wrapper aside ul li a:hover,
-#app .dashboard .main_wrapper aside ul li a.router-link-active {
+#app .dashboard .main_wrapper aside ul li a:hover, #app .dashboard .main_wrapper aside ul li a.router-link-active {
   color: #016fff;
 }
 
-#app .dashboard .main_wrapper aside ul li a:hover::after,
-#app .dashboard .main_wrapper aside ul li a.router-link-active::after {
+#app .dashboard .main_wrapper aside ul li a:hover::after, #app .dashboard .main_wrapper aside ul li a.router-link-active::after {
   content: "";
   position: absolute;
   right: -1px;
@@ -552,8 +550,7 @@
   background-color: #016fff;
 }
 
-#app .dashboard .main_wrapper aside ul li a:hover svg path,
-#app .dashboard .main_wrapper aside ul li a.router-link-active svg path {
+#app .dashboard .main_wrapper aside ul li a:hover svg path, #app .dashboard .main_wrapper aside ul li a.router-link-active svg path {
   stroke: #016fff !important;
 }
 
@@ -738,4 +735,3 @@
   width: 40%;
   margin: 1rem auto;
 }
-

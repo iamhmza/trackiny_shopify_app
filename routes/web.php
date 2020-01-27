@@ -34,8 +34,9 @@ Route::group(['prefix' => 'install'], function () {
 // Authentification With Shopify
 Route::group(['prefix' => "shopify"], function () {
     Route::post('/login', 'ShopifyAuthController@register');
-    Route::get('/authorise', 'ShopifyAuthController@authorise');
-    Route::get('/access/{code}/{shop}', 'ShopifyAuthController@access')->name('/access');
+    Route::get('/register', 'ShopifyAuthController@register');
+    Route::get('/callback', 'ShopifyAuthController@handleCallback');
+    Route::get('/access/{code}/{shop}', 'ShopifyAuthController@authorise')->name('/access');
 
     Route::post('/webhooks/fullfilment', 'ShopifyWebhooksController@fullfill')->middleware('shopify');
     Route::post('/webhooks/transactions', 'ShopifyWebhooksController@transaction')->middleware('shopify');
