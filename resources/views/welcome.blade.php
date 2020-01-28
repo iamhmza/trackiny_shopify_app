@@ -53,6 +53,25 @@
         url('./fonts/JosefinSans-Bold.ttf') format('truetype'),
         /* Safari, Android, iOS */
     }
+
+    .infinite-slide {
+      width: 2500px !important;
+      animation: slide 12s linear infinite;
+    }
+
+    .infinite-slide_item {
+      width: 48vw !important;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-47%);
+      }
+    }
   </style>
 
 
@@ -592,44 +611,84 @@
   <section class="py-32 bg-gray-300">
     <h2 class="title text-center text-gray-800">1000+ users recommends Trackiny</h2>
 
-
-    <div class="mt-12 flex">
-      <div class="shadow-lg bg-main mx-6 rounded-lg w-1/3 text-white py-6 px-8">
-        <p class="main-text">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora fuga repellat est neque tenetur, sed
-          reprehenderit vero a totam et maiores numquam optio molestiae inventore ipsa rem dolorem animi similique!
-        </p>
-
-        <div class="w-1/2 ml-auto flex mt-12">
-          <div class="w-10 h-10 rounded-full mr-4">
-            <img src="{{ asset('images/admin.png') }}" alt="user avatar">
-          </div>
-          <p class="text-sm">
-            <span class="font-bold">Beraadi Fouad</span>
-            <br>
-            <span>Co. Founder</span>
+    <div class="w-full mt-12 overflow-hidden">
+      <div class="flex infinite-slide">
+        <div class="shadow-lg bg-main mx-6 rounded-lg infinite-slide_item text-white py-6 px-8">
+          <p class="main-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora fuga repellat est neque tenetur, sed
+            reprehenderit vero a totam et maiores numquam optio molestiae inventore ipsa rem dolorem animi similique!
           </p>
-        </div>
-      </div>
 
-      <div class="shadow-lg bg-white mx-6 rounded-lg w-1/3 text-white py-6 px-8">
-        <p class="main-text text-gray-800">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora fuga repellat est neque tenetur, sed
-          reprehenderit vero a totam et maiores numquam optio molestiae inventore ipsa rem dolorem animi similique!
-        </p>
-
-        <div class="w-1/2 ml-auto flex mt-12">
-          <div class="w-10 h-10 rounded-full mr-4">
-            <img src="{{ asset('images/admin.png') }}" alt="user avatar">
+          <div class="w-1/2 ml-auto flex mt-12">
+            <div class="w-10 h-10 rounded-full mr-4">
+              <img src="{{ asset('images/admin.png') }}" alt="user avatar">
+            </div>
+            <p class="text-sm">
+              <span class="font-bold">Beraadi Fouad</span>
+              <br>
+              <span>Co. Founder</span>
+            </p>
           </div>
-          <p class="text-sm text-gray-800">
-            <span class="font-bold">Beraadi Fouad</span>
-            <br>
-            <span>Co. Founder</span>
-          </p>
         </div>
+
+        <div class="shadow-lg bg-white mx-6 rounded-lg infinite-slide_item text-white py-6 px-8">
+          <p class="main-text text-gray-800">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora fuga repellat est neque tenetur, sed
+            reprehenderit vero a totam et maiores numquam optio molestiae inventore ipsa rem dolorem animi similique!
+          </p>
+
+          <div class="w-1/2 ml-auto flex mt-12">
+            <div class="w-10 h-10 rounded-full mr-4">
+              <img src="{{ asset('images/admin.png') }}" alt="user avatar">
+            </div>
+            <p class="text-sm text-gray-800">
+              <span class="font-bold">Beraadi Fouad</span>
+              <br>
+              <span>Co. Founder</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="shadow-lg bg-main mx-6 rounded-lg infinite-slide_item text-white py-6 px-8">
+          <p class="main-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora fuga repellat est neque tenetur, sed
+            reprehenderit vero a totam et maiores numquam optio molestiae inventore ipsa rem dolorem animi similique!
+          </p>
+
+          <div class="w-1/2 ml-auto flex mt-12">
+            <div class="w-10 h-10 rounded-full mr-4">
+              <img src="{{ asset('images/admin.png') }}" alt="user avatar">
+            </div>
+            <p class="text-sm">
+              <span class="font-bold">Beraadi Fouad</span>
+              <br>
+              <span>Co. Founder</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="shadow-lg bg-white mx-6 rounded-lg infinite-slide_item text-white py-6 px-8">
+          <p class="main-text text-gray-800">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora fuga repellat est neque tenetur, sed
+            reprehenderit vero a totam et maiores numquam optio molestiae inventore ipsa rem dolorem animi similique!
+          </p>
+
+          <div class="w-1/2 ml-auto flex mt-12">
+            <div class="w-10 h-10 rounded-full mr-4">
+              <img src="{{ asset('images/admin.png') }}" alt="user avatar">
+            </div>
+            <p class="text-sm text-gray-800">
+              <span class="font-bold">Beraadi Fouad</span>
+              <br>
+              <span>Co. Founder</span>
+            </p>
+          </div>
+        </div>
+
+
       </div>
     </div>
+
 
     {{-- white version --}}
 
