@@ -2,8 +2,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        cta: '#27D086',
-        secondary: '#438fff',
+        cta: { main: '#27D086', lighter: '#3AD491', darker: '#24BE7A' }, // lighter : #3AD491
+        secondary: { main: '#438fff', lighter: '#5499FF', darker: '#3D82E8' },
         main: '#225DFE'
       },
       borderRadius: {
@@ -11,6 +11,9 @@ module.exports = {
       },
       fontFamily: {
         body: ['"Josefin Sans"', 'sans-serif']
+      },
+      bottom: {
+        '-6': '-6rem'
       }
     }
   },

@@ -73,17 +73,13 @@
       }
     }
   </style>
-
-
   {{-- CSS --}}
   <link rel="stylesheet" href=" {{ asset('css/main.css')}}">
 </head>
 {{--
    
-  TODO: fixing background images 
-  TODO: UI components
+  TODO: fixing background images
   TODO: adding content
-  TODO: fixing responsive design
   TODO: adding interactions
 
 --}}
@@ -93,22 +89,22 @@
   <header class="text-white bg-no-repeat bg-cover" style="background-image: url('{{asset('images/test.png')}}'); ">
     <div class="container m-auto px-6 md:px-0">
       <nav class="flex justify-between items-center py-8">
-        <div id="logo" class=" -mt-1">
+        <a id="logo" class="w-32 -mt-1" href="/">
           <img class="w-full" src="./images/logo_w.png" alt="trackiny logo">
-        </div>
+        </a>
 
         <ul class="hidden lg:flex">
-          <li><a class="link" href="#">Home</a></li>
-          <li><a class="link" href="#">Features</a></li>
-          <li><a class="link" href="#">Pricing</a></li>
-          <li><a class="link" href="#">Support</a></li>
-          <li><a class="link" href="#">Contact</a></li>
+          <li><a class="link hover:underline" href="#">Home</a></li>
+          <li><a class="link hover:underline" href="#">Features</a></li>
+          <li><a class="link hover:underline" href="#pricing">Pricing</a></li>
+          <li><a class="link hover:underline" href="#">Support</a></li>
+          <li><a class="link hover:underline" href="#">Contact</a></li>
         </ul>
 
         <div>
-          <a href="#" class="hidden md:inline-block link">Login</a>
-          <a href="#" class="hidden md:inline-block btn bg-secondary">Sign In</a>
-          <a href="#" class="btn bg-cta">Start free now</a>
+          <a href="#" class="hidden md:inline-block link hover:underline">Login</a>
+          <a href="#" class="hidden md:inline-block btn bg-secondary-main hover:bg-secondary-lighter">Sign In</a>
+          <a href="#" class="btn bg-cta-main hover:bg-cta-lighter">Start free now</a>
         </div>
       </nav>
     </div>
@@ -127,16 +123,15 @@
               Gain PayPal's Trust By Synchronizing Shipment Information With Your PayPal Account Affordably/easily.
             </p>
 
-            <a href="#" class="btn bg-cta">Start free now</a>
-            <a href="#" class="btn bg-secondary">Watch video</a>
+            <a href="#" class="btn bg-cta-main hover:bg-cta-lighter">Start free now</a>
+            <a href="#" class="btn bg-secondary-main hover:bg-secondary-lighter">Watch video</a>
 
 
           </div>
 
-          <div class="md:w-1/2 hidden">
+          <div class="hidden md:block md:w-1/2">
             <img src="{{ asset('images/mockup.png') }}" alt="mockup">
           </div>
-
 
         </div>
       </div>
@@ -144,18 +139,17 @@
   </header>
 
   {{-- TODO: style="background-image : url('{{ asset('images/bg_features.png') }}); " --}}
-  <section class="pb-32  -mt-32">
+  <section class="pb-32  lg:-mt-32">
     <div class="w-4/5 mx-auto text-center shadow-lg">
-      <h2 class="title text-white">Discover our suite of dicesion enablers</h2>
-      <h4 class="title-helper text-white">Discover our suite of dicesion enablers</h4>
+      <h2 class="title lg:text-white">Discover our suite of dicesion enablers</h2>
+      <h4 class="title-helper lg:text-white">Discover our suite of dicesion enablers</h4>
       <div class="md:flex flex-wrap mt-6 p-10">
 
         {{-- stopwatch --}}
-        <div class="md:w-1/2 lg:w-1/4 py-12 border border-solid border-gray-300 w-full">
-          <div class="relative w-12 h-12 flex flex-row justify-center items-center mx-auto mb-4">
-            <div class="absolute top-0 left-0 bottom-0 right-0 border border-solid border-main rounded rotate-45">
-            </div>
-            <svg class="w-8 h-8 fill-current text-main" viewBox="0 0 57.019 60.5">
+        <div class="feature-wrapper transition">
+          <div class="feature-icon">
+            <div class="feature-icon__wrapper transition"></div>
+            <svg class="feature-icon__inner transition" viewBox="0 0 57.019 60.5">
               <g transform="translate(-1.543 0.25)">
                 <path
                   d="M31.634,37.989A3.558,3.558,0,0,0,34.24,36.53L43.6,23.586a1,1,0,0,0-1.4-1.4L29.26,31.555A3.564,3.564,0,0,0,31.354,38C31.447,38,31.54,38,31.634,37.989ZM29.8,34.315a1.56,1.56,0,0,1,.637-1.142l7.9-5.713-5.711,7.895a1.563,1.563,0,0,1-2.823-1.04Z" />
@@ -170,73 +164,83 @@
               </g>
             </svg>
           </div>
-          <h3 class="font-semibold text-text-main">Feature</h3>
+          <h3 class="feature-title">
+            Time saving
+          </h3>
+
+          <div class="feature-bottom__bar transition"></div>
         </div>
 
         {{-- savemoney --}}
-        <div class="md:w-1/2 lg:w-1/4 py-12 border border-solid border-gray-300 sm:w-full">
-          <div class="relative w-12 h-12 flex flex-row justify-center items-center mx-auto mb-4">
-            <div class="absolute top-0 left-0 bottom-0 right-0 border border-solid border-main rounded rotate-45">
+        <div class="feature-wrapper transition">
+          <div class="feature-icon">
+            <div class="feature-icon__wrapper transition">
             </div>
 
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="97.203"
               height="58.951" viewBox="0 0 97.203 58.951">
               <defs>
-                <filter id="a" x="-60" y="-57" width="217.203" height="178.951" filterUnits="userSpaceOnUse">
+                <filter id="Path_109" x="-60" y="-57" width="217.203" height="178.951" filterUnits="userSpaceOnUse">
                   <feOffset dy="3" input="SourceAlpha" />
-                  <feGaussianBlur stdDeviation="20" result="b" />
+                  <feGaussianBlur stdDeviation="20" result="blur" />
                   <feFlood flood-color="#e8efff" />
-                  <feComposite operator="in" in2="b" />
+                  <feComposite operator="in" in2="blur" />
                   <feComposite in="SourceGraphic" />
                 </filter>
-                <clipPath id="c">
-                  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#a)">
-                    <path d="M0,0H97.2V58.731a.219.219,0,0,1-.219.219H.219A.219.219,0,0,1,0,58.731Z"
+                <clipPath id="clip-path">
+                  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_109)">
+                    <path id="Path_109-2" data-name="Path 109"
+                      d="M0,0H97.2V58.731a.219.219,0,0,1-.219.219H.219A.219.219,0,0,1,0,58.731Z"
                       transform="translate(303 1284.57)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
                   </g>
                 </clipPath>
               </defs>
-              <g transform="translate(-763.583 -1452.711)">
-                <g transform="translate(460.583 168.142)" clip-path="url(#c)">
-                  <g transform="translate(322.122 1284.569)">
-                    <g transform="translate(0 0)">
-                      <path
-                        d="M52.15,451.156a7.953,7.953,0,0,1-3.964,2.338l-13.518,2.439a3.734,3.734,0,0,0,.1-1.829,3.693,3.693,0,0,0-1.931-2.744L24.5,446.583a6.729,6.729,0,0,0-6.5-.1l-6.5,3.354-1.423-4.269a.964.964,0,0,0-.915-.813H1.026a1.255,1.255,0,0,0-.813.407.774.774,0,0,0-.1.915l8.131,24.393a.976.976,0,0,0,.915.711h8.131a1.255,1.255,0,0,0,.813-.406.988.988,0,0,0,.1-.915l-2.236-6.81h.61l11.282,3.964c.1,0,.2.1.3.1h.2l14.839-2.643a25.8,25.8,0,0,0,14.23-7.826,4.3,4.3,0,0,0,0-5.489A3.626,3.626,0,0,0,52.15,451.156ZM9.868,469.147l-7.42-22.361h6l7.42,22.361Zm46.043-13.925A23.455,23.455,0,0,1,42.8,462.439l-14.534,2.643-11.18-3.964c-.1,0-.2-.1-.3-.1H15.357l-3.151-9.452h.1l6.81-3.456a4.863,4.863,0,0,1,4.574.1l8.334,4.777a1.791,1.791,0,0,1,.915,1.321,2.191,2.191,0,0,1-.508,1.728,1.015,1.015,0,0,1-.508.407l-.813.1a.768.768,0,0,1-.406-.1l-9.859-3.456a.964.964,0,0,0-.61,1.83l9.859,3.456a2.967,2.967,0,0,0,.915.2c.1,0,.3.1.508,0l17.075-3.049a10.176,10.176,0,0,0,5.082-2.846,1.547,1.547,0,0,1,2.338,0A2.013,2.013,0,0,1,55.911,455.222Z"
-                        transform="translate(0 -412.229)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                      <path
-                        d="M350.922,34.62a17.279,17.279,0,1,0-17.279-17.279A17.264,17.264,0,0,0,350.922,34.62Zm0-32.525a15.246,15.246,0,1,1-15.246,15.246A15.225,15.225,0,0,1,350.922,2.1Z"
-                        transform="translate(-309.241 -0.063)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                      <path
-                        d="M402.443,82.076A13.213,13.213,0,1,0,389.23,68.863,13.187,13.187,0,0,0,402.443,82.076Zm0-24.393a11.18,11.18,0,1,1-11.18,11.18A11.148,11.148,0,0,1,402.443,57.682Z"
-                        transform="translate(-360.761 -51.584)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                      <path
-                        d="M501.418,176.985a1.1,1.1,0,0,0,.711-.3l8.131-8.131a1.006,1.006,0,0,0-1.423-1.423l-8.131,8.131a.983.983,0,0,0,0,1.423A1.1,1.1,0,0,0,501.418,176.985Z"
-                        transform="translate(-463.803 -154.624)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                      <path
-                        d="M501.418,172.919a.923.923,0,0,0,.711-.3l4.066-4.066a1.006,1.006,0,0,0-1.423-1.423l-4.066,4.066a.983.983,0,0,0,0,1.423A.923.923,0,0,0,501.418,172.919Z"
-                        transform="translate(-463.803 -154.624)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                      <path
-                        d="M560.358,222.713l-4.066,4.066a.982.982,0,0,0,0,1.423.982.982,0,0,0,1.423,0l4.066-4.066a1.006,1.006,0,1,0-1.423-1.423Z"
-                        transform="translate(-515.322 -206.146)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                      <circle cx="1.016" cy="1.016" r="1.016" transform="translate(11.191 52.858)" fill="#225dfe"
-                        stroke="#225dfe" stroke-width="0.3" />
+              <g id="Group_179" data-name="Group 179" transform="translate(-763.583 -1452.711)">
+                <g id="Mask_Group_12" data-name="Mask Group 12" transform="translate(460.583 168.142)"
+                  clip-path="url(#clip-path)">
+                  <g id="get-money" transform="translate(322.122 1284.569)">
+                    <g id="Group_266" data-name="Group 266" transform="translate(0 0)">
+                      <g id="Group_265" data-name="Group 265">
+                        <path id="Path_123" data-name="Path 123"
+                          d="M52.15,451.156a7.953,7.953,0,0,1-3.964,2.338l-13.518,2.439a3.734,3.734,0,0,0,.1-1.829,3.693,3.693,0,0,0-1.931-2.744L24.5,446.583a6.729,6.729,0,0,0-6.5-.1l-6.5,3.354-1.423-4.269a.964.964,0,0,0-.915-.813H1.026a1.255,1.255,0,0,0-.813.407.774.774,0,0,0-.1.915l8.131,24.393a.976.976,0,0,0,.915.711h8.131a1.255,1.255,0,0,0,.813-.406.988.988,0,0,0,.1-.915l-2.236-6.81h.61l11.282,3.964c.1,0,.2.1.3.1h.2l14.839-2.643a25.8,25.8,0,0,0,14.23-7.826,4.3,4.3,0,0,0,0-5.489A3.626,3.626,0,0,0,52.15,451.156ZM9.868,469.147l-7.42-22.361h6l7.42,22.361Zm46.043-13.925A23.455,23.455,0,0,1,42.8,462.439l-14.534,2.643-11.18-3.964c-.1,0-.2-.1-.3-.1H15.357l-3.151-9.452h.1l6.81-3.456a4.863,4.863,0,0,1,4.574.1l8.334,4.777a1.791,1.791,0,0,1,.915,1.321,2.191,2.191,0,0,1-.508,1.728,1.015,1.015,0,0,1-.508.407l-.813.1a.768.768,0,0,1-.406-.1l-9.859-3.456a.964.964,0,0,0-.61,1.83l9.859,3.456a2.967,2.967,0,0,0,.915.2c.1,0,.3.1.508,0l17.075-3.049a10.176,10.176,0,0,0,5.082-2.846,1.547,1.547,0,0,1,2.338,0A2.013,2.013,0,0,1,55.911,455.222Z"
+                          transform="translate(0 -412.229)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                        <path id="Path_124" data-name="Path 124"
+                          d="M350.922,34.62a17.279,17.279,0,1,0-17.279-17.279A17.264,17.264,0,0,0,350.922,34.62Zm0-32.525a15.246,15.246,0,1,1-15.246,15.246A15.225,15.225,0,0,1,350.922,2.1Z"
+                          transform="translate(-309.241 -0.063)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                        <path id="Path_125" data-name="Path 125"
+                          d="M402.443,82.076A13.213,13.213,0,1,0,389.23,68.863,13.187,13.187,0,0,0,402.443,82.076Zm0-24.393a11.18,11.18,0,1,1-11.18,11.18A11.148,11.148,0,0,1,402.443,57.682Z"
+                          transform="translate(-360.761 -51.584)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                        <path id="Path_126" data-name="Path 126"
+                          d="M501.418,176.985a1.1,1.1,0,0,0,.711-.3l8.131-8.131a1.006,1.006,0,0,0-1.423-1.423l-8.131,8.131a.983.983,0,0,0,0,1.423A1.1,1.1,0,0,0,501.418,176.985Z"
+                          transform="translate(-463.803 -154.624)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                        <path id="Path_127" data-name="Path 127"
+                          d="M501.418,172.919a.923.923,0,0,0,.711-.3l4.066-4.066a1.006,1.006,0,0,0-1.423-1.423l-4.066,4.066a.983.983,0,0,0,0,1.423A.923.923,0,0,0,501.418,172.919Z"
+                          transform="translate(-463.803 -154.624)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                        <path id="Path_128" data-name="Path 128"
+                          d="M560.358,222.713l-4.066,4.066a.982.982,0,0,0,0,1.423.982.982,0,0,0,1.423,0l4.066-4.066a1.006,1.006,0,1,0-1.423-1.423Z"
+                          transform="translate(-515.322 -206.146)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                        <circle id="Ellipse_27" data-name="Ellipse 27" cx="1.016" cy="1.016" r="1.016"
+                          transform="translate(11.191 52.858)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                      </g>
                     </g>
                   </g>
                 </g>
               </g>
             </svg>
+
           </div>
-          <h3 class="font-semibold text-sm text-main">Feature</h3>
+          <h3 class="feature-title">Save your money</h3>
+          <div class="feature-bottom__bar transition"></div>
+
         </div>
 
-        {{-- linked TODO: hover state --}}
-        <div class="md:w-1/2 lg:w-1/4 py-12 border border-solid border-gray-300 sm:w-full shadow-lg">
-          <div class="relative w-12 h-12 flex flex-row justify-center items-center mx-auto mb-4">
-            <div
-              class="absolute top-0 left-0 bottom-0 right-0 border border-solid border-main rounded rotate-45 bg-main">
+        {{-- linked --}}
+        <div class="feature-wrapper transition">
+          <div class="feature-icon">
+            <div class="feature-icon__wrapper transition">
             </div>
 
-            <svg class="w-8 h-8 fill-current text-white z-10" viewBox="0 0 53.909 53.909">
+            <svg class="feature-icon__inner transition" viewBox="0 0 53.909 53.909">
               <path
                 d="M208.652,152.985l-9.776-9.869a14.646,14.646,0,0,0-10.428-4.283,15.045,15.045,0,0,0-10.428,4.283.9.9,0,0,0,0,1.3l4.935,4.935a.9.9,0,0,0,1.3,0,5.846,5.846,0,0,1,8.38,0l9.776,9.776a5.926,5.926,0,1,1-8.38,8.38l-2.421-2.328a4.411,4.411,0,1,0-6.238,6.238l2.421,2.421a14.646,14.646,0,0,0,10.428,4.283,15.045,15.045,0,0,0,10.428-4.283,14.489,14.489,0,0,0,4.283-10.428A15.045,15.045,0,0,0,208.652,152.985Zm-1.3,19.459a12.9,12.9,0,0,1-9.125,3.817,12.523,12.523,0,0,1-9.125-3.817l-2.421-2.421a2.421,2.421,0,0,1,0-3.538,2.473,2.473,0,0,1,3.538,0l2.421,2.421a7.9,7.9,0,1,0,11.173-11.173l-9.776-9.683a7.814,7.814,0,0,0-5.586-2.328,7.651,7.651,0,0,0-4.842,1.676l-3.631-3.631a12.742,12.742,0,0,1,8.473-3.166,12.523,12.523,0,0,1,9.125,3.817l9.776,9.776a12.9,12.9,0,0,1,3.817,9.125A12.522,12.522,0,0,1,207.348,172.445Z"
                 transform="translate(-159.026 -124.215)" />
@@ -258,15 +262,16 @@
                 transform="translate(-31.647 -378.974)" /></svg>
 
           </div>
-          <h3 class="font-semibold text-sm text-main">Feature</h3>
+          <h3 class="feature-title">simple integration</h3>
+          <div class="feature-bottom__bar transition"></div>
         </div>
 
         {{-- idea --}}
-        <div class="md:w-1/2 lg:w-1/4 py-12 border border-solid border-gray-300 sm:w-full">
-          <div class="relative w-12 h-12 flex flex-row justify-center items-center mx-auto mb-4">
-            <div class="absolute top-0 left-0 bottom-0 right-0 border border-solid border-main rounded rotate-45">
+        <div class="feature-wrapper transition">
+          <div class="feature-icon">
+            <div class="feature-icon__wrapper transition">
             </div>
-            <svg class="w-8 h-8 fill-current text-main" viewBox="0 0 46.203 63.505">
+            <svg class="feature-icon__inner transition" viewBox="0 0 46.203 63.505">
               <g transform="translate(-70.05 0.25)">
                 <g transform="translate(70.3)">
                   <g transform="translate(0)">
@@ -281,16 +286,17 @@
               </g>
             </svg>
           </div>
-          <h3 class="font-semibold text-sm text-main">Feature</h3>
+          <h3 class="feature-title">One click syncing</h3>
+          <div class="feature-bottom__bar transition"></div>
         </div>
 
 
         {{-- server --}}
-        <div class="md:w-1/2 lg:w-1/4 py-12 border border-solid border-gray-300 sm:w-full">
-          <div class="relative w-12 h-12 flex flex-row justify-center items-center mx-auto mb-4">
-            <div class="absolute top-0 left-0 bottom-0 right-0 border border-solid border-main rounded rotate-45">
+        <div class="feature-wrapper transition">
+          <div class="feature-icon">
+            <div class="feature-icon__wrapper transition">
             </div>
-            <svg class="w-8 h-8 fill-current text-main" viewBox="0 0 54.721 54.721">
+            <svg class="feature-icon__inner transition" viewBox="0 0 54.721 54.721">
               <g transform="translate(0.15 0.15)">
                 <path
                   d="M393.106,35.31A4.691,4.691,0,1,0,397.8,40,4.646,4.646,0,0,0,393.106,35.31Zm0,7.506A2.815,2.815,0,1,1,395.92,40,2.765,2.765,0,0,1,393.106,42.816Z"
@@ -353,16 +359,18 @@
               </g>
             </svg>
           </div>
-          <h3 class="font-semibold text-sm text-main">Feature</h3>
+          <h3 class="feature-title">Accessibility</h3>
+          <div class="feature-bottom__bar transition"></div>
+
         </div>
 
 
         {{-- plug --}}
-        <div class="md:w-1/2 lg:w-1/4 py-12 border border-solid border-gray-300 sm:w-full">
-          <div class="relative w-12 h-12 flex flex-row justify-center items-center mx-auto mb-4">
-            <div class="absolute top-0 left-0 bottom-0 right-0 border border-solid border-main rounded rotate-45">
+        {{-- <div class="feature-wrapper transition">
+          <div class="feature-icon">
+            <div class="feature-icon__wrapper transition">
             </div>
-            <svg class="w-8 h-8 fill-current text-main" viewBox="0 0 70.6 51.207">
+            <svg class="feature-icon__inner transition" viewBox="0 0 70.6 51.207">
               <g transform="translate(0.15 -63.85)">
                 <g transform="translate(24.241 78.545)">
                   <g transform="translate(0 0)">
@@ -400,15 +408,15 @@
               </g>
             </svg>
           </div>
-          <h3 class="font-semibold text-sm text-main">Easy to use</h3>
-        </div>
+          <h3 class="feature-title">Easy to use</h3>
+        </div> --}}
 
         {{-- syncing --}}
-        <div class="md:w-1/2 lg:w-1/4 py-12 border border-solid border-gray-300 sm:w-full">
-          <div class="relative w-12 h-12 flex flex-row justify-center items-center mx-auto mb-4">
-            <div class="absolute top-0 left-0 bottom-0 right-0 border border-solid border-main rounded rotate-45">
+        <div class="feature-wrapper transition">
+          <div class="feature-icon">
+            <div class="feature-icon__wrapper transition">
             </div>
-            <svg class="w-8 h-8 fill-current text-main" viewBox="0 0 67.955 58.087">
+            <svg class="feature-icon__inner transition" viewBox="0 0 67.955 58.087">
               <g transform="translate(0 -33.978)">
                 <g transform="translate(0 33.978)">
                   <g transform="translate(0)">
@@ -437,16 +445,17 @@
               </g>
             </svg>
           </div>
-          <h3 class="font-semibold text-sm text-main">Easy to use</h3>
+          <h3 class="feature-title">Proccess Automation</h3>
+          <div class="feature-bottom__bar transition"></div>
         </div>
 
 
         {{-- target --}}
-        <div class="md:w-1/2 lg:w-1/4 py-12 border border-solid border-gray-300 sm:w-full">
-          <div class="relative w-12 h-12 flex flex-row justify-center items-center mx-auto mb-4">
-            <div class="absolute top-0 left-0 bottom-0 right-0 border border-solid border-main rounded rotate-45">
+        {{-- <div class="feature-wrapper transition">
+          <div class="feature-icon">
+            <div class="feature-icon__wrapper transition">
             </div>
-            <svg class="w-8 h-8 fill-current text-main" viewBox="0 0 59.948 59.994">
+            <svg class="feature-icon__inner transition" viewBox="0 0 59.948 59.994">
               <g transform="translate(-0.195 0)">
                 <g transform="translate(0.195 0)">
                   <g transform="translate(0 0)">
@@ -475,17 +484,14 @@
               </g>
             </svg>
           </div>
-          <h3 class="font-semibold text-sm text-main">Easy to use</h3>
-        </div>
-
-
-
+          <h3 class="feature-title">Easy to use</h3>
+        </div> --}}
 
       </div>
     </div>
   </section>
 
-
+  {{-- why tracking --}}
   <section class="py-32">
     <div class="w-4/5 mx-auto text-center">
       <h2 class="title">Why Trackiny</h2>
@@ -505,15 +511,17 @@
         doloribus saepe nulla distinctio corporis reiciendis aliquid ducimus commodi accusamus at eligendi.
       </p>
 
-      <a href="#" class="btn mt-8 bg-cta">Start free trail now</a>
+      <a href="#" class="btn mt-8 mx-0 bg-cta-main hover:bg-cta-lighter">Start free trail now</a>
     </div>
   </section>
 
-
-  <section class="my-32 bg-main" style="background: linear-gradient(#2757ff 0%, #2658ff 10.5%, #0682fe 100%);">
+  {{--Co. founder  url('{{ asset('images/test.png') }}')--}}
+  <section class="my-32 py-32 lg:pt-10 lg:pb-0 main-gradient background"
+    style="background-image : url('{{ asset('images/t.png') }}'), url('{{ asset('images/test.png') }}');">
     <div class="container m-auto">
-      <div class="lg:flex relative">
-        <div class="lg:w-1/2 w-full rounded-bl-large shadow-2xl text-white p-10 bg-main md:absolute md:-bottom-6 ">
+      <div class="flex flex-col lg:flex-row relative">
+        <div
+          class="lg:w-1/2 order-2 w-full hover:shadow-lg rounded-bl-large shadow-2xl text-white p-10 bg-transparent lg:bg-main main-gradient lg:absolute bottom-6">
 
           <img class="w-12 h-12" src="{{asset('images/quote.png')}}" alt="two commas">
           <p class="main-text text-white mt-12">
@@ -523,7 +531,7 @@
             gain Paypal’s trust .
             this is where the idea of Trackiny came from.
           </p>
-          <div class="w-1/3 ml-auto flex mt-12">
+          <div class="w-1/2 lg:w-1/3 ml-auto flex mt-12">
             <div class="w-10 h-10 rounded-full mr-4">
               <img src="{{ asset('images/admin.png') }}" alt="user avatar">
             </div>
@@ -534,7 +542,8 @@
             </p>
           </div>
         </div>
-        <div class="lg:w-1/2 hidden ml-auto" style="background-image:url('{{ asset('images/founder.png') }}');">
+
+        <div class="lg:w-1/2 order-1 ml-auto" style="background-image:url('{{ asset('images/founder.png') }}');">
 
           <img class="m-auto h-large" src="{{ asset('images/founder.png') }}" alt="founder">
         </div>
@@ -542,7 +551,6 @@
       </div>
     </div>
   </section>
-
 
 
   <section class="py-32">
@@ -605,7 +613,6 @@
     </div>
 
   </section>
-
 
 
   <section class="py-32 bg-gray-300">
@@ -689,40 +696,97 @@
       </div>
     </div>
 
-
-    {{-- white version --}}
-
-
   </section>
 
 
-
-  <section class="py-32 bg-no-repeat bg-cover bg-center"
-    style="background-image: url('{{asset('images/test.png')}}'); ">
+  {{-- pricing section --}}
+  <section id="pricing" class="py-32 bg-cover bg-no-repeat bg-center"
+    style="background-image: url('{{asset('images/upper_t.png')}}'), url('{{asset('images/test.png')}}'); ">
     <div class="container mx-auto text-center px-6 md:px-0">
       <h3 class="title text-white">Pricing</h3>
       <h4 class="text-helper text-white">no extra charges for all features</h4>
 
-      <div class="w-full md:w-1/3 m-auto shadow-lg bg-white rounded-lg p-8 mt-6">
+      <div class="w-full md:w-1/3 m-auto shadow-lg bg-white rounded-lg p-8 mt-6 -mb-40">
         <div class="title">Discount price</div>
-        <div class="text-6xl text-main">29.29</div>
+        <div class="text-6xl text-main">$ 29.29</div>
 
         <div class="h-px bg-blue-300 my-4"></div>
         <ul class="mt-8">
 
-          <li class="mt-3"> &bull; Feature</li>
-          <li class="mt-3"> &bull; Feature</li>
-          <li class="mt-3"> &bull; Feature</li>
-          <li class="mt-3"> &bull; Feature</li>
-          <li class="mt-3"> &bull; Feature</li>
-          <li class="mt-3"> &bull; Feature</li>
-          <li class="mt-3"> &bull; Feature</li>
-          <li class="mt-3"> &bull; Feature</li>
-          <li class="mt-3"> &bull; Feature</li>
-          <li class="mt-3"> &bull; Feature</li>
+          <li class="pl-10 mt-3 flex items-center">
+            <svg class="w-6 h-6 mr-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 39">
+              <text id="check001_-_E055" data-name="check001 - E055" transform="translate(12 37)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="20" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-10.87" y="0"></tspan>
+              </text>
+            </svg>
+            <span class="main-text">All Features included</span>
+          </li>
+
+          <li class="pl-10 mt-3 flex items-center">
+            <svg class="w-6 h-6 mr-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 39">
+              <text id="check001_-_E055" data-name="check001 - E055" transform="translate(12 37)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="20" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-10.87" y="0"></tspan>
+              </text>
+            </svg>
+            <span class="main-text">Unlimited tracking numbers</span>
+          </li>
+
+          <li class="pl-10 mt-3 flex items-center">
+            <svg class="w-6 h-6 mr-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 39">
+              <text id="check001_-_E055" data-name="check001 - E055" transform="translate(12 37)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="20" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-10.87" y="0"></tspan>
+              </text>
+            </svg>
+            <span class="main-text">Fast sync</span>
+          </li>
+
+          <li class="pl-10 mt-3 flex items-center">
+            <svg class="w-6 h-6 mr-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 39">
+              <text id="check001_-_E055" data-name="check001 - E055" transform="translate(12 37)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="20" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-10.87" y="0"></tspan>
+              </text>
+            </svg>
+            <span class="main-text">Easy integration</span>
+          </li>
+
+          <li class="pl-10 mt-3 flex items-center">
+            <svg class="w-6 h-6 mr-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 39">
+              <text id="check001_-_E055" data-name="check001 - E055" transform="translate(12 37)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="20" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-10.87" y="0"></tspan>
+              </text>
+            </svg>
+            <span class="main-text">24/7 support</span>
+          </li>
+
+          <li class="pl-10 mt-3 flex items-center">
+            <svg class="w-6 h-6 mr-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 39">
+              <text id="check001_-_E055" data-name="check001 - E055" transform="translate(12 37)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="20" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-10.87" y="0"></tspan>
+              </text>
+            </svg>
+            <span class="main-text">14 days-trail</span>
+          </li>
+
+          <li class="pl-10 mt-3 flex items-center">
+            <svg class="w-6 h-6 mr-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 39">
+              <text id="check001_-_E055" data-name="check001 - E055" transform="translate(12 37)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="20" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-10.87" y="0"></tspan>
+              </text>
+            </svg>
+
+            <span class="main-text">and much more...</span>
+          </li>
+
         </ul>
 
-        <a href="#" class="btn bg-cta mt-4">Start my free trail</a>
+        <a href="#" class="btn bg-cta-main hover:bg-cta-lighter mt-6">Start my free trail</a>
 
       </div>
 
@@ -736,11 +800,8 @@
     <h3 class="title text-center text-gray-800">the most frequent asked questions</h3>
   </section>
 
-
-
-
   <section class="py-32 bg-no-repeat bg-cover bg-center"
-    style="background-image: url('{{asset('images/currve_bg.png')}}'); ">
+    style="background-image: url('{{asset('images/test.png')}}'); ">
     <div class="container mx-auto">
       <div class="md:flex items-center">
 
@@ -766,15 +827,127 @@
   </section>
 
 
-
-  <section class="py-32">
+  <section class="py-32" id="accordion">
     <h3 class="title text-center text-gray-800">the most frequent asked questions</h3>
 
-    <div class="w-2/3 mx-auto mt-6 p-8 shadow-lg">
+    <div class="w-11/12 md:w-2/3 mx-auto mt-6 shadow-lg">
 
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, est? Nostrum, nesciunt? Reprehenderit modi
-      temporibus corrupti placeat illum praesentium laudantium dicta neque, minima ratione aut beatae alias iusto, ut
-      facere voluptates voluptatibus. Placeat molestias, unde consequatur quasi incidunt enim maiores.
+      <div class="accordion-item">
+
+        <a href="#accordion">
+          <div class="flex justify-between items-center border-b border-main border-solid">
+            <span class="text-lg text-main pl-6 py-6">Can i try for free</span>
+
+            <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
+              <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-14.243" y="0"></tspan>
+              </text>
+            </svg>
+
+          </div>
+        </a>
+        <div class="main-text bg-gray-100 p-5">
+          Sure, you can! When you install Trackiny, you will have a 14 days free trial where you can test the
+          capabilities/functions of the app. If for any reason you think that the app is not for you, you can simply
+          uninstall it from your store during your trial and you will never be charged.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+
+        <a href="#accordion">
+          <div class="flex justify-between items-center border-b border-main border-solid">
+            <span class="text-lg text-main pl-6 py-6">Can I use Trackiny with other ecommerce platforms?</span>
+
+            <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
+              <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-14.243" y="0"></tspan>
+              </text>
+            </svg>
+
+          </div>
+        </a>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <a href="#accordion">
+          <div class="flex justify-between items-center border-b border-main border-solid">
+            <span class="text-lg text-main pl-6 py-6">Can I use Trackiny with other ecommerce platforms?</span>
+
+            <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
+              <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-14.243" y="0"></tspan>
+              </text>
+            </svg>
+
+          </div>
+        </a>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <a href="#accordion">
+          <div class="flex justify-between items-center border-b border-main border-solid">
+            <span class="text-lg text-main pl-6 py-6">Can I use Trackiny with other ecommerce platforms?</span>
+
+            <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
+              <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-14.243" y="0"></tspan>
+              </text>
+            </svg>
+
+          </div>
+        </a>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <a href="#accordion">
+          <div class="flex justify-between items-center border-b border-main border-solid">
+            <span class="text-lg text-main pl-6 py-6">Can I use Trackiny with other ecommerce platforms?</span>
+
+            <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
+              <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-14.243" y="0"></tspan>
+              </text>
+            </svg>
+
+          </div>
+        </a>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <a href="#accordion">
+          <div class="flex justify-between items-center border-b border-main border-solid">
+            <span class="text-lg text-main pl-6 py-6">Can I use Trackiny with other ecommerce platforms?</span>
+
+            <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
+              <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
+                stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
+                <tspan x="-14.243" y="0"></tspan>
+              </text>
+            </svg>
+
+          </div>
+        </a>
+
+      </div>
+
     </div>
 
   </section>
