@@ -700,6 +700,10 @@ video {
   background: linear-gradient(90deg, #225dfe 0%, #225dfe 0%, #1993ff 100%);
 }
 
+.feature-wrapper:hover .feature-desc {
+  opacity: 1;
+}
+
 .feature-wrapper:hover .feature-bottom__bar {
   opacity: 1;
 }
@@ -754,6 +758,7 @@ video {
   font-size: 0.75rem;
   color: #2d3748;
   margin-top: 0.75rem;
+  opacity: 0;
 }
 
 .feature-bottom__bar {
@@ -779,8 +784,22 @@ video {
 
 @media (min-width: 1024px) {
   .feature-wrapper {
-    width: 33.333333%;
+    width: 25%;
   }
+}
+
+/* Accordion section */
+
+.accordion-item-closed {
+  overflow: hidden;
+  padding: 0;
+  opacity: 0;
+  max-height: 0;
+}
+
+.accordion-transition {
+  -webkit-transition: all 150ms ease;
+  transition: all 150ms ease;
 }
 
 .sr-only {
@@ -12167,8 +12186,8 @@ video {
 }
 
 .transition {
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 
 @media (min-width: 640px) {

@@ -7,19 +7,6 @@
 
   <title>Trakiny</title>
 
-  {{-- Fonts --}}
-  {{-- <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:600,700&display=swap" rel="stylesheet"> --}}
-  {{-- 
-  <link rel="preload" as="font" href="{{ asset('/fonts/JosefinSans-Bold.woff') }}" type="font/woff" crossorigin>
-  <link rel="preload" as="font" href="{{ asset('/fonts/JosefinSans-SemiBold.woff') }}" type="font/woff" crossorigin>
-  <link rel="preload" as="font" href="{{ asset('/fonts/JosefinSans-Regular.woff') }}" type="font/woff" crossorigin> --}}
-
-  {{-- <link rel="preload" as="font" href="{{ asset('/fonts/JosefinSans-Bold.ttf') }}" type="font/ttf" crossorigin>
-  <link rel="preload" as="font" href="{{ asset('/fonts/JosefinSans-SemiBold.ttf') }}" type="font/ttf" crossorigin>
-  <link rel="preload" as="font" href="{{ asset('/fonts/JosefinSans-Regular.ttf') }}" type="font/ttf" crossorigin> --}}
-
-  {{-- TODO: fast preload to fonts  --}}
-
   <style>
     @font-face {
       font-family: 'Josefin Sans';
@@ -77,16 +64,13 @@
   <link rel="stylesheet" href=" {{ asset('css/main.css')}}">
 </head>
 {{--
-   
   TODO: fixing background images
   TODO: adding content
-  TODO: adding interactions
-
 --}}
 
 <body>
 
-  <header class="text-white bg-no-repeat bg-cover" style="background-image: url('{{asset('images/test.png')}}'); ">
+  <header class="text-white bg-no-repeat bg-cover" style="background-image: url('{{asset('images/test.png ')}}'); ">
     <div class="container m-auto px-6 md:px-0">
       <nav class="flex justify-between items-center py-8">
         <a id="logo" class="w-32 -mt-1" href="/">
@@ -138,7 +122,6 @@
     </section>
   </header>
 
-  {{-- TODO: style="background-image : url('{{ asset('images/bg_features.png') }}); " --}}
   <section class="pb-32  lg:-mt-32">
     <div class="w-4/5 mx-auto text-center shadow-lg">
       <h2 class="title lg:text-white">Discover our suite of dicesion enablers</h2>
@@ -167,6 +150,10 @@
           <h3 class="feature-title">
             Time saving
           </h3>
+          <p class="feature-desc transition">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut enim esse assumenda, qui, nesciunt delectus ex
+            quos dignissimos nostrum.
+          </p>
 
           <div class="feature-bottom__bar transition"></div>
         </div>
@@ -366,7 +353,7 @@
 
 
         {{-- plug --}}
-        {{-- <div class="feature-wrapper transition">
+        <div class="feature-wrapper transition">
           <div class="feature-icon">
             <div class="feature-icon__wrapper transition">
             </div>
@@ -409,7 +396,7 @@
             </svg>
           </div>
           <h3 class="feature-title">Easy to use</h3>
-        </div> --}}
+        </div>
 
         {{-- syncing --}}
         <div class="feature-wrapper transition">
@@ -451,7 +438,7 @@
 
 
         {{-- target --}}
-        {{-- <div class="feature-wrapper transition">
+        <div class="feature-wrapper transition">
           <div class="feature-icon">
             <div class="feature-icon__wrapper transition">
             </div>
@@ -485,7 +472,7 @@
             </svg>
           </div>
           <h3 class="feature-title">Easy to use</h3>
-        </div> --}}
+        </div>
 
       </div>
     </div>
@@ -493,37 +480,79 @@
 
   {{-- why tracking --}}
   <section class="py-32">
-    <div class="w-4/5 mx-auto text-center">
+    <div class="w-4/5 mx-auto text-justify lg:text-center">
       <h2 class="title">Why Trackiny</h2>
 
       <p class="main-text mt-10">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque numquam nesciunt rerum provident. Asperiores,
-        perferendis nostrum, perspiciatis eos alias libero sint fuga harum consectetur excepturi nisi veniam minus
-        doloribus saepe nulla distinctio corporis reiciendis aliquid ducimus commodi accusamus at eligendi. Aperiam
-        possimus officia nemo ut adipisci doloribus, doloremque ipsum nulla, delectus illo dolore eveniet sapiente
-        numquam, expedita quae? Voluptates, possimus itaque assumenda temporibus quasi veniam sint. Distinctio a
-        officiis molestiae excepturi eveniet quisquam aliquid nam maiores veniam.
+        if you use PayPal as your primary payment method then you should be familiar with paypal hold , limitation and
+        you will have poor cashflow experience.
+        This is because PayPal has a varying funds release period that can go to nearly 180 days.moreover, PayPal
+        applies a rolling reserve on your account as a way of protecting their customers.
+      </p>
+
+      <p class="main-text mt-8 text-left lg:w-3/5 mx-auto">
+        In fact, placing shipment information into your paypal account manually will leads to: <br><br>
+        &bullet; the waste of time and money <br>
+        &bullet; increase the duration of Holds, Reserves & Limitations. <br>
+        &bullet; more paypal disputes/complaints from/of your customers. <br>
       </p>
 
       <p class="main-text mt-8">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque numquam nesciunt rerum provident. Asperiores,
-        perferendis nostrum, perspiciatis eos alias libero sint fuga harum consectetur excepturi nisi veniam minus
-        doloribus saepe nulla distinctio corporis reiciendis aliquid ducimus commodi accusamus at eligendi.
+        This is where trackiny shows up to save you.
+        Trackiny will for sure eliminates the heavy manual work and the daily boring tasks you will get more time to
+        focus in developing your business. By using Trackiny you will gain good customer feedback, also you will
+        minimize your charges. In other words, more money goes to your pocket!
       </p>
+
+
 
       <a href="#" class="btn mt-8 mx-0 bg-cta-main hover:bg-cta-lighter">Start free trail now</a>
     </div>
   </section>
 
+  {{-- cse studies --}}
+  <section class="py-32">
+    <div class="container mx-auto">
+
+      <div class="md:flex items-center ">
+        <div class="md:w-1/2 w-full p-6">
+          <div class="shadow-lg">
+            {{-- TODO:screenshot --}}
+
+            <img class="h-full w-full" src="https://via.placeholder.com/300" alt="placeholder image">
+
+          </div>
+
+        </div>
+        <div class="md:w-1/2 w-full p-6">
+          <h2 class="title-helper">Why Trackiny</h2>
+
+          <p class="main-text text-gray-800 mt-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum consectetur soluta ad nobis enim quam
+            suscipit at ullam ea, quia amet, assumenda mollitia qui magni praesentium porro, doloribus libero quasi.
+          </p>
+
+          <p class="main-text text-gray-800 mt-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum consectetur soluta ad nobis enim quam
+            suscipit at ullam ea, quia amet, assumenda mollitia qui magni praesentium porro, doloribus libero quasi.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
   {{--Co. founder  url('{{ asset('images/test.png') }}')--}}
   <section class="my-32 py-32 lg:pt-10 lg:pb-0 main-gradient background"
-    style="background-image : url('{{ asset('images/t.png') }}'), url('{{ asset('images/test.png') }}');">
+    style="background-image : url('{{ asset('images/t.png') }}'), url('{{ asset('images/co_founder.svg') }}');">
     <div class="container m-auto">
       <div class="flex flex-col lg:flex-row relative">
         <div
           class="lg:w-1/2 order-2 w-full hover:shadow-lg rounded-bl-large shadow-2xl text-white p-10 bg-transparent lg:bg-main main-gradient lg:absolute bottom-6">
 
-          <img class="w-12 h-12" src="{{asset('images/quote.png')}}" alt="two commas">
+          <img class="w-16 h-16 -mt-16" src="{{asset('images/quote.png')}}" alt="two commas">
           <p class="main-text text-white mt-12">
             Growing your business and taking your store to the next level is not something easy especially if you have
             many tasks to do manually. Transmitting the shipment details from your store to paypal account might take
@@ -552,7 +581,109 @@
     </div>
   </section>
 
+  {{-- case studies --}}
+  <section class="py-32">
+    <div class="container mx-auto">
 
+      <div class="md:flex items-center ">
+        <div class="md:w-1/2 w-full p-6">
+          <div class="shadow-lg">
+            {{-- TODO:screenshot --}}
+
+            <img class="h-full w-full" src="https://via.placeholder.com/300" alt="placeholder image">
+
+          </div>
+
+        </div>
+        <div class="md:w-1/2 w-full p-6">
+          <h2 class="title-helper">Why Trackiny</h2>
+
+          <p class="main-text text-gray-800 mt-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum consectetur soluta ad nobis enim quam
+            suscipit at ullam ea, quia amet, assumenda mollitia qui magni praesentium porro, doloribus libero quasi.
+          </p>
+
+          <p class="main-text text-gray-800 mt-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum consectetur soluta ad nobis enim quam
+            suscipit at ullam ea, quia amet, assumenda mollitia qui magni praesentium porro, doloribus libero quasi.
+          </p>
+
+        </div>
+      </div>
+
+      <div class="md:flex items-center mt-10">
+        <div class="md:w-1/2 w-full p-6">
+          <h2 class="title-helper">Why Trackiny</h2>
+
+          <p class="text-sm text-gray-700 mt-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum consectetur soluta ad nobis enim quam
+            suscipit at ullam ea, quia amet, assumenda mollitia qui magni praesentium porro, doloribus libero quasi.
+          </p>
+
+          <p class="text-sm text-gray-700 mt-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum consectetur soluta ad nobis enim quam
+            suscipit at ullam ea, quia amet, assumenda mollitia qui magni praesentium porro, doloribus libero quasi.
+          </p>
+
+        </div>
+        <div class="md:w-1/2 sm:w-full p-6">
+          <div class="shadow-lg">
+
+            {{-- TODO:screenshot --}}
+
+            <img class="w-full h-full" src="https://via.placeholder.com/300" alt="placeholder image">
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  {{-- Marketer --}}
+  <section class="my-32 py-32 lg:pt-10 lg:pb-0 main-gradient background"
+    style="background-image : url('{{ asset('images/t.png') }}'), url('{{ asset('images/co_founder.svg') }}');">
+    <div class="container m-auto">
+      <div class="flex flex-col lg:flex-row relative">
+
+        <div class="lg:w-1/2" style="background-image:url('{{ asset('images/founder.png') }}');">
+          <img class="m-auto h-large" src="{{ asset('images/founder.png') }}" alt="founder">
+        </div>
+
+
+        <div
+          class="lg:w-1/2 w-full hover:shadow-lg rounded-bl-large shadow-2xl text-white p-10 bg-transparent lg:bg-main main-gradient lg:absolute lg:right-0 bottom-6">
+
+          <img class="w-16 h-16 -mt-16" src="{{asset('images/quote.png')}}" alt="two commas">
+          <p class="main-text text-white mt-12">
+            Growing your business and taking your store to the next level is not something easy especially if you have
+            many tasks to do manually. Transmitting the shipment details from your store to paypal account might take
+            several hours (especially if you do it manually). So why not doing it automatically to save your time and
+            gain Paypal’s trust .
+            this is where the idea of Trackiny came from.
+          </p>
+          <div class="w-1/2 lg:w-1/3 ml-auto flex mt-12">
+            <div class="w-10 h-10 rounded-full mr-4">
+              <img src="{{ asset('images/admin.png') }}" alt="user avatar">
+            </div>
+            <p class="text-sm">
+              <span class="font-bold">Beraadi Fouad</span>
+              <br>
+              <span>Co. Founder</span>
+            </p>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+
+  {{-- case studies --}}
   <section class="py-32">
     <div class="container mx-auto">
 
@@ -619,7 +750,7 @@
     <h2 class="title text-center text-gray-800">1000+ users recommends Trackiny</h2>
 
     <div class="w-full mt-12 overflow-hidden">
-      <div class="flex infinite-slide">
+      <div class="flex glider">
         <div class="shadow-lg bg-main mx-6 rounded-lg infinite-slide_item text-white py-6 px-8">
           <p class="main-text">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora fuga repellat est neque tenetur, sed
@@ -826,17 +957,17 @@
 
   </section>
 
-
+  {{-- FAQ section --}}
   <section class="py-32" id="accordion">
     <h3 class="title text-center text-gray-800">the most frequent asked questions</h3>
 
     <div class="w-11/12 md:w-2/3 mx-auto mt-6 shadow-lg">
 
-      <div class="accordion-item">
+      <div v-for="quest in quests" class="accordion-item">
 
-        <a href="#accordion">
+        <a href="#" @click.prevent="toggleClass(quest.id)">
           <div class="flex justify-between items-center border-b border-main border-solid">
-            <span class="text-lg text-main pl-6 py-6">Can i try for free</span>
+            <span class="text-lg text-main pl-6 py-6">#{ quest.question }</span>
 
             <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
               <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
@@ -847,105 +978,11 @@
 
           </div>
         </a>
-        <div class="main-text bg-gray-100 p-5">
-          Sure, you can! When you install Trackiny, you will have a 14 days free trial where you can test the
-          capabilities/functions of the app. If for any reason you think that the app is not for you, you can simply
-          uninstall it from your store during your trial and you will never be charged.
+
+        <div :class="quest.open ? 'block p-5 max-h-full opacity-100 accordion-transition': 'accordion-item-closed'"
+          class="main-text bg-gray-100">
+          #{ quest.answer }
         </div>
-      </div>
-
-      <div class="accordion-item">
-
-        <a href="#accordion">
-          <div class="flex justify-between items-center border-b border-main border-solid">
-            <span class="text-lg text-main pl-6 py-6">Can I use Trackiny with other ecommerce platforms?</span>
-
-            <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
-              <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
-                stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
-                <tspan x="-14.243" y="0"></tspan>
-              </text>
-            </svg>
-
-          </div>
-        </a>
-
-      </div>
-
-
-      <div class="accordion-item">
-
-        <a href="#accordion">
-          <div class="flex justify-between items-center border-b border-main border-solid">
-            <span class="text-lg text-main pl-6 py-6">Can I use Trackiny with other ecommerce platforms?</span>
-
-            <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
-              <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
-                stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
-                <tspan x="-14.243" y="0"></tspan>
-              </text>
-            </svg>
-
-          </div>
-        </a>
-
-      </div>
-
-
-      <div class="accordion-item">
-
-        <a href="#accordion">
-          <div class="flex justify-between items-center border-b border-main border-solid">
-            <span class="text-lg text-main pl-6 py-6">Can I use Trackiny with other ecommerce platforms?</span>
-
-            <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
-              <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
-                stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
-                <tspan x="-14.243" y="0"></tspan>
-              </text>
-            </svg>
-
-          </div>
-        </a>
-
-      </div>
-
-
-      <div class="accordion-item">
-
-        <a href="#accordion">
-          <div class="flex justify-between items-center border-b border-main border-solid">
-            <span class="text-lg text-main pl-6 py-6">Can I use Trackiny with other ecommerce platforms?</span>
-
-            <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
-              <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
-                stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
-                <tspan x="-14.243" y="0"></tspan>
-              </text>
-            </svg>
-
-          </div>
-        </a>
-
-      </div>
-
-
-      <div class="accordion-item">
-
-        <a href="#accordion">
-          <div class="flex justify-between items-center border-b border-main border-solid">
-            <span class="text-lg text-main pl-6 py-6">Can I use Trackiny with other ecommerce platforms?</span>
-
-            <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
-              <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
-                stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
-                <tspan x="-14.243" y="0"></tspan>
-              </text>
-            </svg>
-
-          </div>
-        </a>
-
       </div>
 
     </div>
@@ -970,6 +1007,7 @@
   </footer>
 
 
+  <script src="{{ asset('js/main.js') }}"></script>
 </body>
 
 </html>

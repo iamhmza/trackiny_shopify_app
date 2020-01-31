@@ -34,6 +34,9 @@
     .feature-icon__wrapper {
       @apply main-gradient;
     }
+    .feature-desc {
+      @apply opacity-100;
+    }
     .feature-bottom__bar {
       @apply opacity-100;
     }
@@ -53,7 +56,7 @@
   @apply font-semibold text-sm text-main;
 }
 .feature-desc {
-  @apply text-xs text-gray-800 mt-3;
+  @apply text-xs text-gray-800 mt-3 opacity-0;
 }
 .feature-bottom__bar {
   @apply absolute h-1 w-5/6 bg-main bottom-0 rounded-b -m-1 mx-auto opacity-0 z-10;
@@ -66,8 +69,18 @@
 
 @screen lg {
   .feature-wrapper {
-    @apply w-1/3;
+    @apply w-1/4;
   }
+}
+
+/* Accordion section */
+
+.accordion-item-closed {
+  @apply overflow-hidden p-0 opacity-0;
+  max-height: 0;
+}
+.accordion-transition {
+  transition: all 150ms ease;
 }
 
 @import 'tailwindcss/utilities';
@@ -118,5 +131,5 @@
   background-repeat: no-repeat;
 }
 .transition {
-  transition: all 200ms ease-in-out;
+  transition: all 200ms ease;
 }
