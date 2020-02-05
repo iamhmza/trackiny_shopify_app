@@ -16,15 +16,25 @@
         this connection. This way your privacy and funds are 100% safe.
         <br />Please log in to Paypal and provide your client and secret here!
         <br />Need Help ? Click
+
         <a href="#" style="text-decoration: underline;">
             <b>the link</b>
         </a>
         to see Video!
     </p>
-    <form action="{{url('/paypal/login')}}" method="post">
+    @if (session('error'))
+    <div class="alert danger">{{ session('error') }}</div>
+    @endif
+    @error('paypalClientId')
+    <div class="alert danger">{{ $message }}</div>
+    @enderror
+    @error('paypalSecret')
+    <div class="alert danger">{{ $message }}</div>
+    @enderror
+    <form action="{{url('/paypal/login')}}" method="get">
         {{csrf_field()}}
-        <input class="input" type="text" placeholder="API key" />
-        <input class="input" type="text" placeholder="API secret" />
+        <input class="input" type="text" placeholder="API key" name="paypalClientId" />
+        <input class="input" type="text" placeholder="API secret" name="paypalSecret" />
         <button class="cta paypal" type="submit">Install</button>
     </form>
 </section>

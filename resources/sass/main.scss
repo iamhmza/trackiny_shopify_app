@@ -2,6 +2,10 @@
 
 @import 'tailwindcss/components';
 
+/* ===========
+    global Components
+   =========== */
+
 .link {
   @apply px-5 py-2 mr-1 inline-block text-sm;
 }
@@ -20,6 +24,9 @@
 .main-text {
   @apply font-body text-sm;
 }
+/* ===========
+    Sections
+   =========== */
 
 /* features scetion */
 
@@ -84,6 +91,10 @@
 }
 
 @import 'tailwindcss/utilities';
+
+/* ===========
+    Helpers
+   =========== */
 
 .rotate-45 {
   transform: rotate(45deg);

@@ -657,6 +657,7 @@
 #app .install .install_wrapper .install > img {
   display: block;
   margin-bottom: 2rem;
+  width: 166px;
 }
 
 #app .install .install_wrapper .install .input {

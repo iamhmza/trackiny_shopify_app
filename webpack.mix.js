@@ -1,6 +1,6 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
-
+require('laravel-mix-purgecss');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -21,3 +21,7 @@ mix
     processCssUrls: false,
     postCss: [tailwindcss('./tailwind.config.js')]
   });
+
+if (mix.inProduction()) {
+  mix.purgeCss().version();
+}

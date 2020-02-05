@@ -33,12 +33,10 @@ Route::group(['prefix' => 'install'], function () {
 /**CODE**/
 // Authentification With Shopify
 Route::group(['prefix' => "shopify"], function () {
-    Route::post('/login', 'ShopifyAuthController@register');
-    Route::get('/register', 'ShopifyAuthController@register');
-    Route::get('/callback', 'ShopifyAuthController@handleCallback');
-    Route::get('/access/{code}/{shop}', 'ShopifyAuthController@authorise')->name('/access');
+    Route::get('/register', 'ShopifyAuthController@redirectToProvider');
+    Route::get('/callback', 'ShopifyAuthController@handleProviderCallback');
 
-    Route::post('/webhooks/fullfilment', 'ShopifyWebhooksController@fullfill')->middleware('shopify');
+    Route::post('/webhooks/fullfillment', 'ShopifyWebhooksController@fullfill')->middleware('shopify');
     Route::post('/webhooks/transactions', 'ShopifyWebhooksController@transaction')->middleware('shopify');
     // Charge Shopify Store + middlware for check charge shopify store
     Route::get('/charge', 'ShopifyChargeController@applyCharge');
@@ -55,3 +53,6 @@ Route::group(['prefix' => "woocommerce"], function () {
     Route::post('/login', 'WooCommerceAuthController@login');
     Route::post('/webhooks', 'WooCommerceAuthController@getWebHooks');
 });
+
+// get current user data
+Route::get('/me', 'DashboardController@index');

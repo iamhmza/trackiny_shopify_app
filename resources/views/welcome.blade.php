@@ -61,7 +61,7 @@
     }
   </style>
   {{-- CSS --}}
-  <link rel="stylesheet" href=" {{ asset('css/main.css')}}">
+  <link rel="stylesheet" href=" {{ mix('css/main.css')}}">
 </head>
 {{--
   TODO: fixing background images
@@ -88,7 +88,7 @@
         <div>
           <a href="#" class="hidden md:inline-block link hover:underline">Login</a>
           <a href="#" class="hidden md:inline-block btn bg-secondary-main hover:bg-secondary-lighter">Sign In</a>
-          <a href="#" class="btn bg-cta-main hover:bg-cta-lighter">Start free now</a>
+          <a href="/install/choose" class="btn bg-cta-main hover:bg-cta-lighter">Start free now</a>
         </div>
       </nav>
     </div>
@@ -107,7 +107,7 @@
               Gain PayPal's Trust By Synchronizing Shipment Information With Your PayPal Account Affordably/easily.
             </p>
 
-            <a href="#" class="btn bg-cta-main hover:bg-cta-lighter">Start free now</a>
+            <a href="/install/choose" class="btn bg-cta-main hover:bg-cta-lighter">Start free now</a>
             <a href="#" class="btn bg-secondary-main hover:bg-secondary-lighter">Watch video</a>
 
 
@@ -150,11 +150,11 @@
           <h3 class="feature-title">
             Time saving
           </h3>
+
           <p class="feature-desc transition">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut enim esse assumenda, qui, nesciunt delectus ex
             quos dignissimos nostrum.
           </p>
-
           <div class="feature-bottom__bar transition"></div>
         </div>
 
@@ -217,6 +217,10 @@
 
           </div>
           <h3 class="feature-title">Save your money</h3>
+          <p class="feature-desc transition">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut enim esse assumenda, qui, nesciunt delectus ex
+            quos dignissimos nostrum.
+          </p>
           <div class="feature-bottom__bar transition"></div>
 
         </div>
@@ -250,6 +254,10 @@
 
           </div>
           <h3 class="feature-title">simple integration</h3>
+          <p class="feature-desc transition">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut enim esse assumenda, qui, nesciunt delectus ex
+            quos dignissimos nostrum.
+          </p>
           <div class="feature-bottom__bar transition"></div>
         </div>
 
@@ -274,6 +282,10 @@
             </svg>
           </div>
           <h3 class="feature-title">One click syncing</h3>
+          <p class="feature-desc transition">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut enim esse assumenda, qui, nesciunt delectus ex
+            quos dignissimos nostrum.
+          </p>
           <div class="feature-bottom__bar transition"></div>
         </div>
 
@@ -347,6 +359,10 @@
             </svg>
           </div>
           <h3 class="feature-title">Accessibility</h3>
+          <p class="feature-desc transition">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut enim esse assumenda, qui, nesciunt delectus ex
+            quos dignissimos nostrum.
+          </p>
           <div class="feature-bottom__bar transition"></div>
 
         </div>
@@ -396,6 +412,11 @@
             </svg>
           </div>
           <h3 class="feature-title">Easy to use</h3>
+          <p class="feature-desc transition">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut enim esse assumenda, qui, nesciunt delectus ex
+            quos dignissimos nostrum.
+          </p>
+          <div class="feature-bottom__bar transition"></div>
         </div>
 
         {{-- syncing --}}
@@ -433,6 +454,10 @@
             </svg>
           </div>
           <h3 class="feature-title">Proccess Automation</h3>
+          <p class="feature-desc transition">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut enim esse assumenda, qui, nesciunt delectus ex
+            quos dignissimos nostrum.
+          </p>
           <div class="feature-bottom__bar transition"></div>
         </div>
 
@@ -471,7 +496,13 @@
               </g>
             </svg>
           </div>
+
           <h3 class="feature-title">Easy to use</h3>
+          <p class="feature-desc transition">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut enim esse assumenda, qui, nesciunt delectus ex
+            quos dignissimos nostrum.
+          </p>
+          <div class="feature-bottom__bar transition"></div>
         </div>
 
       </div>
@@ -1007,7 +1038,7 @@
   </footer>
 
 
-  <script src="{{ asset('js/main.js') }}"></script>
+  <script src="{{ mix('js/main.js') }}"></script>
 </body>
 
 </html>

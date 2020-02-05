@@ -11,9 +11,9 @@ class ShopifyWebHooksController extends Controller
     {
         // From https://help.shopify.com/api/getting-started/webhooks#verify-webhook
         $data = request()->getContent();
+        // dd($data);
         // save data 
-
-        return $data;
+        return 'done';
       
     }
     public function transcation(Request $request)

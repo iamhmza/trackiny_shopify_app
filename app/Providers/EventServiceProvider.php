@@ -19,7 +19,6 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         \SocialiteProviders\Manager\SocialiteWasCalled::class => [
-            // add your listeners (aka providers) here
             'SocialiteProviders\\Shopify\\ShopifyExtendSocialite@handle',
         ],
     ];

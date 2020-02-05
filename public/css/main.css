@@ -627,6 +627,10 @@ video {
   }
 }
 
+/* ===========
+    global Components
+   =========== */
+
 .link {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -670,6 +674,10 @@ video {
   font-family: "Josefin Sans", sans-serif;
   font-size: 0.875rem;
 }
+
+/* ===========
+    Sections
+   =========== */
 
 /* features scetion */
 
@@ -12151,6 +12159,10 @@ video {
 .z-auto {
   z-index: auto;
 }
+
+/* ===========
+    Helpers
+   =========== */
 
 .rotate-45 {
   -webkit-transform: rotate(45deg);
