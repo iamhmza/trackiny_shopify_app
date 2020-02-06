@@ -41,13 +41,13 @@ class User extends Authenticatable
      */
     public function store()
     {
-        return $this->belongsTo('App\Store', 'store_users');
+        return $this->hasOne('App\Store');
     }
 
     /**
      * Get the providers for the user
      */
-    public function providers()
+    public function provider()
     {
         return $this->hasOne('App\UserProvider');
     }

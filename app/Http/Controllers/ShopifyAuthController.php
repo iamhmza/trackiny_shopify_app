@@ -45,6 +45,11 @@ class ShopifyAuthController extends Controller
             'password' => '',
         ]);
 
+        $user->store()->firstOrCreate([
+            'name' => $shopifyUser->name,
+            'domain' => $shopifyUser->nickname,
+        ]);
+
         // Store the OAuth Identity
         UserProvider::firstOrCreate([
             'user_id' => $user->id,
@@ -54,10 +59,10 @@ class ShopifyAuthController extends Controller
         ]);
 
         // Create shop
-        $store = Store::firstOrCreate([
-            'name' => $shopifyUser->name,
-            'domain' => $shopifyUser->nickname,
-        ]);
+        // $store = Store::firstOrCreate([
+        //     'name' => $shopifyUser->name,
+        //     'domain' => $shopifyUser->nickname,
+        // ]);
 
         // Attach store to user
         // $store->users()->syncWithoutDetaching([$user->id]);

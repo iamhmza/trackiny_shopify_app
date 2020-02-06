@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
-    protected $fillable = [
-        'api_key', 'api_secret', 'token', 'store_id', 'expire_time',
-    ];
+    // protected $fillable = [
+    //     'api_key', 'api_secret', 'token', 'store_id', 'expire_time',
+    // ];
+
+    protected $guarded = [];
 
     // protected $hidden = ['token'];
 

@@ -12646,7 +12646,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! c:\Users\hamza\dev\projects\trackiny_v2\resources\js\main.js */"./resources/js/main.js");
+module.exports = __webpack_require__(/*! C:\Users\hamza\dev\projects\trackiny_v2\resources\js\main.js */"./resources/js/main.js");
 
 
 /***/ })

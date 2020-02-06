@@ -15,8 +15,13 @@ class Store extends Model
     /**
      * Get the user that belong to the store.
      */
-    public function users()
+    public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function account()
+    {
+        return $this->hasOne('App\Account');
     }
 }

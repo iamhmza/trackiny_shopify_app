@@ -85,11 +85,20 @@
           <li><a class="link hover:underline" href="#">Contact</a></li>
         </ul>
 
+        @auth
+        <div>
+          <a href="/dashboard" class="btn bg-cta-main hover:bg-cta-lighter">Go to dashboard</a>
+        </div>
+        @endauth
+
+        @guest
         <div>
           <a href="#" class="hidden md:inline-block link hover:underline">Login</a>
           <a href="#" class="hidden md:inline-block btn bg-secondary-main hover:bg-secondary-lighter">Sign In</a>
           <a href="/install/choose" class="btn bg-cta-main hover:bg-cta-lighter">Start free now</a>
         </div>
+        @endguest
+
       </nav>
     </div>
     <section class="md:py-40 pt-12 pb-32">

@@ -14,13 +14,15 @@ class CreateAccountsTable extends Migration
     public function up()
     {
         Schema::create('accounts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('store_id');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('store_id')->index();
             $table->string('api_key');
             $table->string('api_secret');
             $table->string('token');
             $table->dateTime('expire_time');
             $table->timestamps();
+
+            $table->foreign('store_id')->references('id')->on('stores');
         });
     }
 
