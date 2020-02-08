@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
+
 // SPA
+
 Route::get('/dashboard/{path}', function () {
     return view('dashboard');
 })->where('path', '(.*)');
@@ -36,12 +38,11 @@ Route::group(['prefix' => "shopify"], function () {
     Route::get('/register', 'ShopifyAuthController@redirectToProvider');
     Route::get('/callback', 'ShopifyAuthController@handleProviderCallback');
 
-    Route::post('/webhooks/fullfillment', 'ShopifyWebhooksController@fullfill')->middleware('shopify');
+    Route::post('/webhooks/fullfillment', 'ShopifyWebhooksController@fullfill');
     Route::post('/webhooks/transactions', 'ShopifyWebhooksController@transaction')->middleware('shopify');
     // Charge Shopify Store + middlware for check charge shopify store
     Route::get('/charge', 'ShopifyChargeController@applyCharge');
     //Route::get('/charge', 'ShopifyChargeController@applyCharge')->middleware('shopifycharge');
-
 });
 // Authentification With Paypal
 Route::group(['prefix' => "paypal"], function () {

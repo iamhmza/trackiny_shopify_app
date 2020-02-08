@@ -42,9 +42,10 @@ class ShopifyAuthController extends Controller
         $user = User::firstOrCreate([
             'name' => $shopifyUser->nickname,
             'email' => $shopifyUser->email,
-            'password' => '',
+            'password' => $shopifyUser->id,
         ]);
 
+        // Create shop attached to user
         $user->store()->firstOrCreate([
             'name' => $shopifyUser->name,
             'domain' => $shopifyUser->nickname,
@@ -58,19 +59,8 @@ class ShopifyAuthController extends Controller
             'provider_token' => $shopifyUser->token,
         ]);
 
-        // Create shop
-        // $store = Store::firstOrCreate([
-        //     'name' => $shopifyUser->name,
-        //     'domain' => $shopifyUser->nickname,
-        // ]);
-
-        // Attach store to user
-        // $store->users()->syncWithoutDetaching([$user->id]);
-
         // Login with Laravel's Authentication system
         Auth::login($user, true);
-
-        // dd($shopifyUser->token);
 
         return redirect('/install/paypal');
 

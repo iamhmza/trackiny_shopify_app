@@ -12,7 +12,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-
         // get current user
         $user = Auth::user();
         $shop = $user->name;
