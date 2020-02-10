@@ -25,7 +25,6 @@
     </a>
   </div>
 
-  <button class="cta paypal" type="submit">Choose</button>
 </section>
 
 <section class="hero">

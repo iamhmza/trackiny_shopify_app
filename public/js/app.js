@@ -1980,6 +1980,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'sidebar',
   components: {
     DashboardIcon: _icons_DashboardIcon__WEBPACK_IMPORTED_MODULE_0__["default"],
     LinkIcon: _icons_LinkIcon__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -2029,14 +2030,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      show_notification: false
+      show_notification: false,
+      store: ''
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios('/me').then(function (res) {
+      _this.store = res.data.name;
+    });
   }
 });
 
@@ -2236,7 +2242,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Acoount',
+  data: function data() {
+    return {
+      apiKey: '',
+      apiSecret: ''
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios('/me/account').then(function (res) {
+      return res.data;
+    }).then(function (_ref) {
+      var api_key = _ref.api_key,
+          api_secret = _ref.api_secret;
+      _this.apiKey = api_key;
+      _this.apiSecret = api_secret;
+    })["catch"](function (err) {
+      window.location.replace('/install/paypal');
+    });
+  }
+});
 
 /***/ }),
 
@@ -20764,7 +20792,7 @@ var render = function() {
           }
         },
         [
-          _vm._v("\n            >\n            "),
+          _vm._v("\n      >\n      "),
           _c(
             "div",
             {
@@ -20794,7 +20822,7 @@ var render = function() {
       _c("img", {
         attrs: { src: __webpack_require__(/*! ../../images/admin.png */ "./resources/images/admin.png"), alt: "admin" }
       }),
-      _vm._v("\n        Admin\n    ")
+      _vm._v("\n    " + _vm._s(_vm.store) + "\n  ")
     ])
   ])
 }
@@ -20826,7 +20854,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("strong", [_vm._v("#5646")]),
-      _vm._v("\n                    a new paypal transaction\n                ")
+      _vm._v("\n          a new paypal transaction\n        ")
     ])
   }
 ]
@@ -21327,52 +21355,81 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "account page" }, [
+    _c("h2", { staticClass: "title-2" }, [_vm._v("Account")]),
+    _vm._v(" "),
+    _c("h3", { staticClass: "title-3" }, [_vm._v("Paypal Secure Connection")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("form", { staticClass: "form" }, [
+      _c("label", { attrs: { for: "token" } }, [_vm._v("Token")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.apiKey,
+            expression: "apiKey"
+          }
+        ],
+        staticClass: "input",
+        attrs: { type: "text", placeholder: _vm.apiKey },
+        domProps: { value: _vm.apiKey },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.apiKey = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "secret" } }, [_vm._v("Secret")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.apiSecret,
+            expression: "apiSecret"
+          }
+        ],
+        staticClass: "input",
+        attrs: { type: "text", placeholder: _vm.apiSecret },
+        domProps: { value: _vm.apiSecret },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.apiSecret = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("button", { staticClass: "cta primary" }, [_vm._v("Update")])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "account page" }, [
-      _c("h2", { staticClass: "title-2" }, [_vm._v("Account")]),
+    return _c("p", { staticClass: "text" }, [
+      _vm._v(
+        "\n    We work with secure Paypal credentials. Paypal monitors and encrypts this connection. This way\n    your privacy and funds are 100% safe.\n    "
+      ),
+      _c("br"),
       _vm._v(" "),
-      _c("h3", { staticClass: "title-3" }, [
-        _vm._v("Paypal Secure Connection")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "text" }, [
-        _vm._v(
-          "\n    We work with secure Paypal credentials. Paypal monitors and encrypts this connection. This way\n    your privacy and funds are 100% safe.\n    "
-        ),
-        _c("br"),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(
-          "Please log in to Paypal and provide your client and secret here!\n  "
-        )
-      ]),
-      _vm._v(" "),
-      _c("form", { staticClass: "form" }, [
-        _c("label", { attrs: { for: "token" } }, [_vm._v("Token")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "input",
-          attrs: {
-            type: "text",
-            placeholder: "dzjjzdenfiuezfnuiez5ez26f5484sd8f4"
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "secret" } }, [_vm._v("Secret")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "input",
-          attrs: { type: "text", placeholder: "****************************" }
-        }),
-        _vm._v(" "),
-        _c("button", { staticClass: "cta primary" }, [_vm._v("Update")])
-      ])
+      _c("br"),
+      _vm._v(
+        "Please log in to Paypal and provide your client and secret here!\n  "
+      )
     ])
   }
 ]
@@ -36753,7 +36810,7 @@ module.exports = "/images/logo_w.png?76fa0cb57e70c8466bd93f85d869db65";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/notfound.svg?8920ef5143707e513ffd513ed59d7e55";
+module.exports = "/images/notfound.svg?907788ae6e8e65b017bff586c293d953";
 
 /***/ }),
 
@@ -37832,9 +37889,9 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\hamza\dev\projects\trackiny_v2\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Users\hamza\dev\projects\trackiny_v2\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\Users\hamza\dev\projects\trackiny_v2\resources\sass\main.scss */"./resources/sass/main.scss");
+__webpack_require__(/*! C:\laragon\www\anotherapp\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\laragon\www\anotherapp\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\laragon\www\anotherapp\resources\sass\main.scss */"./resources/sass/main.scss");
 
 
 /***/ })

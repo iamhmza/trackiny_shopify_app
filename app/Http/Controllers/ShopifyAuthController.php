@@ -6,8 +6,8 @@ namespace App\Http\Controllers;
 use App\Store;
 use App\User;
 use App\UserProvider;
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Socialite;
 
 class ShopifyAuthController extends Controller
@@ -38,6 +38,19 @@ class ShopifyAuthController extends Controller
 
         $shopifyUser = Socialite::driver('shopify')->user();
 
+        $user = User::where('name', '=', $shopifyUser->nickname);
+
+        if ($user->exists()) {
+            // user found
+            // go to dashboard            /
+
+            $user = $user->get();
+            Auth::login($user, true);
+
+            return redirect('/dashboard');
+
+        }
+
         // Create user
         $user = User::firstOrCreate([
             'name' => $shopifyUser->nickname,
@@ -46,7 +59,7 @@ class ShopifyAuthController extends Controller
         ]);
 
         // Create shop attached to user
-        $user->store()->firstOrCreate([
+        $store = $user->store()->firstOrCreate([
             'name' => $shopifyUser->name,
             'domain' => $shopifyUser->nickname,
         ]);
@@ -62,7 +75,7 @@ class ShopifyAuthController extends Controller
         // Login with Laravel's Authentication system
         Auth::login($user, true);
 
-        return redirect('/install/paypal');
+        return redirect()->route('/install/paypal', ["id" => $store->id]);
 
     }
 

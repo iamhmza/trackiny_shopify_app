@@ -31,12 +31,16 @@
     @error('paypalSecret')
     <div class="alert danger">{{ $message }}</div>
     @enderror
+
+    {{-- @if (session('id')) --}}
     <form action="{{url('/paypal/login')}}" method="get">
         {{csrf_field()}}
+        <input type="hidden" name="storeId" value="{{session('id')}}" />
         <input class="input" type="text" placeholder="API key" name="paypalClientId" />
         <input class="input" type="text" placeholder="API secret" name="paypalSecret" />
         <button class="cta paypal" type="submit">Install</button>
     </form>
+    {{-- @endif --}}
 </section>
 
 <section class="hero">

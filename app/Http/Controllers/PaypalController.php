@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Account;
 use App\Store;
-use App\User;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
@@ -13,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PaypalController extends Controller
 {
+
     public function access(Request $request)
     {
         // client ID => AQC92vxvsityhXzRyjtlRCjNIm7KtW6CMNA9ZbgvjkMFooxk77HXKi0pDNi64uy4nbSlf5fVAZZFYysE
@@ -21,15 +21,49 @@ class PaypalController extends Controller
         //validate inputs
         $request->validate(['paypalClientId' => 'string|required', 'paypalSecret' => 'string|required']);
 
+        // get store
+        //get user
+        $store = Auth::user()->store;
+
+        // get payapl token
+        $data = $this->getPaypalToken($request->paypalClientId, $request->paypalSecret);
+        $dt = Carbon::now();
+
+        // add or get new account
+        $store->account()->firstOrCreate([
+            'api_key' => $request->paypalClientId,
+            'api_secret' => $request->paypalSecret,
+            'token' => $data->access_token,
+            'expire_time' => $dt->addSeconds($data->expires_in),
+        ]);
+
+        // get user token
+        // $token = $this->getToken($user->email, $user->password);
+
+        return redirect('/dashboard');
+
+    }
+
+    // private function getToken($email, $password)
+    // {
+    //     $credentials = ['email' => $email, 'password' => $password];
+
+    //     if (!$token = auth('api')->attempt($credentials)) {
+
+    //         return response()->json(['error' => 'Unauthorized'], 401);
+    //     }
+
+    //     return $token;
+    // }
+
+    private function getPaypalToken($paypalClientId, $paypalSecret)
+    {
         $client = new Client([
             'headers' => ['Content-Type' => 'application/x-www-form-urlencoded', 'Accept' => 'application/json'],
         ]);
 
         $devUrl = 'https://api.sandbox.paypal.com/v1/oauth2/token';
         $baseUrl = 'https://api.paypal.com/v1/oauth2/token';
-
-        $paypalClientId = $request->paypalClientId;
-        $paypalSecret = $request->paypalSecret;
 
         try {
             $res = $client->request('POST', $devUrl, [
@@ -41,29 +75,14 @@ class PaypalController extends Controller
         } catch (ClientException $e) {
 
             if ($e->getCode() == 401) {
-                return redirect('/install/paypal')->with('error', 'Invalid cridentials');
+                return back(401)->with('error', 'Invalid cridentials');
             }
 
-            return response()->json(['message' => 'Problem with paypal servers', 'success' => false]);
+            return back(500)->with(['error' => 'Problem with paypal servers']);
         }
 
         if ($res->getStatusCode() == 200) {
-            $data = json_decode($res->getBody()->getContents());
-            $dt = Carbon::now();
-            $user = Auth::user();
-            $id = $user->id;
-            $store = Store::find($id);
-            
-
-            $store->account()->firstOrCreate([
-                'api_key' => $paypalClientId,
-                'api_secret' => $paypalSecret,
-                'token' => $data->access_token,
-                'expire_time' => $dt->addSeconds($data->expires_in),
-            ]);
+            return json_decode($res->getBody()->getContents());
         }
-
-        return redirect('/dashboard');
-
     }
 }

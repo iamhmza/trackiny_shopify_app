@@ -13,10 +13,10 @@
 
     <form class="form">
       <label for="token">Token</label>
-      <input type="text" class="input" placeholder="dzjjzdenfiuezfnuiez5ez26f5484sd8f4" />
+      <input v-model="apiKey" type="text" class="input" :placeholder="apiKey" />
 
       <label for="secret">Secret</label>
-      <input type="text" class="input" placeholder="****************************" />
+      <input v-model="apiSecret" type="text" class="input" :placeholder="apiSecret" />
 
       <button class="cta primary">Update</button>
     </form>
@@ -24,6 +24,25 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'Acoount',
+  data() {
+    return {
+      apiKey: '',
+      apiSecret: ''
+    };
+  },
+  mounted() {
+    axios('/me/account')
+      .then(res => res.data)
+      .then(({ api_key, api_secret }) => {
+        this.apiKey = api_key;
+        this.apiSecret = api_secret;
+      })
+      .catch(err => {
+        window.location.replace('/install/paypal');
+      });
+  }
+};
 </script>
 

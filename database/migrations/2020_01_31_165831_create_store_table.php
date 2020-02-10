@@ -40,6 +40,16 @@ class CreateStoreTable extends Migration
             $table->string('provider_token')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('orders', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('order_id');
+            $table->unsignedBigInteger('store_id');
+            $table->string('tracking_number');
+            $table->string('company');
+            $table->string('status');
+            $table->timestamps();
+        });
     }
     /**
      * Reverse the migrations.
@@ -51,5 +61,6 @@ class CreateStoreTable extends Migration
         Schema::dropIfExists('stores');
         Schema::dropIfExists('store_charges');
         Schema::dropIfExists('user_providers');
+        Schema::dropIfExists('orders');
     }
 }

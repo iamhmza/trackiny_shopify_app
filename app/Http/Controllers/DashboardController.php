@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Account;
 use App\User;
 use App\UserProvider;
 use GuzzleHttp\Client;
@@ -13,7 +14,10 @@ class DashboardController extends Controller
     public function index()
     {
         // get current user
-        $user = Auth::user();
+        $store = Auth::user()->store;
+
+        return response()->json($store);
+
         $shop = $user->name;
         $id = $user->id;
         $token = UserProvider::find($id)->provider_token;
@@ -25,6 +29,8 @@ class DashboardController extends Controller
 
         // TODO: change topic to fullfillment create and update
 
+        $addressUrl = env('APP_URL') . $shop . '/webhooks/fullfillment';
+
         try {
 
             $response = $client->post($url,
@@ -32,7 +38,7 @@ class DashboardController extends Controller
                     [
                         "webhook" => [
                             "topic" => "fullfillments/create",
-                            "address" => env(APP_URL) . '/webhooks/fullfillment',
+                            "address" => $addressUrl,
                             "format" => "json",
 
                         ],
@@ -46,7 +52,7 @@ class DashboardController extends Controller
                     [
                         "webhook" => [
                             "topic" => "fullfillments/update",
-                            "address" => env(APP_URL) . '/webhooks/fullfillment',
+                            "address" => $addressUrl,
                             "format" => "json",
 
                         ],
@@ -65,6 +71,13 @@ class DashboardController extends Controller
         // dd($data);
 
         return 'done';
+
+    }
+
+    public function account()
+    {
+        $account = Auth::user()->store->account->only('api_key', 'api_secret');
+        return response()->json($account);
 
     }
 }

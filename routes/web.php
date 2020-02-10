@@ -57,3 +57,4 @@ Route::group(['prefix' => "woocommerce"], function () {
 
 // get current user data
 Route::get('/me', 'DashboardController@index');
+Route::get('/me/account', 'DashboardController@account');

@@ -24,6 +24,7 @@ class CreateAccountsTable extends Migration
 
             $table->foreign('store_id')->references('id')->on('stores');
         });
+
     }
 
     /**
