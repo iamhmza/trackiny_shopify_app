@@ -42,7 +42,7 @@ class ShopifyAuthController extends Controller
 
         if ($user->exists()) {
             // user found
-            // go to dashboard            /
+            // go to dashboard
 
             $user = $user->get();
             Auth::login($user, true);
@@ -74,6 +74,9 @@ class ShopifyAuthController extends Controller
 
         // Login with Laravel's Authentication system
         Auth::login($user, true);
+
+        // Triggering new user registered event
+        event(new NewUserHasRegisteredEvent($user));
 
         return redirect()->route('/install/paypal', ["id" => $store->id]);
 
