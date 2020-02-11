@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 //use Request;
-use App\Store;
 use App\User;
+use App\Store;
 use App\UserProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Socialite;
+use Laravel\Socialite\Facades\Socialite;
+use App\Events\NewUserHasRegisteredEvent;
 
 class ShopifyAuthController extends Controller
 {
@@ -17,8 +18,6 @@ class ShopifyAuthController extends Controller
     {
 
         $request->validate(['name' => 'string|required']);
-
-        $nameStore = $request->name;
 
         $config = new \SocialiteProviders\Manager\Config(
             env('SHOPIFY_KEY'),
@@ -38,18 +37,17 @@ class ShopifyAuthController extends Controller
 
         $shopifyUser = Socialite::driver('shopify')->user();
 
-        $user = User::where('name', '=', $shopifyUser->nickname);
+        // $user = User::where('name', '=', $shopifyUser->nickname);
 
-        if ($user->exists()) {
-            // user found
-            // go to dashboard
+        // if ($user->exists()) {
+        //     // user found
+        //     // go to dashboard
 
-            $user = $user->get();
-            Auth::login($user, true);
+        //     $user = $user->get();
+        //     // Auth::login($user, true);
 
-            return redirect('/dashboard');
-
-        }
+        //     return redirect('/dashboard');
+        // }
 
         // Create user
         $user = User::firstOrCreate([
@@ -78,8 +76,6 @@ class ShopifyAuthController extends Controller
         // Triggering new user registered event
         event(new NewUserHasRegisteredEvent($user));
 
-        return redirect()->route('/install/paypal', ["id" => $store->id]);
-
+        return redirect('/install/paypal');
     }
-
 }

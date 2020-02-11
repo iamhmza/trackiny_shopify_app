@@ -29,16 +29,18 @@ class RegisterFullfillmentsWebhooks
         ]);
         $url = 'https://' . $shop . '/admin/api/2020-01/webhooks.json';
 
-        $addressUrl = env('APP_URL') . $shop . '/webhooks/fullfillment';
+        $addressUrlForOrderFulfilled = env('APP_URL') . '/webhooks/fulfillment';
+        $addressUrlForTransaction = env('APP_URL') . '/webhooks/transaction';
 
         try {
 
-            $response = $client->post($url,
+            $response = $client->post(
+                $url,
                 ['body' => json_encode(
                     [
                         "webhook" => [
-                            "topic" => "fulfillments/create",
-                            "address" => $addressUrl,
+                            "topic" => "orders/fulfilled",
+                            "address" => $addressUrlForOrderFulfilled,
                             "format" => "json",
 
                         ],
@@ -47,12 +49,13 @@ class RegisterFullfillmentsWebhooks
                 )]
             );
 
-            $response = $client->post($url,
+            $response = $client->post(
+                $url,
                 ['body' => json_encode(
                     [
                         "webhook" => [
-                            "topic" => "fulfillments/update",
-                            "address" => $addressUrl,
+                            "topic" => "order_transactions/create",
+                            "address" => $addressUrlForTransaction,
                             "format" => "json",
 
                         ],
@@ -60,13 +63,11 @@ class RegisterFullfillmentsWebhooks
                     ]
                 )]
             );
-
         } catch (ClientException $e) {
 
             // var_dump($e->getResponse()->getBody()->getContents());
             // dd($e->getResponse()->getBody()->getContents());
             return 'Problem with shopify servers';
-
         }
         // $data = json_decode($response->getBody()->getContents());
 

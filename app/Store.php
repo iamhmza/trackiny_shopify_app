@@ -24,4 +24,9 @@ class Store extends Model
     {
         return $this->hasOne('App\Account');
     }
+
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
 }
