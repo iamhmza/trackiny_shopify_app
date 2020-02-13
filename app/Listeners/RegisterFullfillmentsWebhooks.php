@@ -18,7 +18,6 @@ class RegisterFullfillmentsWebhooks
     public function handle($event)
     {
         $user = $event->user;
-
         $shop = $user->name;
         $id = $user->id;
 
@@ -42,9 +41,7 @@ class RegisterFullfillmentsWebhooks
                             "topic" => "orders/fulfilled",
                             "address" => $addressUrlForOrderFulfilled,
                             "format" => "json",
-
                         ],
-
                     ]
                 )]
             );
@@ -57,16 +54,13 @@ class RegisterFullfillmentsWebhooks
                             "topic" => "order_transactions/create",
                             "address" => $addressUrlForTransaction,
                             "format" => "json",
-
                         ],
-
                     ]
                 )]
             );
         } catch (ClientException $e) {
 
-            // var_dump($e->getResponse()->getBody()->getContents());
-            // dd($e->getResponse()->getBody()->getContents());
+            // dump($e->getResponse()->getBody()->getContents());
             return 'Problem with shopify servers';
         }
         // $data = json_decode($response->getBody()->getContents());

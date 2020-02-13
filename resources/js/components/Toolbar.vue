@@ -9,7 +9,7 @@
     </div>
 
     <div class="admin">
-      <span class="notification_wrapper" @click="show_notification = !show_notification">
+      <span class="notification_wrapper" @click="show_notification = !show_notification;">
         >
         <div v-show="show_notification" class="notification">
           <h4>Notifications</h4>
