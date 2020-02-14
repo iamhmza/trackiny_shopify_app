@@ -41,32 +41,61 @@
         /* Safari, Android, iOS */
     }
 
-    .infinite-slide {
-      width: 2500px !important;
-      animation: slide 12s linear infinite;
-    }
-
-    .infinite-slide_item {
-      width: 48vw !important;
-    }
-
-    @keyframes slide {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-47%);
-      }
+    .glider-contain {
+      width: 90%;
+      max-width: 997px;
+      margin: 0 auto;
     }
   </style>
   {{-- CSS --}}
   <link rel="stylesheet" href=" {{ mix('css/main.css')}}">
+
+  {{-- Gilder js/css --}}
+  <link rel="stylesheet" href=" {{ asset('css/glider.min.css')}}">
+  <script src="{{ asset('js/glider.min.js') }}"></script>
+
+
+  <script>
+    window.addEventListener('load',function(){
+      document.querySelector('.glider').addEventListener('glider-slide-visible', function(event){
+          var glider = Glider(this);
+      });
+      
+      window._ = new Glider(document.querySelector('.glider'), {
+          slidesToShow: 1, //'auto',
+          slidesToScroll: 1,
+          itemWidth: 150,
+          draggable: true,
+          scrollLock: false,
+          dots: '.dots',
+          // rewind: true,
+          responsive: [
+              {
+                // screens greater than >= 775px
+                breakpoint: 768,
+                settings: {
+                  // Set to `auto` and provide item width to adjust to viewport
+                  slidesToShow: 2,
+                  slidesToScroll: 1.5,
+                  itemWidth: 150,
+                  duration: 0.25
+                }
+              },{
+                // screens greater than >= 1024px
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 2.5,
+                  slidesToScroll: 1.5,
+                  itemWidth: 150,
+                  duration: 0.25
+                }
+              }
+        ]   
+      });
+    });
+  </script>
 </head>
-{{--
-  TODO: fixing background images
-  TODO: adding content
---}}
+
 
 <body>
 
@@ -523,6 +552,10 @@
     <div class="w-4/5 mx-auto text-justify lg:text-center">
       <h2 class="title">Why Trackiny</h2>
 
+      <div class="w-11/12 md:w-1/3 my-8 mx-auto">
+        <img src="{{asset('images/why.svg')}}" alt="idea">
+      </div>
+
       <p class="main-text mt-10">
         if you use PayPal as your primary payment method then you should be familiar with paypal hold , limitation and
         you will have poor cashflow experience.
@@ -550,7 +583,37 @@
     </div>
   </section>
 
-  {{-- cse studies --}}
+  {{-- how Trackiny works --}}
+  <section class="my-32">
+    <div class="w-4/5 mx-auto">
+      <h2 class="title text-center mb-8">How Trackiny Works</h2>
+
+      <div class="md:flex justify-between">
+
+        <div class="md:w-64">
+          <img class="mx-auto mb-4" src="{{ asset('images/why.svg') }}">
+          <p class="main-text text-center">
+            And Voila! You save thousands of dollars.
+          </p>
+        </div>
+        <div class="md:w-64">
+          <img class="mx-auto mb-4" src="{{ asset('images/why.svg') }}">
+          <p class="main-text text-center">
+            Taking the shipment information from the fulfillment center .
+          </p>
+        </div>
+        <div class="md:w-64">
+          <img class="mx-auto mb-4" src="{{ asset('images/why.svg') }}">
+          <p class="main-text text-center">
+            Automatically syncing the shipment information from the fulfillment center to your Paypal account.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  {{-- case studies --}}
   <section class="py-32">
     <div class="container mx-auto">
 
@@ -790,8 +853,10 @@
     <h2 class="title text-center text-gray-800">1000+ users recommends Trackiny</h2>
 
     <div class="w-full mt-12 overflow-hidden">
-      <div class="flex glider">
-        <div class="shadow-lg bg-main mx-6 rounded-lg infinite-slide_item text-white py-6 px-8">
+
+      <div class="glider mb-4">
+
+        <div class="shadow-lg bg-main mx-6 rounded-lg text-white py-6 px-8">
           <p class="main-text">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora fuga repellat est neque tenetur, sed
             reprehenderit vero a totam et maiores numquam optio molestiae inventore ipsa rem dolorem animi similique!
@@ -809,7 +874,7 @@
           </div>
         </div>
 
-        <div class="shadow-lg bg-white mx-6 rounded-lg infinite-slide_item text-white py-6 px-8">
+        <div class="shadow-lg bg-white mx-6 rounded-lg text-white py-6 px-8">
           <p class="main-text text-gray-800">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora fuga repellat est neque tenetur, sed
             reprehenderit vero a totam et maiores numquam optio molestiae inventore ipsa rem dolorem animi similique!
@@ -827,7 +892,7 @@
           </div>
         </div>
 
-        <div class="shadow-lg bg-main mx-6 rounded-lg infinite-slide_item text-white py-6 px-8">
+        <div class="shadow-lg bg-main mx-6 rounded-lg text-white py-6 px-8">
           <p class="main-text">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora fuga repellat est neque tenetur, sed
             reprehenderit vero a totam et maiores numquam optio molestiae inventore ipsa rem dolorem animi similique!
@@ -845,7 +910,7 @@
           </div>
         </div>
 
-        <div class="shadow-lg bg-white mx-6 rounded-lg infinite-slide_item text-white py-6 px-8">
+        <div class="shadow-lg bg-white mx-6 rounded-lg text-white py-6 px-8">
           <p class="main-text text-gray-800">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora fuga repellat est neque tenetur, sed
             reprehenderit vero a totam et maiores numquam optio molestiae inventore ipsa rem dolorem animi similique!
@@ -862,10 +927,15 @@
             </p>
           </div>
         </div>
-
 
       </div>
+      <br />
+      <div role="tablist" class="dots"></div>
+
+
     </div>
+
+
 
   </section>
 

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Account;
 use App\Store;
-use Carbon\Carbon;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\Request;
@@ -14,7 +13,7 @@ class PaypalController extends Controller
 {
 
 
-    public function access(Request $request)
+    public function getCredentials(Request $request)
     {
 
         //validate inputs

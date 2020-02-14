@@ -42,7 +42,7 @@ Route::group(['prefix' => "shopify"], function () {
 
 // Authentification With Paypal
 Route::group(['prefix' => "paypal"], function () {
-    Route::get('/login', 'PaypalController@access');
+    Route::get('/login', 'PaypalController@getCredentials');
 });
 
 // Authentification With Woocommerce
@@ -55,7 +55,7 @@ Route::group(['prefix' => "woocommerce"], function () {
 Route::get('/me', 'DashboardController@index');
 Route::get('/me/account', 'DashboardController@account');
 
-// shopify webhooks-
+// shopify webhooks
 Route::group(['middleware' => 'shopify'], function () {
     Route::post('/webhooks/fulfillment', 'ShopifyWebhooksController@orderFulfilledCallback');
     Route::post('/webhooks/transaction', 'ShopifyWebhooksController@transactionCreatedCallback');

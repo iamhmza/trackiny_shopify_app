@@ -28,6 +28,8 @@ class DashboardController extends Controller
     {
         $request->validate(['paypalSecret' => 'string|required', 'paypalKey' => 'string|required']);
 
-        Auth::user()->store->account();
+        Auth::user()
+            ->store
+            ->account();
     }
 }
