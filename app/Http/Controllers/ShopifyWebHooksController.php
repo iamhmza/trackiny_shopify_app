@@ -15,7 +15,7 @@ class ShopifyWebhooksController extends Controller
         $shop = request()->header('X-Shopify-Shop-Domain');
         $store = Store::where('domain', '=', $shop)->first();
         $order = json_decode(request()->getContent());
-        $account = $store->account;
+        $account = $store->account; // one to one 
 
 
         // grab the the order transaction
@@ -33,6 +33,7 @@ class ShopifyWebhooksController extends Controller
             ]);
 
 
+
             $tracker = array(
                 "transaction_id" => $transaction->transaction_number,
                 "tracking_number" => $order->fulfillments[0]->tracking_number,
@@ -43,7 +44,7 @@ class ShopifyWebhooksController extends Controller
             try {
                 $client->request('POST', $paypalUrlForTracking, [
                     'json' => [
-                        "trackers" => [0 => $tracker]
+                        "trackers" => [0 => $tracker] // trackers [ max 20 trackings ]
                     ]
                 ]);
             } catch (ClientException $e) {
@@ -60,12 +61,14 @@ class ShopifyWebhooksController extends Controller
 
             $orderSaved = $store->orders()->create($data);
 
+
             return response()->json($orderSaved);
         }
 
         return response()->json(["message" => "no transaction to match order " . $order->id]);
     }
     public function transactionCreatedCallback()
+
     {
 
         $transaction = json_decode(request()->getContent());
@@ -90,5 +93,18 @@ class ShopifyWebhooksController extends Controller
     {
         // if order already exist
         // 
+    }
+
+
+    public function chargeConfirmationHandler(Request $request)
+    {
+        $chargePlan =  $request->getContent();
+
+        dump($chargePlan);
+
+        // TODO: update store_charge record
+        // TODO: redirect back to dashboard
+
+        return response()->json('charge confirm happend');
     }
 }

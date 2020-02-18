@@ -17,6 +17,7 @@ class RegisterFullfillmentsWebhooks
      */
     public function handle($event)
     {
+
         $user = $event->user;
         $shop = $user->name;
         $id = $user->id;
@@ -30,6 +31,7 @@ class RegisterFullfillmentsWebhooks
 
         $addressUrlForOrderFulfilled = env('APP_URL') . '/webhooks/fulfillment';
         $addressUrlForTransaction = env('APP_URL') . '/webhooks/transaction';
+
 
         try {
 

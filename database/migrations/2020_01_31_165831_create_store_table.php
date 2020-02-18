@@ -21,17 +21,6 @@ class CreateStoreTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('store_charges', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->string('name');
-            $table->string('plan');
-            $table->integer('quantity');
-            $table->timestamp('trial_ends_at')->nullable();
-            $table->timestamp('ends_at')->nullable();
-            $table->timestamps();
-        });
-
         Schema::create('user_providers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
@@ -40,7 +29,6 @@ class CreateStoreTable extends Migration
             $table->string('provider_token')->nullable();
             $table->timestamps();
         });
-
     }
     /**
      * Reverse the migrations.

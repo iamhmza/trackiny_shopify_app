@@ -53,6 +53,10 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasOne('App\UserProvider');
     }
 
+    public function storeCharge()
+    {
+        return $this->hasOne('App\StoreCharge');
+    }
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *

@@ -1,0 +1,70 @@
+@media only screen and (max-width: 768px) {
+  .tuts {
+    .tuts_wrapper {
+      .video {
+        height: 240px !important;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 999px) {
+  // tuts
+  .tuts {
+    .tuts_wrapper {
+      flex-direction: column;
+      .list {
+        width: 100% !important;
+        order: 2;
+      }
+    }
+  }
+}
+// tuts
+.tuts {
+  .tuts_wrapper {
+    display: flex;
+    align-items: flex-start;
+    .list {
+      display: block;
+      width: 37%;
+      margin-right: 2rem;
+      background-color: #fff;
+      color: $mainColor;
+      ul {
+        display: block;
+        border: 0.2px solid #016fff;
+        font-size: $font-4;
+        border-top: none;
+        padding: 1.3rem;
+        cursor: pointer;
+        transition: all 100ms ease-out;
+
+        &:first-child {
+          border-top: 0.2px solid #016fff;
+        }
+        &:hover {
+          background-color: #016fff;
+          color: #fff;
+        }
+      }
+    }
+
+    .video-container {
+      width: 100%;
+      margin-bottom: 2rem;
+      h4 {
+        margin-bottom: 1rem;
+      }
+      .video {
+        height: 320px;
+        background-color: cornflowerblue;
+        margin-bottom: 1rem;
+      }
+      p {
+        font-size: $font-4;
+        line-height: 140%;
+        text-align: justify;
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@media only screen and (max-width: 768px) {
+  .not_found {
+    > .cta {
+      width: 231px !important;
+      height: 45px !important;
+      font-size: 14px !important;
+    }
+
+    > img {
+      transform: scale(3.2) !important;
+    }
+
+    > p {
+      width: 80% !important;
+      color: #fff !important;
+    }
+  }
+}
+
+// not found
+.not_found {
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  color: #fff !important;
+
+  padding-top: 8rem;
+
+  > .cta {
+    width: 331px !important;
+    height: 61px !important;
+    margin: 2rem auto !important;
+
+    background-color: #fff !important;
+    color: #0290fe !important;
+    font-size: 18px !important;
+    font-weight: 700;
+  }
+
+  > h1 {
+    font-size: 10rem;
+  }
+  > .title-2 {
+    text-transform: uppercase;
+  }
+
+  > img {
+    width: 100%;
+    height: 100%;
+    transform: scale(2.2);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  > p {
+    width: 40%;
+    margin: 1rem auto;
+  }
+}

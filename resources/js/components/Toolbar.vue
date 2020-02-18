@@ -9,7 +9,7 @@
     </div>
 
     <div class="admin">
-      <span class="notification_wrapper" @click="show_notification = !show_notification;">
+      <span class="notification_wrapper" @click="show_notification = !show_notification">
         >
         <div v-show="show_notification" class="notification">
           <h4>Notifications</h4>
@@ -22,7 +22,7 @@
         </div>
       </span>
       <img src="../../images/admin.png" alt="admin" />
-      {{ store }}
+      {{ store.split('.')[0] }}
     </div>
   </nav>
 </template>

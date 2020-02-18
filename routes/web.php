@@ -1,5 +1,6 @@
 <?php
 
+
 // SPA
 Route::get('/dashboard/{path}', function () {
     return view('dashboard');
@@ -53,6 +54,7 @@ Route::group(['prefix' => "woocommerce"], function () {
 
 // API for dashboard
 Route::get('/me', 'DashboardController@index');
+Route::get('/me/orders', 'DashboardController@getOrders');
 Route::get('/me/account', 'DashboardController@account');
 
 // shopify webhooks
@@ -60,3 +62,5 @@ Route::group(['middleware' => 'shopify'], function () {
     Route::post('/webhooks/fulfillment', 'ShopifyWebhooksController@orderFulfilledCallback');
     Route::post('/webhooks/transaction', 'ShopifyWebhooksController@transactionCreatedCallback');
 });
+
+Route::get('/charges', 'ShopifyWebhooksController@chargeConfirmationHandler');

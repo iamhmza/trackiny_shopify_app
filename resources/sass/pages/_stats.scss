@@ -1,0 +1,198 @@
+@media only screen and (max-width: 768px) {
+  .dashboard {
+    .main_wrapper {
+      // sidebar
+
+      aside {
+        position: fixed;
+        z-index: 1;
+        bottom: 0;
+        width: 100% !important;
+        padding: 1rem !important;
+        ul {
+          display: flex !important;
+          justify-content: space-around;
+          li {
+            a {
+              padding: 0 !important;
+
+              span {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      main {
+        padding: 1.4rem 1rem !important;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 999px) {
+}
+.dashboard {
+  background-color: #f2f6f9;
+
+  // Toolbar
+  nav {
+    height: 66px;
+    padding: 0 3rem;
+    background: $mainColor;
+    background: -webkit-linear-gradient(left, #0170ff, #09d8fe);
+    background: -moz-linear-gradient(left, #0170ff, #09d8fe);
+    background: linear-gradient(to right, #0170ff, #09d8fe);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0px 1px 8px #016fff88;
+
+    .logo {
+      margin-right: 4rem;
+    }
+
+    .admin {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: $font-3;
+
+      .notification_wrapper {
+        display: none;
+        position: relative;
+        // display: block;
+        margin-right: 2rem;
+        cursor: pointer;
+
+        .notification {
+          width: 252px;
+          position: absolute;
+          top: 40px;
+          left: -103px;
+          color: #000;
+          background-color: #fff;
+          border: 1px solid #d3d6df;
+          border-radius: 5px;
+          font-size: $font-4;
+          h4 {
+            padding: 0.5rem;
+            border-bottom: 1px solid #ddd;
+          }
+          > div {
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+            color: #abadb9;
+            transition: all 50ms linear;
+            cursor: pointer;
+          }
+          > div:hover {
+            background-color: #d3d6df20;
+          }
+        }
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+        margin-right: 1rem;
+      }
+    }
+    .search {
+      position: relative;
+      margin-right: auto;
+      flex: 0 1 550px;
+
+      /* #016fff / #09D7FE */
+
+      input {
+        margin: 0;
+        border: none;
+        font-size: $font-4;
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      ::placeholder {
+        /* Most modern browsers support this now. */
+        color: #fff !important;
+      }
+    }
+  }
+  .main_wrapper {
+    min-height: calc(100vh - 66px);
+    display: flex;
+
+    // sidebar
+    aside {
+      width: 240px;
+      padding: 2rem 0;
+      background-color: #fff;
+      box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+      ul {
+        display: block;
+
+        li {
+          display: block;
+
+          a {
+            display: flex;
+            align-items: center;
+            position: relative;
+            text-decoration: none;
+            font-size: $font-3;
+            color: #a0a5b8;
+            padding-left: 3rem;
+            padding-bottom: 2.5rem;
+            transition: all 100ms ease-out;
+
+            svg {
+              margin-right: 1rem;
+              width: 18px;
+
+              path {
+                stroke: #a0a5b8 !important;
+              }
+            }
+
+            &:hover,
+            &.router-link-active {
+              color: $mainColor;
+
+              &::after {
+                content: '';
+                position: absolute;
+                right: -1px;
+                top: 4px;
+                width: 3px;
+                height: 18px;
+                border-radius: 5px;
+                background-color: $mainColor;
+              }
+              svg {
+                path {
+                  stroke: $mainColor !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    main {
+      height: 100%;
+      width: 100%;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      padding-top: 2rem;
+
+      .container {
+        max-width: 992px;
+        width: 100%;
+        margin: auto;
+      }
+    }
+  }
+}

@@ -20,8 +20,16 @@ class DashboardController extends Controller
 
     public function account()
     {
+        // TODO: check if token expired 
         $account = Auth::user()->store->account->only('api_key', 'api_secret');
         return response()->json($account);
+    }
+
+    public function getOrders()
+    {
+        $orders = Auth::user()->store->orders;
+
+        return response()->json($orders);
     }
 
     public function updateAccount(Request $request)
