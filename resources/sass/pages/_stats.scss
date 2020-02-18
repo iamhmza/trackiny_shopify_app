@@ -60,8 +60,9 @@
       font-size: $font-3;
 
       .notification_wrapper {
-        display: none;
+        display: block;
         position: relative;
+        z-index: 5;
         // display: block;
         margin-right: 2rem;
         cursor: pointer;

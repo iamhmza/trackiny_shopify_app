@@ -314,8 +314,9 @@ label {
 }
 
 .dashboard nav .admin .notification_wrapper {
-  display: none;
+  display: block;
   position: relative;
+  z-index: 5;
   margin-right: 2rem;
   cursor: pointer;
 }
