@@ -46,8 +46,13 @@ new Vue({
   },
   methods: {
     toggleClass(id) {
-      this.quests = this.quests.map(quest => ({ ...quest, open: false }));
-      this.quests[id - 1].open = !this.quests[id - 1].open;
+      this.quests = this.quests.map(quest => {
+        if (quest.id == id) {
+          return { ...quest, open: !quest.open };
+        } else {
+          return { ...quest, open: false };
+        }
+      });
     }
   }
 });

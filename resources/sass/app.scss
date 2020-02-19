@@ -12,6 +12,25 @@
   font-size: $font-3;
 }
 
+// paypal
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: #016fffaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .video {
+    width: 50%;
+    height: 60vh;
+  }
+}
+
 @import './components';
 @import './pages/stats';
 @import './pages/tuts';

@@ -1,14 +1,22 @@
 <?php
 
 
-// SPA
-Route::get('/dashboard/{path}', function () {
-    return view('dashboard');
-})->where('path', '(.*)');
+Route::group(['middleware' => 'auth'], function () {
+    // SPA
+    Route::get('/dashboard/{path}', function () {
+        return view('dashboard');
+    })->where('path', '(.*)')->middleware('');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
+
+    // API for dashboard
+    Route::get('/me', 'DashboardController@index');
+    Route::get('/me/orders', 'DashboardController@getOrders');
+    Route::get('/me/account', 'DashboardController@account');
 });
+
 
 // landing page
 Route::get('/', function () {
@@ -19,7 +27,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'install'], function () {
     Route::get('/choose', function () {
         return view('install.choose');
-    });
+    })->name('choose');
     Route::get('/shopify', function () {
         return view('install.shopify');
     });
@@ -35,10 +43,6 @@ Route::group(['prefix' => 'install'], function () {
 Route::group(['prefix' => "shopify"], function () {
     Route::get('/register', 'ShopifyAuthController@redirectToProvider');
     Route::get('/callback', 'ShopifyAuthController@handleProviderCallback');
-
-    // Charge Shopify Store + middlware for check charge shopify store
-    Route::get('/charge', 'ShopifyChargeController@applyCharge');
-    //Route::get('/charge', 'ShopifyChargeController@applyCharge')->middleware('shopifycharge');
 });
 
 // Authentification With Paypal
@@ -52,10 +56,6 @@ Route::group(['prefix' => "woocommerce"], function () {
     Route::post('/webhooks', 'WooCommerceAuthController@getWebHooks');
 });
 
-// API for dashboard
-Route::get('/me', 'DashboardController@index');
-Route::get('/me/orders', 'DashboardController@getOrders');
-Route::get('/me/account', 'DashboardController@account');
 
 // shopify webhooks
 Route::group(['middleware' => 'shopify'], function () {

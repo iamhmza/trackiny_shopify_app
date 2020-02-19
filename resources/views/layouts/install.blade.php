@@ -6,18 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Trackiny | @yield('title')</title>
-  <link rel="stylesheet" href="{{asset('css/app.css')}}">
+  <link rel="stylesheet" href="{{mix('css/main.css')}}">
 </head>
 
 <body>
 
   <div id="app">
-    <div class="install">
+    @yield('install')
+    {{-- <div class="install">
       <div class="install_wrapper">
-        @yield('install')
       </div>
-
-    </div>
+    </div> --}}
   </div>
 
 

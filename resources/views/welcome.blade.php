@@ -54,46 +54,6 @@
   <link rel="stylesheet" href=" {{ asset('css/glider.min.css')}}">
   <script src="{{ asset('js/glider.min.js') }}"></script>
 
-
-  <script>
-    window.addEventListener('load',function(){
-      document.querySelector('.glider').addEventListener('glider-slide-visible', function(event){
-          var glider = Glider(this);
-      });
-      
-      window._ = new Glider(document.querySelector('.glider'), {
-          slidesToShow: 1, //'auto',
-          slidesToScroll: 1,
-          itemWidth: 150,
-          draggable: true,
-          scrollLock: false,
-          dots: '.dots',
-          // rewind: true,
-          responsive: [
-              {
-                // screens greater than >= 775px
-                breakpoint: 768,
-                settings: {
-                  // Set to `auto` and provide item width to adjust to viewport
-                  slidesToShow: 2,
-                  slidesToScroll: 1.5,
-                  itemWidth: 150,
-                  duration: 0.25
-                }
-              },{
-                // screens greater than >= 1024px
-                breakpoint: 1024,
-                settings: {
-                  slidesToShow: 2.5,
-                  slidesToScroll: 1.5,
-                  itemWidth: 150,
-                  duration: 0.25
-                }
-              }
-        ]   
-      });
-    });
-  </script>
 </head>
 
 
@@ -205,49 +165,38 @@
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="97.203"
               height="58.951" viewBox="0 0 97.203 58.951">
               <defs>
-                <filter id="Path_109" x="-60" y="-57" width="217.203" height="178.951" filterUnits="userSpaceOnUse">
+                <filter id="a" x="-60" y="-57" width="217.203" height="178.951" filterUnits="userSpaceOnUse">
                   <feOffset dy="3" input="SourceAlpha" />
-                  <feGaussianBlur stdDeviation="20" result="blur" />
+                  <feGaussianBlur stdDeviation="20" result="b" />
                   <feFlood flood-color="#e8efff" />
-                  <feComposite operator="in" in2="blur" />
+                  <feComposite operator="in" in2="b" />
                   <feComposite in="SourceGraphic" />
                 </filter>
-                <clipPath id="clip-path">
-                  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_109)">
-                    <path id="Path_109-2" data-name="Path 109"
-                      d="M0,0H97.2V58.731a.219.219,0,0,1-.219.219H.219A.219.219,0,0,1,0,58.731Z"
-                      transform="translate(303 1284.57)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                  </g>
-                </clipPath>
+
               </defs>
-              <g id="Group_179" data-name="Group 179" transform="translate(-763.583 -1452.711)">
-                <g id="Mask_Group_12" data-name="Mask Group 12" transform="translate(460.583 168.142)"
-                  clip-path="url(#clip-path)">
-                  <g id="get-money" transform="translate(322.122 1284.569)">
-                    <g id="Group_266" data-name="Group 266" transform="translate(0 0)">
-                      <g id="Group_265" data-name="Group 265">
-                        <path id="Path_123" data-name="Path 123"
-                          d="M52.15,451.156a7.953,7.953,0,0,1-3.964,2.338l-13.518,2.439a3.734,3.734,0,0,0,.1-1.829,3.693,3.693,0,0,0-1.931-2.744L24.5,446.583a6.729,6.729,0,0,0-6.5-.1l-6.5,3.354-1.423-4.269a.964.964,0,0,0-.915-.813H1.026a1.255,1.255,0,0,0-.813.407.774.774,0,0,0-.1.915l8.131,24.393a.976.976,0,0,0,.915.711h8.131a1.255,1.255,0,0,0,.813-.406.988.988,0,0,0,.1-.915l-2.236-6.81h.61l11.282,3.964c.1,0,.2.1.3.1h.2l14.839-2.643a25.8,25.8,0,0,0,14.23-7.826,4.3,4.3,0,0,0,0-5.489A3.626,3.626,0,0,0,52.15,451.156ZM9.868,469.147l-7.42-22.361h6l7.42,22.361Zm46.043-13.925A23.455,23.455,0,0,1,42.8,462.439l-14.534,2.643-11.18-3.964c-.1,0-.2-.1-.3-.1H15.357l-3.151-9.452h.1l6.81-3.456a4.863,4.863,0,0,1,4.574.1l8.334,4.777a1.791,1.791,0,0,1,.915,1.321,2.191,2.191,0,0,1-.508,1.728,1.015,1.015,0,0,1-.508.407l-.813.1a.768.768,0,0,1-.406-.1l-9.859-3.456a.964.964,0,0,0-.61,1.83l9.859,3.456a2.967,2.967,0,0,0,.915.2c.1,0,.3.1.508,0l17.075-3.049a10.176,10.176,0,0,0,5.082-2.846,1.547,1.547,0,0,1,2.338,0A2.013,2.013,0,0,1,55.911,455.222Z"
-                          transform="translate(0 -412.229)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                        <path id="Path_124" data-name="Path 124"
-                          d="M350.922,34.62a17.279,17.279,0,1,0-17.279-17.279A17.264,17.264,0,0,0,350.922,34.62Zm0-32.525a15.246,15.246,0,1,1-15.246,15.246A15.225,15.225,0,0,1,350.922,2.1Z"
-                          transform="translate(-309.241 -0.063)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                        <path id="Path_125" data-name="Path 125"
-                          d="M402.443,82.076A13.213,13.213,0,1,0,389.23,68.863,13.187,13.187,0,0,0,402.443,82.076Zm0-24.393a11.18,11.18,0,1,1-11.18,11.18A11.148,11.148,0,0,1,402.443,57.682Z"
-                          transform="translate(-360.761 -51.584)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                        <path id="Path_126" data-name="Path 126"
-                          d="M501.418,176.985a1.1,1.1,0,0,0,.711-.3l8.131-8.131a1.006,1.006,0,0,0-1.423-1.423l-8.131,8.131a.983.983,0,0,0,0,1.423A1.1,1.1,0,0,0,501.418,176.985Z"
-                          transform="translate(-463.803 -154.624)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                        <path id="Path_127" data-name="Path 127"
-                          d="M501.418,172.919a.923.923,0,0,0,.711-.3l4.066-4.066a1.006,1.006,0,0,0-1.423-1.423l-4.066,4.066a.983.983,0,0,0,0,1.423A.923.923,0,0,0,501.418,172.919Z"
-                          transform="translate(-463.803 -154.624)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                        <path id="Path_128" data-name="Path 128"
-                          d="M560.358,222.713l-4.066,4.066a.982.982,0,0,0,0,1.423.982.982,0,0,0,1.423,0l4.066-4.066a1.006,1.006,0,1,0-1.423-1.423Z"
-                          transform="translate(-515.322 -206.146)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                        <circle id="Ellipse_27" data-name="Ellipse 27" cx="1.016" cy="1.016" r="1.016"
-                          transform="translate(11.191 52.858)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                      </g>
-                    </g>
+              <g transform="translate(-303 -1284.569)" clip-path="url(#c)">
+                <g transform="translate(322.122 1284.569)">
+                  <g transform="translate(0 0)">
+                    <path
+                      d="M52.15,451.156a7.953,7.953,0,0,1-3.964,2.338l-13.518,2.439a3.734,3.734,0,0,0,.1-1.829,3.693,3.693,0,0,0-1.931-2.744L24.5,446.583a6.729,6.729,0,0,0-6.5-.1l-6.5,3.354-1.423-4.269a.964.964,0,0,0-.915-.813H1.026a1.255,1.255,0,0,0-.813.407.774.774,0,0,0-.1.915l8.131,24.393a.976.976,0,0,0,.915.711h8.131a1.255,1.255,0,0,0,.813-.406.988.988,0,0,0,.1-.915l-2.236-6.81h.61l11.282,3.964c.1,0,.2.1.3.1h.2l14.839-2.643a25.8,25.8,0,0,0,14.23-7.826,4.3,4.3,0,0,0,0-5.489A3.626,3.626,0,0,0,52.15,451.156ZM9.868,469.147l-7.42-22.361h6l7.42,22.361Zm46.043-13.925A23.455,23.455,0,0,1,42.8,462.439l-14.534,2.643-11.18-3.964c-.1,0-.2-.1-.3-.1H15.357l-3.151-9.452h.1l6.81-3.456a4.863,4.863,0,0,1,4.574.1l8.334,4.777a1.791,1.791,0,0,1,.915,1.321,2.191,2.191,0,0,1-.508,1.728,1.015,1.015,0,0,1-.508.407l-.813.1a.768.768,0,0,1-.406-.1l-9.859-3.456a.964.964,0,0,0-.61,1.83l9.859,3.456a2.967,2.967,0,0,0,.915.2c.1,0,.3.1.508,0l17.075-3.049a10.176,10.176,0,0,0,5.082-2.846,1.547,1.547,0,0,1,2.338,0A2.013,2.013,0,0,1,55.911,455.222Z"
+                      transform="translate(0 -412.229)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                    <path
+                      d="M350.922,34.62a17.279,17.279,0,1,0-17.279-17.279A17.264,17.264,0,0,0,350.922,34.62Zm0-32.525a15.246,15.246,0,1,1-15.246,15.246A15.225,15.225,0,0,1,350.922,2.1Z"
+                      transform="translate(-309.241 -0.063)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                    <path
+                      d="M402.443,82.076A13.213,13.213,0,1,0,389.23,68.863,13.187,13.187,0,0,0,402.443,82.076Zm0-24.393a11.18,11.18,0,1,1-11.18,11.18A11.148,11.148,0,0,1,402.443,57.682Z"
+                      transform="translate(-360.761 -51.584)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                    <path
+                      d="M501.418,176.985a1.1,1.1,0,0,0,.711-.3l8.131-8.131a1.006,1.006,0,0,0-1.423-1.423l-8.131,8.131a.983.983,0,0,0,0,1.423A1.1,1.1,0,0,0,501.418,176.985Z"
+                      transform="translate(-463.803 -154.624)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                    <path
+                      d="M501.418,172.919a.923.923,0,0,0,.711-.3l4.066-4.066a1.006,1.006,0,0,0-1.423-1.423l-4.066,4.066a.983.983,0,0,0,0,1.423A.923.923,0,0,0,501.418,172.919Z"
+                      transform="translate(-463.803 -154.624)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                    <path
+                      d="M560.358,222.713l-4.066,4.066a.982.982,0,0,0,0,1.423.982.982,0,0,0,1.423,0l4.066-4.066a1.006,1.006,0,1,0-1.423-1.423Z"
+                      transform="translate(-515.322 -206.146)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
+                    <circle cx="1.016" cy="1.016" r="1.016" transform="translate(11.191 52.858)" fill="#225dfe"
+                      stroke="#225dfe" stroke-width="0.3" />
                   </g>
                 </g>
               </g>
@@ -591,19 +540,19 @@
       <div class="md:flex justify-between">
 
         <div class="md:w-64">
-          <img class="mx-auto mb-4" src="{{ asset('images/why.svg') }}">
+          <img class="w-32 md:w-full mx-auto mb-4" src="{{ asset('images/why.svg') }}">
           <p class="main-text text-center">
             And Voila! You save thousands of dollars.
           </p>
         </div>
         <div class="md:w-64">
-          <img class="mx-auto mb-4" src="{{ asset('images/why.svg') }}">
+          <img class="w-32 md:w-full mx-auto mb-4" src="{{ asset('images/why.svg') }}">
           <p class="main-text text-center">
             Taking the shipment information from the fulfillment center .
           </p>
         </div>
         <div class="md:w-64">
-          <img class="mx-auto mb-4" src="{{ asset('images/why.svg') }}">
+          <img class="w-32 md:w-full mx-auto mb-4" src="{{ asset('images/why.svg') }}">
           <p class="main-text text-center">
             Automatically syncing the shipment information from the fulfillment center to your Paypal account.
           </p>
@@ -1100,6 +1049,7 @@
   </section>
 
 
+
   <footer>
 
     <div class="w-32 m-auto">
@@ -1118,6 +1068,46 @@
 
 
   <script src="{{ mix('js/main.js') }}"></script>
+
+  <script>
+    window.addEventListener('load',function(){
+      document.querySelector('.glider').addEventListener('glider-slide-visible', function(event){
+          var glider = Glider(this);
+      });
+      
+      window._ = new Glider(document.querySelector('.glider'), {
+          slidesToShow: 1, //'auto',
+          slidesToScroll: 1,
+          itemWidth: 150,
+          draggable: true,
+          scrollLock: false,
+          dots: '.dots',
+          // rewind: true,
+          responsive: [
+              {
+                // screens greater than >= 775px
+                breakpoint: 768,
+                settings: {
+                  // Set to `auto` and provide item width to adjust to viewport
+                  slidesToShow: 2,
+                  slidesToScroll: 1.5,
+                  itemWidth: 150,
+                  duration: 0.25
+                }
+              },{
+                // screens greater than >= 1024px
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 2.5,
+                  slidesToScroll: 1.5,
+                  itemWidth: 150,
+                  duration: 0.25
+                }
+              }
+        ]   
+      });
+    });
+  </script>
 </body>
 
 </html>

@@ -90,6 +90,33 @@
   transition: all 150ms ease;
 }
 
+/* auth section */
+.auth {
+  @apply h-screen overflow-y-hidden;
+}
+@screen md {
+  .auth {
+    @apply flex;
+  }
+}
+.doorway {
+  @apply relative h-35 main-gradient;
+}
+@screen md {
+  .doorway {
+    @apply h-full w-1/2 order-2 px-12;
+  }
+}
+
+.door {
+  @apply text-center;
+}
+@screen md {
+  .door {
+    @apply h-full w-1/2 order-1 px-12 text-left;
+  }
+}
+
 @import 'tailwindcss/utilities';
 
 /* ===========
