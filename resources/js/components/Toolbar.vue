@@ -10,19 +10,26 @@
 
     <div class="admin">
       <span class="notification_wrapper" @click="show_notification = !show_notification">
+        <img src="../../images/admin.png" alt="admin" />
+        {{ store.split('.')[0] }}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 30"
         >
+          <text
+            transform="translate(10 34)"
+            font-size="19"
+            font-family="IkonoDemoL-1, Ikono Demo L"
+          >
+            <tspan x="-9.633" y="0"></tspan>
+          </text>
+        </svg>
         <div v-show="show_notification" class="notification">
-          <h4>Notifications</h4>
           <div>
-            <strong>#5646</strong>
-            a new paypal transaction
+            <a href="/me/logout">Logout</a>
           </div>
-          <div>notification 1</div>
-          <div>notification 2</div>
         </div>
       </span>
-      <img src="../../images/admin.png" alt="admin" />
-      {{ store.split('.')[0] }}
     </div>
   </nav>
 </template>

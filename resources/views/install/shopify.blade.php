@@ -60,7 +60,7 @@
             you will be redirected to shopify for the authentication proccess.
         </p>
         @error('name')
-        <div class="alert danger">
+        <div class="error">
             {{ $message }}
         </div>
         @enderror

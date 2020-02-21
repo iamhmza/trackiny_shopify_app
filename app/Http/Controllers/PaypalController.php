@@ -8,6 +8,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use League\OAuth1\Client\Credentials\Credentials;
 
 class PaypalController extends Controller
 {
@@ -24,6 +25,11 @@ class PaypalController extends Controller
 
         // get payapl token
         $data = $this->getPaypalToken($request->paypalClientId, $request->paypalSecret);
+
+        if (!$data["ok"]) {
+
+            return redirect('/install/paypal')->with(["error" => $data["message"]]);
+        }
 
         // add or get new account
         $store->account()->firstOrCreate([
@@ -69,11 +75,12 @@ class PaypalController extends Controller
         } catch (ClientException $e) {
 
             if ($e->getCode() == 401) {
-                return back(401)->with('error', 'Invalid cridentials');
+                // return abort(401, 'Invalid cridentials');
+                return ["ok" => false, "message" => "invalid credentials"];
             }
 
             // report($e);
-            return back(500)->with(['error' => 'Problem with paypal servers']);
+            return ["ok" => false, "message" => "Problem with paypal servers"];
         }
 
         if ($res->getStatusCode() == 200) {

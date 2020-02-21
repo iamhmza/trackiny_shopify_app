@@ -2,6 +2,9 @@
 
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/install/paypal', function () {
+        return view('install.paypal');
+    });
     // SPA
     Route::get('/dashboard/{path}', function () {
         return view('dashboard');
@@ -17,6 +20,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/me/account', 'DashboardController@account');
 });
 
+Route::get('/me/logout', 'DashboardController@logout');
 
 // landing page
 Route::get('/', function () {
@@ -30,9 +34,6 @@ Route::group(['prefix' => 'install'], function () {
     })->name('choose');
     Route::get('/shopify', function () {
         return view('install.shopify');
-    });
-    Route::get('/paypal', function () {
-        return view('install.paypal');
     });
     Route::get('/woocommerce', function () {
         return view('install.woocommerce');

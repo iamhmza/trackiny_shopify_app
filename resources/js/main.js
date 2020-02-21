@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 new Vue({
-  el: '#accordion',
+  el: '#faq',
   delimiters: ['#{', '}'],
   data: {
     quests: [
@@ -55,4 +55,37 @@ new Vue({
       });
     }
   }
+});
+
+new Glider(document.querySelector('.glider'), {
+  slidesToShow: 1, //'auto',
+  slidesToScroll: 1,
+  itemWidth: 150,
+  draggable: true,
+  scrollLock: false,
+  dots: '.dots',
+  // rewind: true,
+  responsive: [
+    {
+      // screens greater than >= 775px
+      breakpoint: 768,
+      settings: {
+        // Set to `auto` and provide item width to adjust to viewport
+        slidesToShow: 2,
+        slidesToScroll: 1.5,
+        itemWidth: 150,
+        duration: 0.25
+      }
+    },
+    {
+      // screens greater than >= 1024px
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2.5,
+        slidesToScroll: 1.5,
+        itemWidth: 150,
+        duration: 0.25
+      }
+    }
+  ]
 });

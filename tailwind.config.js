@@ -2,7 +2,7 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        '35': '35%'
+        '35': '35vh'
       },
       colors: {
         cta: { main: '#27D086', lighter: '#3AD491', darker: '#24BE7A' }, // lighter : #3AD491

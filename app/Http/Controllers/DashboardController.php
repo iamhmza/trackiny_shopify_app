@@ -40,4 +40,11 @@ class DashboardController extends Controller
             ->store
             ->account();
     }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect('/install/choose');
+    }
 }

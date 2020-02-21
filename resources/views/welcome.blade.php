@@ -52,7 +52,7 @@
 
   {{-- Gilder js/css --}}
   <link rel="stylesheet" href=" {{ asset('css/glider.min.css')}}">
-  <script src="{{ asset('js/glider.min.js') }}"></script>
+  <script defer src="{{ asset('js/glider.min.js') }}"></script>
 
 </head>
 
@@ -67,15 +67,16 @@
         </a>
 
         <ul class="hidden lg:flex">
-          <li><a class="link hover:underline" href="#">Home</a></li>
-          <li><a class="link hover:underline" href="#">Features</a></li>
+          <li><a class="link hover:underline" href="#features">Features</a></li>
+          <li><a class="link hover:underline" href="#why">Why Trackiny</a></li>
           <li><a class="link hover:underline" href="#pricing">Pricing</a></li>
           <li><a class="link hover:underline" href="#">Support</a></li>
-          <li><a class="link hover:underline" href="#">Contact</a></li>
+          <li><a class="link hover:underline" href="#faq">FAQ</a></li>
         </ul>
 
         @auth
         <div>
+          <a href="/me/logout" class="hidden md:inline-block link hover:underline">Logout</a>
           <a href="/dashboard" class="btn bg-cta-main hover:bg-cta-lighter">Go to dashboard</a>
         </div>
         @endauth
@@ -497,7 +498,7 @@
   </section>
 
   {{-- why tracking --}}
-  <section class="py-32">
+  <section id="why" class="py-32">
     <div class="w-4/5 mx-auto text-justify lg:text-center">
       <h2 class="title">Why Trackiny</h2>
 
@@ -539,21 +540,21 @@
 
       <div class="md:flex justify-between">
 
-        <div class="md:w-64">
+        <div class="mb-8 md:m-0 md:w-64">
           <img class="w-32 md:w-full mx-auto mb-4" src="{{ asset('images/why.svg') }}">
-          <p class="main-text text-center">
+          <p class="main-text w-48 mx-auto text-center">
             And Voila! You save thousands of dollars.
           </p>
         </div>
-        <div class="md:w-64">
+        <div class="mb-8 md:m-0 md:w-64">
           <img class="w-32 md:w-full mx-auto mb-4" src="{{ asset('images/why.svg') }}">
-          <p class="main-text text-center">
+          <p class="main-text w-48 mx-auto text-center">
             Taking the shipment information from the fulfillment center .
           </p>
         </div>
-        <div class="md:w-64">
+        <div class="mb-8 md:m-0 md:w-64">
           <img class="w-32 md:w-full mx-auto mb-4" src="{{ asset('images/why.svg') }}">
-          <p class="main-text text-center">
+          <p class="main-text w-48 mx-auto text-center">
             Automatically syncing the shipment information from the fulfillment center to your Paypal account.
           </p>
         </div>
@@ -1017,7 +1018,7 @@
   </section>
 
   {{-- FAQ section --}}
-  <section class="py-32" id="accordion">
+  <section id="faq" class="py-32">
     <h3 class="title text-center text-gray-800">the most frequent asked questions</h3>
 
     <div class="w-11/12 md:w-2/3 mx-auto mt-6 shadow-lg">
@@ -1049,7 +1050,6 @@
   </section>
 
 
-
   <footer>
 
     <div class="w-32 m-auto">
@@ -1067,47 +1067,8 @@
   </footer>
 
 
-  <script src="{{ mix('js/main.js') }}"></script>
+  <script defer src="{{ mix('js/main.js') }}"></script>
 
-  <script>
-    window.addEventListener('load',function(){
-      document.querySelector('.glider').addEventListener('glider-slide-visible', function(event){
-          var glider = Glider(this);
-      });
-      
-      window._ = new Glider(document.querySelector('.glider'), {
-          slidesToShow: 1, //'auto',
-          slidesToScroll: 1,
-          itemWidth: 150,
-          draggable: true,
-          scrollLock: false,
-          dots: '.dots',
-          // rewind: true,
-          responsive: [
-              {
-                // screens greater than >= 775px
-                breakpoint: 768,
-                settings: {
-                  // Set to `auto` and provide item width to adjust to viewport
-                  slidesToShow: 2,
-                  slidesToScroll: 1.5,
-                  itemWidth: 150,
-                  duration: 0.25
-                }
-              },{
-                // screens greater than >= 1024px
-                breakpoint: 1024,
-                settings: {
-                  slidesToShow: 2.5,
-                  slidesToScroll: 1.5,
-                  itemWidth: 150,
-                  duration: 0.25
-                }
-              }
-        ]   
-      });
-    });
-  </script>
 </body>
 
 </html>
