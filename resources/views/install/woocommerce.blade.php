@@ -19,10 +19,36 @@
         </a>
         to see Video!
     </p>
-    <form action="{{url('/wc/login')}}" method="post">
+    <form action="{{url('/woocommerce/login')}}" method="post">
         {{csrf_field()}}
-        <input class="input" type="text" placeholder="Consumer key" />
-        <input class="input" type="text" placeholder="Consumer secret" />
+        @if($errors->get('storeName'))
+            <ul style="color:red">
+                @foreach ($errors->get('storeName') as $e)
+                <li>{{$e}}</li>
+                @endforeach
+            </ul>
+        @endif
+        <input class="input" type="text" name="storeName" value="{{old('storeName')}}" placeholder="Store name" @if($errors->get('storeName')) has-error @endif  />
+        
+        @if($errors->get('consumerKey'))
+            <ul style="color:red">
+                @foreach ($errors->get('consumerKey') as $e)
+                <li style="color:red">{{$e}}</li>
+                @endforeach
+            </ul>
+           
+        @endif
+        <input class="input" type="text" name="consumerKey" value="{{old('consumerKey')}}"  @if($errors->get('consumerKey')) has-error @endif placeholder="Consumer key"  />
+        
+        @if($errors->get('ConsumerSecret'))
+            <ul style="color:red">
+                @foreach ($errors->get('ConsumerSecret') as $e)
+                <li>{{$e}}</li>
+                @endforeach
+            </ul>
+        @endif
+        <input class="input" type="password" name="ConsumerSecret" 
+        @if($errors->get('ConsumerSecret')) has-error @endif value="{{old('ConsumerSecret')}}"  placeholder="Consumer secret" />
         <button class="cta wc" type="submit">Install</button>
     </form>
 </section>
@@ -43,9 +69,6 @@
             d="M1149.342,324.018V686.5L766.22,654.539V1042h-383.1V425.052L0,387.138V0L766.245,121.72V267.678l.2.623Z"
             fill="url(#linear-gradient)" />
     </svg>
-
-
-
     <div class="hero_text">
         <h1 class="lg_text">Install our app in your Shopify store</h1>
 
