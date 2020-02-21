@@ -63,10 +63,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: $mainColor;
+        background-color: #09d5fe;
         color: white;
-        padding: 5px;
-        border-radius: 23px;
+        padding: 8px;
+        border-radius: 30px;
         position: relative;
         z-index: 5;
         margin-right: 2rem;
@@ -110,8 +110,8 @@
       }
 
       img {
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
         margin-right: 1rem;
         border: 1px solid #e4f4f7;
         border-radius: 100%;

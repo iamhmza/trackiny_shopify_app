@@ -26,7 +26,7 @@ class PaypalController extends Controller
         // get payapl token
         $data = $this->getPaypalToken($request->paypalClientId, $request->paypalSecret);
 
-        if (!$data["ok"]) {
+        if (is_array($data) && !$data["ok"]) {
 
             return redirect('/install/paypal')->with(["error" => $data["message"]]);
         }

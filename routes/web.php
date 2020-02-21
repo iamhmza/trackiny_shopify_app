@@ -8,7 +8,7 @@ Route::group(['middleware' => 'auth'], function () {
     // SPA
     Route::get('/dashboard/{path}', function () {
         return view('dashboard');
-    })->where('path', '(.*)')->middleware('');
+    })->where('path', '(.*)');
 
     Route::get('/dashboard', function () {
         return view('dashboard');
