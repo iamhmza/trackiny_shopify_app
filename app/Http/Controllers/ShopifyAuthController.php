@@ -36,18 +36,7 @@ class ShopifyAuthController extends Controller
     {
 
         $shopifyUser = Socialite::driver('shopify')->user();
-
-        // $user = User::where('name', '=', $shopifyUser->nickname);
-
-        // if ($user->exists()) {
-        //     // user found
-        //     // go to dashboard
-
-        //     $user = $user->get();
-        //     // Auth::login($user, true);
-
-        //     return redirect('/dashboard');
-        // }
+        
 
         // Create user
         $user = User::firstOrCreate([

@@ -29,8 +29,8 @@ class RegisterFullfillmentsWebhooks
         ]);
         $url = 'https://' . $shop . '/admin/api/2020-01/webhooks.json';
 
-        $addressUrlForOrderFulfilled = env('APP_URL') . '/webhooks/fulfillment';
-        $addressUrlForTransaction = env('APP_URL') . '/webhooks/transaction';
+        $addressUrlForOrderFulfilled = env('APP_URL') . 'webhooks/fulfillment';
+        $addressUrlForTransaction = env('APP_URL') . 'webhooks/transaction';
 
 
         try {
