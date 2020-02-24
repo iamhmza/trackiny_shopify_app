@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\Store;
 use App\Transaction;
 use GuzzleHttp\Client;
@@ -12,6 +13,8 @@ class ShopifyWebhooksController extends Controller
 {
     public function orderFulfilledCallback()
     {
+
+        // TODO: chack for subscription
         $shop = request()->header('X-Shopify-Shop-Domain');
         $store = Store::where('domain', '=', $shop)->first();
         $order = json_decode(request()->getContent());
@@ -92,7 +95,43 @@ class ShopifyWebhooksController extends Controller
     public function orderUpdatedCallback()
     {
         // if order already exist
-        // 
+        $updatedOrder = json_decode(request()->getContent());
+        $order = Order::where('order_id', $updatedOrder->id);
+
+        if ($order->exists()) {
+
+            $shop = request()->header('X-Shopify-Shop-Domain');
+            $store = Store::where('domain', $shop)->first();
+            $account = $store->account;
+
+            $order = $order->get()->first();
+            $transaction = $order->transaction;
+
+            $paypalUrlForTracking = 'https://api.paypal.com/v1/shipping/trackers/'
+                . $transaction->transaction_number
+                . '-' . $updatedOrder->tracking_number;
+
+            $client = new Client([
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Authorization' => 'Bearer ' . $account->token
+                ],
+            ]);
+
+            $tracker = array(
+                "transaction_id" => $transaction->transaction_number,
+                "tracking_number" => $updatedOrder->fulfillments[0]->tracking_number,
+                "status" => "SHIPPED",
+                "carrier" => str_replace(" ",  "_", strtoupper($updatedOrder->fulfillments[0]->tracking_company))
+            );
+
+            try {
+                $client->put($paypalUrlForTracking, ['json' => $tracker]);
+                Transaction::update($tracker);
+            } catch (ClientException $e) {
+                dump($e);
+            }
+        }
     }
 
 
@@ -105,6 +144,6 @@ class ShopifyWebhooksController extends Controller
         // TODO: update store_charge record
         // TODO: redirect back to dashboard
 
-        return response()->json('charge confirm happend');
+        return response()->json(json_decode($chargePlan));
     }
 }

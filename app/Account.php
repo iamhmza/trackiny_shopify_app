@@ -6,13 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
-    // protected $fillable = [
-    //     'api_key', 'api_secret', 'token', 'store_id', 'expire_time',
-    // ];
 
     protected $guarded = [];
 
-    // protected $hidden = ['token'];
+    protected $hidden = ['token', 'expire_time'];
+
+    public function getApiKeyAttribute($value)
+    {
+        return '_' . substr($value, -13);
+    }
+
+    public function getApiSecretAttribute($value)
+    {
+        return '_' . substr($value, -13);
+    }
+
 
     /**
      * Get the user that belong to the store.

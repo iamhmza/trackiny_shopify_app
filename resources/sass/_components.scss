@@ -1,3 +1,101 @@
+// pages transition //
+.page {
+  // position: fixed;
+  position: relative;
+}
+
+/*!
+ * animate.css -https://daneden.github.io/animate.css/
+ * Version - 3.7.2
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2019 Daniel Eden
+ */
+.animated {
+  -webkit-animation-duration: 100ms;
+  animation-duration: 100ms;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  // animation-timing-function: ease-in;
+}
+
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+/* page laoding */
+.loading_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 500;
+  color: white;
+
+  background-color: #258ffb88;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .loading {
+    width: 100px;
+    height: 100px;
+    margin: 8rem auto;
+    border-top: 4px solid #258ffb;
+    border-left: 4px solid #258ffb;
+    border-bottom: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-radius: 50%;
+
+    animation-name: spinner;
+    animation-duration: 200ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: forward;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .title-2 {
     font-size: $font-1 - 2px !important;
@@ -161,7 +259,31 @@ label {
 .alert {
   padding: 1rem;
   margin: 1rem 0;
-  max-width: 375px;
+  width: 83%;
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+
+  .icon {
+    min-width: 30px;
+    min-height: 30px;
+    height: 30px;
+    margin-right: 12px;
+    background-color: #ff5964;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    svg {
+      width: 12px;
+    }
+  }
+  a {
+    margin-left: 5px;
+    color: #ff5964;
+    font-weight: 900;
+  }
+
   &.danger {
     color: #ff5964;
     border: 1px solid #ff5964;

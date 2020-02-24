@@ -18,6 +18,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/me', 'DashboardController@index');
     Route::get('/me/orders', 'DashboardController@getOrders');
     Route::get('/me/account', 'DashboardController@account');
+    Route::get('/me/billing', 'DashboardController@myCharge');
 });
 
 Route::get('/me/logout', 'DashboardController@logout');

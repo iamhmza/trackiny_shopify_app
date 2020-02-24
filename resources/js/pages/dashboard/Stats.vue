@@ -4,6 +4,15 @@
 
     <div class="chart-container">
       <div class="heading">
+        <h3 class="title-3">Orders synced</h3>
+      </div>
+      <div class="chart-wrapper">
+        {{ count }}
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <div class="heading">
         <h3 class="title-3">title for the chart</h3>
       </div>
       <div class="chart-wrapper">
@@ -19,39 +28,22 @@ export default {
   data() {
     return {
       dataChart: {
-        a: 2,
-        b: 3,
-        c: 5,
-        d: 9,
-        e: 2,
-        c: 11
+        a: 2
       },
       orders: []
     };
   },
+  computed: {
+    count() {
+      return _.size(this.orders);
+    }
+  },
   mounted() {
     console.log('fetch');
-    axios('/me/orders').then(res => console.log(res.data));
+    axios('/me/orders').then(res => {
+      console.log(res.data);
+      this.orders = res.data;
+    });
   }
 };
 </script>
-
-<style>
-.chart-container {
-  width: 100%;
-  background-color: white;
-  margin-bottom: 2rem;
-  border-radius: 7px;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-}
-.chart-container .heading {
-  padding: 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-.chart-container .heading .title-3 {
-  margin: 0 !important;
-}
-.chart-wrapper {
-  padding: 1rem;
-}
-</style>

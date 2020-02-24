@@ -5,41 +5,76 @@
     <form class="form">
       <div class="flex">
         <div class="item">
-          <label for="firstName">First Name</label>
-          <input class="input" type="text" placeholder="First name..." />
+          <label for="Name">Name</label>
+          <input
+            :value="name"
+            class="input"
+            type="text"
+            placeholder="First name..."
+          />
         </div>
 
         <div class="item">
-          <label for="lastName">Last Name</label>
-          <input class="input" type="text" placeholder="Last name..." />
+          <label for="domain">Domain</label>
+          <input
+            :value="domain"
+            class="input"
+            type="text"
+            placeholder="Last name..."
+          />
         </div>
       </div>
 
       <label for="email">Email</label>
-      <input class="input" type="email" placeholder="youremail@example.com" />
+      <input
+        :value="email"
+        class="input"
+        type="email"
+        placeholder="youremail@example.com"
+      />
 
       <h3 class="title-3">Additional Informations</h3>
 
       <div class="flex">
         <div class="item">
           <label for="city">City</label>
-          <input class="input" type="text" placeholder="city..." />
+          <input
+            :value="city"
+            class="input"
+            type="text"
+            placeholder="city..."
+          />
         </div>
 
         <div class="item">
           <label for="zip">Zip code</label>
-          <input class="input" type="text" placeholder="zip code..." />
+          <input
+            :value="zip"
+            class="input"
+            type="text"
+            placeholder="zip code..."
+          />
         </div>
 
         <div class="item">
           <label for="country">Country</label>
-          <input class="input" type="text" placeholder="country..." />
+          <input
+            :value="country"
+            class="input"
+            type="text"
+            placeholder="country..."
+          />
         </div>
       </div>
       <div class="flex">
         <div class="item">
           <label for="phone">Phone</label>
-          <input class="input" type="text" placeholder="Phone number..." />
+          <input
+            :value="phone"
+            class="input"
+            type="text"
+            placeholder="Phone number..."
+          />
         </div>
 
         <div class="item">
@@ -54,7 +89,19 @@
 </template>
 
 <script>
-export default {}
+import { mapGetters } from 'vuex';
+export default {
+  name: 'setting',
+  computed: {
+    ...mapGetters({
+      domain: 'getDomain',
+      name: 'getStoreName',
+      phone: 'getPhone',
+      city: 'getCity',
+      zip: 'getZip',
+      country: 'getCountry',
+      email: 'getEmail'
+    })
+  }
+};
 </script>
-
-

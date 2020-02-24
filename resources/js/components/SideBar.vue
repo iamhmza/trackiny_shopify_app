@@ -8,6 +8,12 @@
         </router-link>
       </li>
       <li>
+        <router-link to="/dashboard/billing">
+          <DashboardIcon></DashboardIcon>
+          <span>Billing</span>
+        </router-link>
+      </li>
+      <li>
         <router-link to="/dashboard/account">
           <LinkIcon />
           <span>Account</span>

@@ -14,8 +14,8 @@ class DashboardController extends Controller
     public function index()
     {
         // get current user's store
-        $user = Auth::user();
-        return response()->json($user);
+        $data = Auth::user()->withStore();
+        return response()->json($data);
     }
 
     public function account()
@@ -28,8 +28,13 @@ class DashboardController extends Controller
     public function getOrders()
     {
         $orders = Auth::user()->store->orders;
-
         return response()->json($orders);
+    }
+
+    public function myCharge()
+    {
+        $charging = Auth::user()->storeCharge;
+        return response()->json($charging);
     }
 
     public function updateAccount(Request $request)
@@ -44,7 +49,6 @@ class DashboardController extends Controller
     public function logout()
     {
         Auth::logout();
-
         return redirect('/install/choose');
     }
 }

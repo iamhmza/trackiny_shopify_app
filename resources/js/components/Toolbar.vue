@@ -9,13 +9,13 @@
     </div>
 
     <div class="admin">
-      <span class="notification_wrapper" @click="show_notification = !show_notification">
+      <span
+        class="notification_wrapper"
+        @click="show_notification = !show_notification"
+      >
         <img src="../../images/admin.png" alt="admin" />
-        {{ store.split('.')[0] }}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 30"
-        >
+        {{ name }}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 30">
           <text
             transform="translate(10 34)"
             font-size="19"
@@ -35,17 +35,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
-      show_notification: false,
-      store: ''
+      show_notification: false
     };
   },
-  created() {
-    axios('/me').then(res => {
-      this.store = res.data.name;
-    });
+  computed: {
+    ...mapGetters({
+      name: 'getStoreName'
+    })
   }
 };
 </script>

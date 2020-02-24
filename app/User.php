@@ -16,7 +16,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'city', 'phone', 'country', 'zip'
     ];
 
     /**
@@ -51,6 +51,11 @@ class User extends Authenticatable implements JWTSubject
     public function provider()
     {
         return $this->hasOne('App\UserProvider');
+    }
+
+    public function withStore()
+    {
+        return $this->with('store.account', 'storeCharge')->first();
     }
 
     public function storeCharge()

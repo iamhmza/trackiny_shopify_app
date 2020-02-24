@@ -29,24 +29,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'Acoount',
-  data() {
-    return {
-      apiKey: '',
-      apiSecret: ''
-    };
-  },
-  mounted() {
-    axios('/me/account')
-      .then(res => res.data)
-      .then(({ api_key, api_secret }) => {
-        this.apiKey = api_key;
-        this.apiSecret = api_secret;
-      })
-      .catch(err => {
-        window.location.replace('/install/paypal');
-      });
+  computed: {
+    ...mapGetters({
+      apiKey: 'getKey',
+      apiSecret: 'getSecret'
+    })
   }
 };
 </script>

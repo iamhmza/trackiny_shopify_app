@@ -1,0 +1,25 @@
+/*  charing table */
+.charging {
+  margin: 120px auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+.charging td,
+.charging th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.charging th {
+  background-color: #f2f2f2;
+}
+.charging td {
+  background-color: white;
+}
+.charging .cta {
+  margin: 0 auto;
+}
+.charging tr:hover {
+  background-color: #ddd;
+}
