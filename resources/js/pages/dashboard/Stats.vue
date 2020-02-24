@@ -13,6 +13,34 @@
 
     <div class="chart-container">
       <div class="heading">
+        <h3 class="title-3">Orders</h3>
+      </div>
+      <div class="chart-wrapper">
+        <table class="charging">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>transaction number</th>
+              <th>status</th>
+              <th>synced</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="order in orders" :key="order.id">
+              <td>{{ order.id }}</td>
+              <td>{{ order.tracking_number }}</td>
+              <td>{{ order.status }}</td>
+              <td>
+                synced
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <div class="heading">
         <h3 class="title-3">title for the chart</h3>
       </div>
       <div class="chart-wrapper">
