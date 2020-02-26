@@ -6,12 +6,10 @@
       <div class="heading">
         <h3 class="title-3">Orders synced</h3>
       </div>
-      <div class="chart-wrapper">
-        {{ count }}
-      </div>
+      <div class="chart-wrapper">{{ count }}</div>
     </div>
 
-    <div class="chart-container">
+    <!-- <div class="chart-container">
       <div class="heading">
         <h3 class="title-3">Orders</h3>
       </div>
@@ -31,20 +29,20 @@
               <td>{{ order.tracking_number }}</td>
               <td>{{ order.status }}</td>
               <td>
-                synced
+                <span class="synced">success</span>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-    </div>
+    </div>-->
 
     <div class="chart-container">
       <div class="heading">
-        <h3 class="title-3">title for the chart</h3>
+        <h3 class="title-3">synced Orders</h3>
       </div>
       <div class="chart-wrapper">
-        <line-chart :data="dataChart"></line-chart>
+        <column-chart :data="[['orders synced', count]]" width="111px"></column-chart>
       </div>
     </div>
   </div>
@@ -55,9 +53,6 @@ export default {
   name: 'stats',
   data() {
     return {
-      dataChart: {
-        a: 2
-      },
       orders: []
     };
   },
@@ -67,11 +62,29 @@ export default {
     }
   },
   mounted() {
-    console.log('fetch');
     axios('/me/orders').then(res => {
-      console.log(res.data);
+      // const result = _.reduce(
+      //   res.data,
+      //   function(prev, current) {
+      //     const obj = { ...prev };
+      //     obj[
+      //       _.isNull(current.created_at) ? Math.random() : current.created_at
+      //     ] = current.id;
+      //     return obj;
+      //   },
+      //   {}
+      // );
+      // console.log(result);
       this.orders = res.data;
     });
   }
 };
 </script>
+
+<style>
+.synced {
+  color: green;
+  padding: 5px;
+  background-color: lightgreen;
+}
+</style>

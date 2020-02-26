@@ -8,9 +8,9 @@ class StoreCharge extends Model
 {
     protected $guarded = [];
 
-    public function onTrail()
+    public function onTrial()
     {
-        return  now()->lt($this->train_ends_at);
+        return  now()->lt($this->trial_ends_at);
     }
 
     public function active()

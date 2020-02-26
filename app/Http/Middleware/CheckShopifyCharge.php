@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class CheckShopifyCharge
 {
@@ -15,6 +16,14 @@ class CheckShopifyCharge
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+
+        $charge = Auth::user()->storeCharge;
+
+        if ($charge->onTrial() || $charge->active()) {
+
+            return $next($request);
+        }
+
+        return redirect($charge->confirmation_url);
     }
 }

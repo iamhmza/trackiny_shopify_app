@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Order;
 use App\Store;
 use App\Transaction;
@@ -14,9 +15,9 @@ class ShopifyWebhooksController extends Controller
     public function orderFulfilledCallback()
     {
 
-        // TODO: chack for subscription
         $shop = request()->header('X-Shopify-Shop-Domain');
         $store = Store::where('domain', '=', $shop)->first();
+
         $order = json_decode(request()->getContent());
         $account = $store->account; // one to one 
 
@@ -71,8 +72,8 @@ class ShopifyWebhooksController extends Controller
         return response()->json(["message" => "no transaction to match order " . $order->id]);
     }
     public function transactionCreatedCallback()
-
     {
+
 
         $transaction = json_decode(request()->getContent());
 

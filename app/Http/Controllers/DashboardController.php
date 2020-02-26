@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Account;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,33 +20,36 @@ class DashboardController extends Controller
         return response()->json($data);
     }
 
-    public function account()
-    {
-        // TODO: check if token expired 
-        $account = Auth::user()->store->account->only('api_key', 'api_secret');
-        return response()->json($account);
-    }
-
     public function getOrders()
     {
         $orders = Auth::user()->store->orders;
         return response()->json($orders);
     }
 
-    public function myCharge()
+    public function getFulfilledOrders()
     {
-        $charging = Auth::user()->storeCharge;
-        return response()->json($charging);
+        $user = Auth::user();
+        $token  = $user->provider->provider_token;
+        $client = new Client(['headers' => ['Content-Type ' => 'application/json', 'X-Shopify-Access-Token' => $token]]);
+        $url = $user->name . '/admin/api/2020-01/orders/count.json?fulfillment_status=shipped';
+
+        try {
+
+            $res  = $client->request('get', $url);
+            $data = json_decode($res->getBody()->getContents());
+        } catch (ClientException $e) {
+            dump($e->getResponse()->getBody()->getContents());
+
+            return 'server Error';
+        }
+
+
+
+
+        return response()->json($data);
     }
 
-    public function updateAccount(Request $request)
-    {
-        $request->validate(['paypalSecret' => 'string|required', 'paypalKey' => 'string|required']);
 
-        Auth::user()
-            ->store
-            ->account();
-    }
 
     public function logout()
     {
