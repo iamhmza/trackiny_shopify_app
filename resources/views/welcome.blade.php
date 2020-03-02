@@ -163,41 +163,30 @@
             <div class="feature-icon__wrapper transition">
             </div>
 
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="97.203"
-              height="58.951" viewBox="0 0 97.203 58.951">
-              <defs>
-                <filter id="a" x="-60" y="-57" width="217.203" height="178.951" filterUnits="userSpaceOnUse">
-                  <feOffset dy="3" input="SourceAlpha" />
-                  <feGaussianBlur stdDeviation="20" result="b" />
-                  <feFlood flood-color="#e8efff" />
-                  <feComposite operator="in" in2="b" />
-                  <feComposite in="SourceGraphic" />
-                </filter>
+            <svg class="feature-icon__inner transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.25 59.25">
 
-              </defs>
-              <g transform="translate(-303 -1284.569)" clip-path="url(#c)">
-                <g transform="translate(322.122 1284.569)">
-                  <g transform="translate(0 0)">
-                    <path
-                      d="M52.15,451.156a7.953,7.953,0,0,1-3.964,2.338l-13.518,2.439a3.734,3.734,0,0,0,.1-1.829,3.693,3.693,0,0,0-1.931-2.744L24.5,446.583a6.729,6.729,0,0,0-6.5-.1l-6.5,3.354-1.423-4.269a.964.964,0,0,0-.915-.813H1.026a1.255,1.255,0,0,0-.813.407.774.774,0,0,0-.1.915l8.131,24.393a.976.976,0,0,0,.915.711h8.131a1.255,1.255,0,0,0,.813-.406.988.988,0,0,0,.1-.915l-2.236-6.81h.61l11.282,3.964c.1,0,.2.1.3.1h.2l14.839-2.643a25.8,25.8,0,0,0,14.23-7.826,4.3,4.3,0,0,0,0-5.489A3.626,3.626,0,0,0,52.15,451.156ZM9.868,469.147l-7.42-22.361h6l7.42,22.361Zm46.043-13.925A23.455,23.455,0,0,1,42.8,462.439l-14.534,2.643-11.18-3.964c-.1,0-.2-.1-.3-.1H15.357l-3.151-9.452h.1l6.81-3.456a4.863,4.863,0,0,1,4.574.1l8.334,4.777a1.791,1.791,0,0,1,.915,1.321,2.191,2.191,0,0,1-.508,1.728,1.015,1.015,0,0,1-.508.407l-.813.1a.768.768,0,0,1-.406-.1l-9.859-3.456a.964.964,0,0,0-.61,1.83l9.859,3.456a2.967,2.967,0,0,0,.915.2c.1,0,.3.1.508,0l17.075-3.049a10.176,10.176,0,0,0,5.082-2.846,1.547,1.547,0,0,1,2.338,0A2.013,2.013,0,0,1,55.911,455.222Z"
-                      transform="translate(0 -412.229)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                    <path
-                      d="M350.922,34.62a17.279,17.279,0,1,0-17.279-17.279A17.264,17.264,0,0,0,350.922,34.62Zm0-32.525a15.246,15.246,0,1,1-15.246,15.246A15.225,15.225,0,0,1,350.922,2.1Z"
-                      transform="translate(-309.241 -0.063)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                    <path
-                      d="M402.443,82.076A13.213,13.213,0,1,0,389.23,68.863,13.187,13.187,0,0,0,402.443,82.076Zm0-24.393a11.18,11.18,0,1,1-11.18,11.18A11.148,11.148,0,0,1,402.443,57.682Z"
-                      transform="translate(-360.761 -51.584)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                    <path
-                      d="M501.418,176.985a1.1,1.1,0,0,0,.711-.3l8.131-8.131a1.006,1.006,0,0,0-1.423-1.423l-8.131,8.131a.983.983,0,0,0,0,1.423A1.1,1.1,0,0,0,501.418,176.985Z"
-                      transform="translate(-463.803 -154.624)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                    <path
-                      d="M501.418,172.919a.923.923,0,0,0,.711-.3l4.066-4.066a1.006,1.006,0,0,0-1.423-1.423l-4.066,4.066a.983.983,0,0,0,0,1.423A.923.923,0,0,0,501.418,172.919Z"
-                      transform="translate(-463.803 -154.624)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                    <path
-                      d="M560.358,222.713l-4.066,4.066a.982.982,0,0,0,0,1.423.982.982,0,0,0,1.423,0l4.066-4.066a1.006,1.006,0,1,0-1.423-1.423Z"
-                      transform="translate(-515.322 -206.146)" fill="#225dfe" stroke="#225dfe" stroke-width="0.3" />
-                    <circle cx="1.016" cy="1.016" r="1.016" transform="translate(11.191 52.858)" fill="#225dfe"
-                      stroke="#225dfe" stroke-width="0.3" />
+              <g id="Layer_2" data-name="Layer 2">
+                <g id="Layer_1-2" data-name="Layer 1">
+                  <g id="Mask_Group_12" data-name="Mask Group 12">
+                    <g id="get-money">
+                      <g id="Group_266" data-name="Group 266">
+                        <g id="Group_265" data-name="Group 265">
+                          <path id="Path_123" data-name="Path 123" class="cls-1"
+                            d="M52.29,39.08a8,8,0,0,1-4,2.34L34.81,43.86A4,4,0,0,0,33,39.28l-8.34-4.77a6.73,6.73,0,0,0-6.5-.11l-6.5,3.36-1.42-4.27a1,1,0,0,0-.92-.81H1.17a1.26,1.26,0,0,0-.81.4.76.76,0,0,0-.1.92L8.39,58.39a1,1,0,0,0,.91.71h8.13a1.31,1.31,0,0,0,.82-.4,1,1,0,0,0,.1-.92L16.11,51h.61l11.28,4c.1,0,.2.1.3.1h.2l14.84-2.65a25.83,25.83,0,0,0,14.23-7.82,4.3,4.3,0,0,0,0-5.49,3.62,3.62,0,0,0-5.13-.15ZM10,57.07,2.59,34.71h6L16,57.07Zm46-13.93a23.41,23.41,0,0,1-13.11,7.22L28.41,53,17.23,49c-.1,0-.2-.1-.3-.1H15.5l-3.15-9.45h.1L19.26,36a4.87,4.87,0,0,1,4.57.1l8.34,4.78a1.8,1.8,0,0,1,.91,1.32A2.19,2.19,0,0,1,32.57,44a1.05,1.05,0,0,1-.5.41l-.82.1a.79.79,0,0,1-.4-.1L21,40.91a1,1,0,0,0-.61,1.83l9.86,3.46a3.16,3.16,0,0,0,.91.2.86.86,0,0,0,.51,0l17.07-3a10.26,10.26,0,0,0,5.09-2.85A1.54,1.54,0,0,1,56,40.34a1.14,1.14,0,0,1,.15.16,2,2,0,0,1-.1,2.64Z" />
+                          <path id="Path_124" data-name="Path 124" class="cls-1"
+                            d="M41.82,34.71A17.28,17.28,0,1,0,24.54,17.43h0A17.28,17.28,0,0,0,41.79,34.71Zm0-32.53A15.25,15.25,0,1,1,26.58,17.43,15.25,15.25,0,0,1,41.82,2.18h0Z" />
+                          <path id="Path_125" data-name="Path 125" class="cls-1"
+                            d="M41.82,30.64A13.21,13.21,0,1,0,28.61,17.43h0A13.19,13.19,0,0,0,41.77,30.64Zm0-24.39A11.18,11.18,0,1,1,30.64,17.43h0A11.15,11.15,0,0,1,41.76,6.25Z" />
+                          <path id="Path_126" data-name="Path 126" class="cls-1"
+                            d="M37.76,22.51a1.11,1.11,0,0,0,.71-.3l8.13-8.13a1,1,0,0,0-1.42-1.42l-8.13,8.13a1,1,0,0,0,0,1.39l0,0A1.09,1.09,0,0,0,37.76,22.51Z" />
+                          <path id="Path_127" data-name="Path 127" class="cls-1"
+                            d="M37.76,18.45a.94.94,0,0,0,.71-.3l4.06-4.07a1,1,0,0,0-1.42-1.42l-4.06,4.06a1,1,0,0,0,0,1.39l0,0A.94.94,0,0,0,37.76,18.45Z" />
+                          <path id="Path_128" data-name="Path 128" class="cls-1"
+                            d="M45.18,16.72l-4.07,4.06a1,1,0,0,0,0,1.39l0,0a1,1,0,0,0,1.39,0l0,0,4.06-4.07a1,1,0,0,0-1.42-1.42Z" />
+                          <circle id="Ellipse_27" data-name="Ellipse 27" class="cls-1" cx="12.35" cy="54.03" r="1.02" />
+                        </g>
+                      </g>
+                    </g>
                   </g>
                 </g>
               </g>
@@ -500,7 +489,7 @@
   {{-- why tracking --}}
   <section id="why" class="py-32">
     <div class="w-4/5 mx-auto text-justify lg:text-center">
-      <h2 class="title">Why Trackiny</h2>
+      <h2 class="title text-center">Why Trackiny</h2>
 
       <div class="w-11/12 md:w-1/3 my-8 mx-auto">
         <img src="{{asset('images/why.svg')}}" alt="idea">
@@ -540,21 +529,21 @@
 
       <div class="md:flex justify-between">
 
-        <div class="mb-8 md:m-0 md:w-64">
-          <img class="w-32 md:w-full mx-auto mb-4" src="{{ asset('images/why.svg') }}">
-          <p class="main-text w-48 mx-auto text-center">
+        <div class="mt-16 md:m-0 md:w-64">
+          <img class="w-64 md:w-full mx-auto mb-4" src="{{ asset('images/why.svg') }}">
+          <p class="main-text mx-auto text-center">
             And Voila! You save thousands of dollars.
           </p>
         </div>
-        <div class="mb-8 md:m-0 md:w-64">
-          <img class="w-32 md:w-full mx-auto mb-4" src="{{ asset('images/why.svg') }}">
-          <p class="main-text w-48 mx-auto text-center">
+        <div class="mt-16 md:m-0 md:w-64">
+          <img class="w-64 md:w-full mx-auto mb-4" src="{{ asset('images/why.svg') }}">
+          <p class="main-text mx-auto text-center">
             Taking the shipment information from the fulfillment center .
           </p>
         </div>
-        <div class="mb-8 md:m-0 md:w-64">
-          <img class="w-32 md:w-full mx-auto mb-4" src="{{ asset('images/why.svg') }}">
-          <p class="main-text w-48 mx-auto text-center">
+        <div class="mt-16 md:m-0 md:w-64">
+          <img class="w-64 md:w-full mx-auto mb-4" src="{{ asset('images/why.svg') }}">
+          <p class="main-text mx-auto text-center">
             Automatically syncing the shipment information from the fulfillment center to your Paypal account.
           </p>
         </div>

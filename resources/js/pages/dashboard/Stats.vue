@@ -58,23 +58,11 @@ export default {
   },
   computed: {
     count() {
-      return _.size(this.orders);
+      return this.orders.length;
     }
   },
   mounted() {
     axios('/me/orders').then(res => {
-      // const result = _.reduce(
-      //   res.data,
-      //   function(prev, current) {
-      //     const obj = { ...prev };
-      //     obj[
-      //       _.isNull(current.created_at) ? Math.random() : current.created_at
-      //     ] = current.id;
-      //     return obj;
-      //   },
-      //   {}
-      // );
-      // console.log(result);
       this.orders = res.data;
     });
   }

@@ -12681,7 +12681,7 @@ new Glider(document.querySelector('.glider'), {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\laragon\www\anotherapp\resources\js\main.js */"./resources/js/main.js");
+module.exports = __webpack_require__(/*! c:\laragon\www\anotherapp\resources\js\main.js */"./resources/js/main.js");
 
 
 /***/ })

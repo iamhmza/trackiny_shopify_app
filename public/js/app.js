@@ -2024,6 +2024,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2117,27 +2129,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2595,25 +2586,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     count: function count() {
-      return _.size(this.orders);
+      return this.orders.length;
     }
   },
   mounted: function mounted() {
     var _this = this;
 
     axios('/me/orders').then(function (res) {
-      // const result = _.reduce(
-      //   res.data,
-      //   function(prev, current) {
-      //     const obj = { ...prev };
-      //     obj[
-      //       _.isNull(current.created_at) ? Math.random() : current.created_at
-      //     ] = current.id;
-      //     return obj;
-      //   },
-      //   {}
-      // );
-      // console.log(result);
       _this.orders = res.data;
     });
   }
@@ -58681,16 +58660,16 @@ var render = function() {
       _c(
         "li",
         [
-          _c(
-            "router-link",
-            { attrs: { to: "/dashboard/stats" } },
-            [
-              _c("DashboardIcon"),
-              _vm._v(" "),
-              _c("span", [_vm._v("Dashboard")])
-            ],
-            1
-          )
+          _c("router-link", { attrs: { to: "/dashboard/stats" } }, [
+            _c(
+              "div",
+              { staticClass: "icon-container" },
+              [_c("DashboardIcon")],
+              1
+            ),
+            _vm._v(" "),
+            _c("span", [_vm._v("Dashboard")])
+          ])
         ],
         1
       ),
@@ -58698,12 +58677,16 @@ var render = function() {
       _c(
         "li",
         [
-          _c(
-            "router-link",
-            { attrs: { to: "/dashboard/billing" } },
-            [_c("DashboardIcon"), _vm._v(" "), _c("span", [_vm._v("Billing")])],
-            1
-          )
+          _c("router-link", { attrs: { to: "/dashboard/billing" } }, [
+            _c(
+              "div",
+              { staticClass: "icon-container" },
+              [_c("DashboardIcon")],
+              1
+            ),
+            _vm._v(" "),
+            _c("span", [_vm._v("Billing")])
+          ])
         ],
         1
       ),
@@ -58711,12 +58694,11 @@ var render = function() {
       _c(
         "li",
         [
-          _c(
-            "router-link",
-            { attrs: { to: "/dashboard/account" } },
-            [_c("LinkIcon"), _vm._v(" "), _c("span", [_vm._v("Account")])],
-            1
-          )
+          _c("router-link", { attrs: { to: "/dashboard/account" } }, [
+            _c("div", { staticClass: "icon-container" }, [_c("LinkIcon")], 1),
+            _vm._v(" "),
+            _c("span", [_vm._v("Account")])
+          ])
         ],
         1
       ),
@@ -58724,12 +58706,16 @@ var render = function() {
       _c(
         "li",
         [
-          _c(
-            "router-link",
-            { attrs: { to: "/dashboard/setting" } },
-            [_c("SettingIcon"), _vm._v(" "), _c("span", [_vm._v("Setting")])],
-            1
-          )
+          _c("router-link", { attrs: { to: "/dashboard/setting" } }, [
+            _c(
+              "div",
+              { staticClass: "icon-container" },
+              [_c("SettingIcon")],
+              1
+            ),
+            _vm._v(" "),
+            _c("span", [_vm._v("Setting")])
+          ])
         ],
         1
       ),
@@ -58737,16 +58723,16 @@ var render = function() {
       _c(
         "li",
         [
-          _c(
-            "router-link",
-            { attrs: { to: "/dashboard/tutorials" } },
-            [
-              _c("VideoTutorialIcon"),
-              _vm._v(" "),
-              _c("span", [_vm._v("Tutorials")])
-            ],
-            1
-          )
+          _c("router-link", { attrs: { to: "/dashboard/tutorials" } }, [
+            _c(
+              "div",
+              { staticClass: "icon-container" },
+              [_c("VideoTutorialIcon")],
+              1
+            ),
+            _vm._v(" "),
+            _c("span", [_vm._v("Tutorials")])
+          ])
         ],
         1
       ),
@@ -58754,12 +58740,16 @@ var render = function() {
       _c(
         "li",
         [
-          _c(
-            "router-link",
-            { attrs: { to: "/dashboard/support" } },
-            [_c("SupportIcon"), _vm._v(" "), _c("span", [_vm._v("Support")])],
-            1
-          )
+          _c("router-link", { attrs: { to: "/dashboard/support" } }, [
+            _c(
+              "div",
+              { staticClass: "icon-container" },
+              [_c("SupportIcon")],
+              1
+            ),
+            _vm._v(" "),
+            _c("span", [_vm._v("Support")])
+          ])
         ],
         1
       )
@@ -58909,8 +58899,6 @@ var render = function() {
     {
       attrs: {
         xmlns: "http://www.w3.org/2000/svg",
-        width: "23.801",
-        height: "21.372",
         viewBox: "0 0 23.801 21.372"
       }
     },
@@ -58922,8 +58910,6 @@ var render = function() {
               d:
                 "M28.589,104H10.746A2.749,2.749,0,0,0,8,106.746v15.379a2.749,2.749,0,0,0,2.746,2.746H28.589c1.516,0,2.711-.839,2.713-2.355v-15.77A2.721,2.721,0,0,0,28.589,104ZM9.1,106.746a1.65,1.65,0,0,1,1.648-1.648H28.589a1.772,1.772,0,0,1,1.785,1.648v.549H9.1Zm21.275,15.379a1.772,1.772,0,0,1-1.785,1.648H10.746A1.65,1.65,0,0,1,9.1,122.126V108.394H30.373Z",
               transform: "translate(-8 -103.5)",
-              fill: "#a0a5b8",
-              stroke: "#a0a5b8",
               "stroke-width": "0.5"
             }
           }),
@@ -58933,8 +58919,6 @@ var render = function() {
               d:
                 "M49.085,174.385h-1.1c0,.884,0,15.277,0,15.611h1.1C49.085,188.124,49.086,174.385,49.085,174.385Z",
               transform: "translate(-43.59 -170.171)",
-              fill: "#a0a5b8",
-              stroke: "#a0a5b8",
               "stroke-width": "0.5"
             }
           })
@@ -58945,8 +58929,6 @@ var render = function() {
             d:
               "M360.549,225.1h4.394a.549.549,0,1,0,0-1.1h-4.394a.549.549,0,0,0,0,1.1Z",
             transform: "translate(-348.191 -215.761)",
-            fill: "#a0a5b8",
-            stroke: "#a0a5b8",
             "stroke-width": "0.5"
           }
         }),
@@ -58956,8 +58938,6 @@ var render = function() {
             d:
               "M328.549,257.1h6.591a.549.549,0,0,0,0-1.1h-6.591a.549.549,0,1,0,0,1.1Z",
             transform: "translate(-318.388 -245.564)",
-            fill: "#a0a5b8",
-            stroke: "#a0a5b8",
             "stroke-width": "0.5"
           }
         }),
@@ -58967,8 +58947,6 @@ var render = function() {
             d:
               "M328.549,289.1h6.591a.549.549,0,0,0,0-1.1h-6.591a.549.549,0,1,0,0,1.1Z",
             transform: "translate(-318.388 -275.367)",
-            fill: "#a0a5b8",
-            stroke: "#a0a5b8",
             "stroke-width": "0.5"
           }
         }),
@@ -58978,8 +58956,6 @@ var render = function() {
             d:
               "M328.549,321.1h3.3a.549.549,0,0,0,0-1.1h-3.3a.549.549,0,1,0,0,1.1Z",
             transform: "translate(-318.388 -305.17)",
-            fill: "#a0a5b8",
-            stroke: "#a0a5b8",
             "stroke-width": "0.5"
           }
         }),
@@ -58989,8 +58965,6 @@ var render = function() {
             d:
               "M401.1,320h-.549a.549.549,0,1,0,0,1.1h.549a.549.549,0,0,0,0-1.1Z",
             transform: "translate(-385.445 -305.17)",
-            fill: "#a0a5b8",
-            stroke: "#a0a5b8",
             "stroke-width": "0.5"
           }
         }),
@@ -59000,8 +58974,6 @@ var render = function() {
             d:
               "M328.549,225.1h.549a.549.549,0,0,0,0-1.1h-.549a.549.549,0,1,0,0,1.1Z",
             transform: "translate(-318.388 -215.761)",
-            fill: "#a0a5b8",
-            stroke: "#a0a5b8",
             "stroke-width": "0.5"
           }
         })
@@ -59036,8 +59008,6 @@ var render = function() {
     {
       attrs: {
         xmlns: "http://www.w3.org/2000/svg",
-        width: "24.308",
-        height: "22.657",
         viewBox: "0 0 24.308 22.657"
       }
     },
@@ -59049,8 +59019,6 @@ var render = function() {
               d:
                 "M12.69,189.083a.669.669,0,0,0,0,.95,2.794,2.794,0,0,1,0,3.948L6.972,199.7a2.794,2.794,0,0,1-3.948,0l-.86-.86a2.794,2.794,0,0,1,0-3.948l5.718-5.718a.672.672,0,0,0-.95-.95l-5.718,5.718a4.13,4.13,0,0,0,0,5.848l.86.86a4.142,4.142,0,0,0,5.848,0l5.718-5.718a4.142,4.142,0,0,0,0-5.848A.669.669,0,0,0,12.69,189.083Z",
               transform: "translate(0 -179.501)",
-              fill: "#a0a5b8",
-              stroke: "#a0a5b9",
               "stroke-width": "0.3"
             }
           }),
@@ -59060,8 +59028,6 @@ var render = function() {
               d:
                 "M197.935,18.669l-.86-.86a4.142,4.142,0,0,0-5.848,0l-5.718,5.718a4.142,4.142,0,0,0,0,5.848.672.672,0,0,0,.95-.95,2.794,2.794,0,0,1,0-3.948l5.718-5.718a2.794,2.794,0,0,1,3.948,0l.86.86a2.794,2.794,0,0,1,0,3.948l-5.718,5.718a.674.674,0,0,0,.472,1.149.655.655,0,0,0,.472-.2l5.718-5.718a4.136,4.136,0,0,0,0-5.848Z",
               transform: "translate(-175.136 -16.6)",
-              fill: "#a0a5b8",
-              stroke: "#a0a5b9",
               "stroke-width": "0.3"
             }
           })
@@ -59097,8 +59063,6 @@ var render = function() {
     {
       attrs: {
         xmlns: "http://www.w3.org/2000/svg",
-        width: "23.711",
-        height: "23.71",
         viewBox: "0 0 23.711 23.71"
       }
     },
@@ -59109,8 +59073,6 @@ var render = function() {
             d:
               "M18.509,101.451a.341.341,0,0,0-.341.341v11.265a1.114,1.114,0,0,1-1.113,1.113H1.794a1.114,1.114,0,0,1-1.113-1.113V97.794a1.114,1.114,0,0,1,1.113-1.113H13.059a.341.341,0,0,0,0-.681H1.794A1.8,1.8,0,0,0,0,97.794v15.262a1.8,1.8,0,0,0,1.794,1.794H17.056a1.8,1.8,0,0,0,1.794-1.794V101.791A.341.341,0,0,0,18.509,101.451Z",
             transform: "translate(62 303.361)",
-            fill: "#a0a5b8",
-            stroke: "#a0a5b9",
             "stroke-width": "0.5"
           }
         }),
@@ -59120,8 +59082,6 @@ var render = function() {
             d:
               "M179.366,1.961,177.824.419a1.431,1.431,0,0,0-2.023,0L165.329,10.891a.34.34,0,0,0-.084.14l-1.188,3.816a.7.7,0,0,0,.881.881l3.816-1.188a.34.34,0,0,0,.14-.084L179.366,3.984a1.431,1.431,0,0,0,0-2.023ZM166.775,14.443l-1.433-1.433.472-1.516,2.477,2.477Zm-2.039.635a.023.023,0,0,1-.028-.028l.406-1.3.927.927ZM178.884,3.5,168.835,13.552l-2.6-2.6L176.283.9a.749.749,0,0,1,1.06,0l1.542,1.542a.749.749,0,0,1,0,1.06Z",
             transform: "translate(-94.575 395)",
-            fill: "#a0a5b8",
-            stroke: "#a0a5b9",
             "stroke-width": "0.5"
           }
         })
@@ -59156,8 +59116,6 @@ var render = function() {
     {
       attrs: {
         xmlns: "http://www.w3.org/2000/svg",
-        width: "23.526",
-        height: "22.783",
         viewBox: "0 0 23.526 22.783"
       }
     },
@@ -59167,8 +59125,6 @@ var render = function() {
           d:
             "M30.654,27.141H29.54V26.4a1.116,1.116,0,0,0-.743-1.05v-.807a.371.371,0,0,0-.371-.371h-.743V22.313A6.321,6.321,0,0,0,21.37,16H17.656a6.321,6.321,0,0,0-6.313,6.313V24.17H10.6a.371.371,0,0,0-.371.371v.807a1.116,1.116,0,0,0-.743,1.05v.743H8.371A.371.371,0,0,0,8,27.513v4.457a.371.371,0,0,0,.371.371H9.486v.743A1.115,1.115,0,0,0,10.6,34.2h2.228a1.115,1.115,0,0,0,1.114-1.114V26.4a1.116,1.116,0,0,0-.743-1.05v-.807a.371.371,0,0,0-.371-.371h-.743V22.313a5.577,5.577,0,0,1,5.571-5.571H21.37a5.577,5.577,0,0,1,5.571,5.571V24.17H26.2a.371.371,0,0,0-.371.371v.807a1.116,1.116,0,0,0-.743,1.05v6.685A1.115,1.115,0,0,0,26.2,34.2h2.228a1.115,1.115,0,0,0,1.114-1.114v-.743h.371v3.342A1.115,1.115,0,0,1,28.8,36.8H21.37v-.371A.371.371,0,0,0,21,36.054H18.027a.371.371,0,0,0-.371.371v1.486a.371.371,0,0,0,.371.371H21a.371.371,0,0,0,.371-.371V37.54H28.8a1.859,1.859,0,0,0,1.857-1.857V32.341a.371.371,0,0,0,.371-.371V27.513A.371.371,0,0,0,30.654,27.141ZM8.743,31.6V27.884h.743V31.6ZM13.2,33.083a.372.372,0,0,1-.371.371H10.6a.372.372,0,0,1-.371-.371V26.4a.372.372,0,0,1,.371-.371h2.228a.372.372,0,0,1,.371.371Zm-.743-8.17v.371H10.971v-.371Zm8.17,12.627H18.4V36.8h2.228Zm5.942-12.627h1.486v.371H26.569Zm2.228,8.17a.372.372,0,0,1-.371.371H26.2a.372.372,0,0,1-.371-.371V26.4a.372.372,0,0,1,.371-.371h2.228a.372.372,0,0,1,.371.371ZM29.54,31.6V27.884h.743V31.6Z",
           transform: "translate(-7.75 -15.75)",
-          fill: "#a0a5b8",
-          stroke: "#a0a5b9",
           "stroke-width": "0.5"
         }
       })
@@ -59202,8 +59158,6 @@ var render = function() {
     {
       attrs: {
         xmlns: "http://www.w3.org/2000/svg",
-        width: "23.556",
-        height: "22.865",
         viewBox: "0 0 23.556 22.865"
       }
     },
@@ -59213,8 +59167,6 @@ var render = function() {
           attrs: {
             d:
               "M32.134,15.47H31.062a4.22,4.22,0,0,0-.529-1.277l.759-.759a.371.371,0,0,0,0-.526l-.818-.817a.371.371,0,0,0-.526,0l-.759.758a4.223,4.223,0,0,0-1.277-.529V11.248a.372.372,0,0,0-.372-.372H26.384a.372.372,0,0,0-.372.372V12.32a4.221,4.221,0,0,0-1.277.529l-.759-.758a.371.371,0,0,0-.526,0l-.818.818a.371.371,0,0,0,0,.526l.759.759a4.214,4.214,0,0,0-.529,1.277H21.79a.372.372,0,0,0-.372.372v.064H9.622a.372.372,0,0,0-.372.37V30.25a.372.372,0,0,0,.372.372H30.614a.372.372,0,0,0,.372-.372V20.236l.305-.305a.371.371,0,0,0,0-.526l-.759-.759a4.221,4.221,0,0,0,.529-1.277h1.072A.372.372,0,0,0,32.506,17V15.841A.372.372,0,0,0,32.134,15.47ZM9.993,29.879V16.648H21.418V17a.372.372,0,0,0,.372.372h1.072a4.215,4.215,0,0,0,.529,1.277l-.759.759a.371.371,0,0,0,0,.526l.818.818a.371.371,0,0,0,.526,0l.759-.759a4.215,4.215,0,0,0,1.277.529v1.072a.372.372,0,0,0,.372.372H27.54a.372.372,0,0,0,.372-.372V20.519a4.214,4.214,0,0,0,1.277-.529l.759.759a.369.369,0,0,0,.3.106V29.88ZM31.762,16.627H30.755a.372.372,0,0,0-.367.316,3.46,3.46,0,0,1-.634,1.529.372.372,0,0,0,.037.483l.713.713-.149.149,0,0-.14.14-.713-.713a.371.371,0,0,0-.483-.037,3.462,3.462,0,0,1-1.529.634.372.372,0,0,0-.316.367v1.008h-.415V20.213a.372.372,0,0,0-.316-.367,3.459,3.459,0,0,1-1.529-.634.372.372,0,0,0-.483.037l-.713.713-.292-.292.713-.713a.372.372,0,0,0,.037-.483,3.459,3.459,0,0,1-.634-1.529.372.372,0,0,0-.367-.316H22.162v-.414h1.008a.372.372,0,0,0,.367-.316,3.462,3.462,0,0,1,.634-1.529.372.372,0,0,0-.037-.483l-.713-.713.292-.292.713.713a.372.372,0,0,0,.483.037,3.46,3.46,0,0,1,1.529-.634.372.372,0,0,0,.316-.367V11.619h.414v1.008a.372.372,0,0,0,.316.367,3.462,3.462,0,0,1,1.529.634.372.372,0,0,0,.483-.037l.713-.713.292.292-.713.713a.372.372,0,0,0-.037.483,3.462,3.462,0,0,1,.634,1.529.372.372,0,0,0,.367.316h1.008Z",
-            fill: "#a0a5b8",
-            stroke: "#a0a5b9",
             "stroke-width": "0.3"
           }
         }),
@@ -59224,8 +59176,6 @@ var render = function() {
             d:
               "M84.328,26.417a2.243,2.243,0,1,0,2.243,2.243A2.243,2.243,0,0,0,84.328,26.417Zm0,3.743a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,84.328,30.16Z",
             transform: "translate(-57.366 -12.24)",
-            fill: "#a0a5b8",
-            stroke: "#a0a5b9",
             "stroke-width": "0.3"
           }
         }),
@@ -59235,8 +59185,6 @@ var render = function() {
             d:
               "M52.319,55.61,47.208,52.4a.372.372,0,0,0-.569.315v6.418a.372.372,0,0,0,.569.316l5.111-3.209a.372.372,0,0,0,0-.63Zm-4.937,2.852V53.388l4.04,2.536Z",
             transform: "translate(-29.448 -32.661)",
-            fill: "#a0a5b8",
-            stroke: "#a0a5b9",
             "stroke-width": "0.3"
           }
         }),
@@ -59246,8 +59194,6 @@ var render = function() {
             d:
               "M30.614,106.787H15.142a1.131,1.131,0,0,0-1.081-.812H11.923a1.131,1.131,0,0,0-1.081.812H9.622a.372.372,0,0,0,0,.743h1.221a1.131,1.131,0,0,0,1.081.812H14.06a1.131,1.131,0,0,0,1.081-.812H30.614a.372.372,0,0,0,0-.743Zm-16.164.423a.39.39,0,0,1-.389.389H11.923a.39.39,0,0,1-.389-.389v-.1a.39.39,0,0,1,.389-.389H14.06a.39.39,0,0,1,.389.389Z",
             transform: "translate(0 -74.902)",
-            fill: "#a0a5b8",
-            stroke: "#a0a5b9",
             "stroke-width": "0.3"
           }
         })
@@ -76058,13 +76004,11 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -77266,6 +77210,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -77299,7 +77246,7 @@ var store = {
   },
   getters: {
     error: function error(state) {
-      return _.isNull(state.charge.trial_ends_at) || _.isNull(state.charge.ends_at);
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_3__["isNull"])(state.charge.trial_ends_at) || Object(lodash__WEBPACK_IMPORTED_MODULE_3__["isNull"])(state.charge.ends_at);
     },
     getKey: function getKey(state) {
       return state.account.api_key;
@@ -77338,7 +77285,7 @@ var store = {
       return state.charge.status;
     },
     getTrailEnds: function getTrailEnds(state) {
-      return _.isNull(state.charge.trial_ends_at) ? '-' : state.charge.trial_ends_at;
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_3__["isNull"])(state.charge.trial_ends_at) ? '-' : state.charge.trial_ends_at;
     }
   },
   mutations: {
@@ -77346,7 +77293,7 @@ var store = {
       state.user = user;
     },
     SET_STORE: function SET_STORE(state, store) {
-      state.store = _.pick(store, ['domain', 'name']);
+      state.store = Object(lodash__WEBPACK_IMPORTED_MODULE_3__["pick"])(store, ['domain', 'name']);
     },
     SET_STORE_CHARGE: function SET_STORE_CHARGE(state, charge) {
       state.charge = charge;
@@ -77361,13 +77308,13 @@ var store = {
 
       this.state.isLoading = true;
       axios__WEBPACK_IMPORTED_MODULE_2___default()('/me').then(function (res) {
-        _this.commit('SET_USER', _.pick(res.data, ['city', 'email', 'phone', 'zip', 'country']));
+        _this.commit('SET_USER', Object(lodash__WEBPACK_IMPORTED_MODULE_3__["pick"])(res.data, ['city', 'email', 'phone', 'zip', 'country']));
 
         _this.commit('SET_STORE', res.data.store);
 
-        _this.commit('SET_ACCOUNT', _.pick(res.data.store.account, ['api_key', 'api_secret']));
+        _this.commit('SET_ACCOUNT', Object(lodash__WEBPACK_IMPORTED_MODULE_3__["pick"])(res.data.store.account, ['api_key', 'api_secret']));
 
-        _this.commit('SET_STORE_CHARGE', _.pick(res.data.store_charge, ['name', 'confirmation_url', 'status', 'trial_ends_at', 'ends_at']));
+        _this.commit('SET_STORE_CHARGE', Object(lodash__WEBPACK_IMPORTED_MODULE_3__["pick"])(res.data.store_charge, ['name', 'confirmation_url', 'status', 'trial_ends_at', 'ends_at']));
 
         console.log('fetching done!');
         _this.state.isLoading = false;
@@ -77408,9 +77355,9 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\anotherapp\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\laragon\www\anotherapp\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\laragon\www\anotherapp\resources\sass\main.scss */"./resources/sass/main.scss");
+__webpack_require__(/*! c:\laragon\www\anotherapp\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! c:\laragon\www\anotherapp\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! c:\laragon\www\anotherapp\resources\sass\main.scss */"./resources/sass/main.scss");
 
 
 /***/ })

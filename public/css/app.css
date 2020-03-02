@@ -427,21 +427,49 @@ label {
     z-index: 1;
     bottom: 0;
     width: 100% !important;
-    padding: 1rem !important;
+    padding: 16px !important;
   }
 
   .dashboard .main_wrapper aside ul {
     display: -webkit-box !important;
     display: flex !important;
     justify-content: space-around;
+    padding: 0 !important;
+  }
+
+  .dashboard .main_wrapper aside ul li {
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .dashboard .main_wrapper aside ul li a {
     padding: 0 !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-pack: center !important;
+            justify-content: center !important;
+    -webkit-box-align: center !important;
+            align-items: center !important;
+  }
+
+  .dashboard .main_wrapper aside ul li a .icon-container {
+    margin: 0 !important;
+    padding: 8px;
+    text-align: center;
   }
 
   .dashboard .main_wrapper aside ul li a span {
-    display: none;
+    font-size: 10px;
+  }
+
+  .dashboard .main_wrapper aside ul li a:hover, .dashboard .main_wrapper aside ul li a.router-link-active {
+    color: #016fff;
+    border-right: none;
+  }
+
+  .dashboard .main_wrapper aside ul li a:hover svg, .dashboard .main_wrapper aside ul li a.router-link-active svg {
+    color: #016fff;
   }
 
   .dashboard .main_wrapper main {
@@ -596,17 +624,19 @@ label {
 
 .dashboard .main_wrapper aside {
   width: 240px;
-  padding: 2rem 0;
+  padding: 40px 0;
   background-color: #fff;
   box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .dashboard .main_wrapper aside ul {
   display: block;
+  padding-left: 32px;
 }
 
 .dashboard .main_wrapper aside ul li {
   display: block;
+  margin-bottom: 32px;
 }
 
 .dashboard .main_wrapper aside ul li a {
@@ -617,39 +647,27 @@ label {
   position: relative;
   text-decoration: none;
   font-size: 16px;
-  color: #a0a5b8;
-  padding-left: 3rem;
-  padding-bottom: 2.5rem;
+  color: #525252;
   -webkit-transition: all 100ms ease-out;
   transition: all 100ms ease-out;
 }
 
-.dashboard .main_wrapper aside ul li a svg {
-  margin-right: 1rem;
-  width: 18px;
+.dashboard .main_wrapper aside ul li a .icon-container {
+  margin-right: 16px;
 }
 
-.dashboard .main_wrapper aside ul li a svg path {
-  stroke: #a0a5b8 !important;
+.dashboard .main_wrapper aside ul li a svg {
+  width: 18px;
+  fill: currentColor;
 }
 
 .dashboard .main_wrapper aside ul li a:hover, .dashboard .main_wrapper aside ul li a.router-link-active {
   color: #016fff;
+  border-right: 2px solid #016fff;
 }
 
-.dashboard .main_wrapper aside ul li a:hover::after, .dashboard .main_wrapper aside ul li a.router-link-active::after {
-  content: "";
-  position: absolute;
-  right: -1px;
-  top: 4px;
-  width: 3px;
-  height: 18px;
-  border-radius: 5px;
-  background-color: #016fff;
-}
-
-.dashboard .main_wrapper aside ul li a:hover svg path, .dashboard .main_wrapper aside ul li a.router-link-active svg path {
-  stroke: #016fff !important;
+.dashboard .main_wrapper aside ul li a:hover svg, .dashboard .main_wrapper aside ul li a.router-link-active svg {
+  color: #016fff;
 }
 
 .dashboard .main_wrapper main {

@@ -26,16 +26,38 @@
         z-index: 1;
         bottom: 0;
         width: 100% !important;
-        padding: 1rem !important;
+        padding: 16px !important;
         ul {
           display: flex !important;
           justify-content: space-around;
+          padding: 0 !important;
           li {
+            padding: 0 !important;
+            margin: 0 !important;
             a {
               padding: 0 !important;
+              flex-direction: column;
+              justify-content: center !important;
+              align-items: center !important;
+
+              .icon-container {
+                margin: 0 !important;
+                padding: 8px;
+                text-align: center;
+              }
 
               span {
-                display: none;
+                font-size: 10px;
+              }
+
+              &:hover,
+              &.router-link-active {
+                color: $mainColor;
+                border-right: none;
+
+                svg {
+                  color: $mainColor;
+                }
               }
             }
           }
@@ -48,8 +70,7 @@
     }
   }
 }
-@media only screen and (max-width: 999px) {
-}
+
 .dashboard {
   background-color: #f2f6f9;
 
@@ -162,14 +183,16 @@
     // sidebar
     aside {
       width: 240px;
-      padding: 2rem 0;
+      padding: 40px 0;
       background-color: #fff;
       box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
       ul {
         display: block;
+        padding-left: 32px;
 
         li {
           display: block;
+          margin-bottom: 32px;
 
           a {
             display: flex;
@@ -177,38 +200,25 @@
             position: relative;
             text-decoration: none;
             font-size: $font-3;
-            color: #a0a5b8;
-            padding-left: 3rem;
-            padding-bottom: 2.5rem;
+            color: #525252;
             transition: all 100ms ease-out;
 
-            svg {
-              margin-right: 1rem;
-              width: 18px;
+            .icon-container {
+              margin-right: 16px;
+            }
 
-              path {
-                stroke: #a0a5b8 !important;
-              }
+            svg {
+              width: 18px;
+              fill: currentColor;
             }
 
             &:hover,
             &.router-link-active {
               color: $mainColor;
+              border-right: 2px solid $mainColor;
 
-              &::after {
-                content: '';
-                position: absolute;
-                right: -1px;
-                top: 4px;
-                width: 3px;
-                height: 18px;
-                border-radius: 5px;
-                background-color: $mainColor;
-              }
               svg {
-                path {
-                  stroke: $mainColor !important;
-                }
+                color: $mainColor;
               }
             }
           }

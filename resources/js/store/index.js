@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import Axios from 'axios';
 
+import { isNull, pick } from 'lodash';
+
 Vue.use(Vuex);
 
 const store = {
@@ -34,9 +36,7 @@ const store = {
 
   getters: {
     error(state) {
-      return (
-        _.isNull(state.charge.trial_ends_at) || _.isNull(state.charge.ends_at)
-      );
+      return isNull(state.charge.trial_ends_at) || isNull(state.charge.ends_at);
     },
     getKey(state) {
       return state.account.api_key;
@@ -75,7 +75,7 @@ const store = {
       return state.charge.status;
     },
     getTrailEnds(state) {
-      return _.isNull(state.charge.trial_ends_at)
+      return isNull(state.charge.trial_ends_at)
         ? '-'
         : state.charge.trial_ends_at;
     }
@@ -86,7 +86,7 @@ const store = {
       state.user = user;
     },
     SET_STORE(state, store) {
-      state.store = _.pick(store, ['domain', 'name']);
+      state.store = pick(store, ['domain', 'name']);
     },
     SET_STORE_CHARGE(state, charge) {
       state.charge = charge;
@@ -102,16 +102,16 @@ const store = {
       Axios('/me').then(res => {
         this.commit(
           'SET_USER',
-          _.pick(res.data, ['city', 'email', 'phone', 'zip', 'country'])
+          pick(res.data, ['city', 'email', 'phone', 'zip', 'country'])
         );
         this.commit('SET_STORE', res.data.store);
         this.commit(
           'SET_ACCOUNT',
-          _.pick(res.data.store.account, ['api_key', 'api_secret'])
+          pick(res.data.store.account, ['api_key', 'api_secret'])
         );
         this.commit(
           'SET_STORE_CHARGE',
-          _.pick(res.data.store_charge, [
+          pick(res.data.store_charge, [
             'name',
             'confirmation_url',
             'status',

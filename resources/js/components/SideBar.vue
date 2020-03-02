@@ -3,37 +3,49 @@
     <ul>
       <li>
         <router-link to="/dashboard/stats">
-          <DashboardIcon></DashboardIcon>
+          <div class="icon-container">
+            <DashboardIcon></DashboardIcon>
+          </div>
           <span>Dashboard</span>
         </router-link>
       </li>
       <li>
         <router-link to="/dashboard/billing">
-          <DashboardIcon></DashboardIcon>
+          <div class="icon-container">
+            <DashboardIcon></DashboardIcon>
+          </div>
           <span>Billing</span>
         </router-link>
       </li>
       <li>
         <router-link to="/dashboard/account">
-          <LinkIcon />
+          <div class="icon-container">
+            <LinkIcon />
+          </div>
           <span>Account</span>
         </router-link>
       </li>
       <li>
         <router-link to="/dashboard/setting">
-          <SettingIcon />
+          <div class="icon-container">
+            <SettingIcon />
+          </div>
           <span>Setting</span>
         </router-link>
       </li>
       <li>
         <router-link to="/dashboard/tutorials">
-          <VideoTutorialIcon></VideoTutorialIcon>
+          <div class="icon-container">
+            <VideoTutorialIcon></VideoTutorialIcon>
+          </div>
           <span>Tutorials</span>
         </router-link>
       </li>
       <li>
         <router-link to="/dashboard/support">
-          <SupportIcon></SupportIcon>
+          <div class="icon-container">
+            <SupportIcon></SupportIcon>
+          </div>
           <span>Support</span>
         </router-link>
       </li>
