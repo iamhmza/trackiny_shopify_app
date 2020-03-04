@@ -7,7 +7,7 @@
         <tr>
           <th>Plan name</th>
           <th>status</th>
-          <th>trail</th>
+          <th>trail ends</th>
           <th>confirm</th>
         </tr>
       </thead>
@@ -17,9 +17,10 @@
           <td>{{ status }}</td>
           <td>{{ trailEndsAt }}</td>
           <td>
-            <button class="cta primary">
+            <button v-if="error" class="cta primary">
               <a style="color:white" :href="confirmUrl">Confirm</a>
             </button>
+            <span v-else>Confirmed</span>
           </td>
         </tr>
       </tbody>
@@ -36,7 +37,8 @@ export default {
       name: 'getPlan',
       status: 'getStatus',
       trailEndsAt: 'getTrailEnds',
-      confirmUrl: 'getUrl'
+      confirmUrl: 'getUrl',
+      error: 'error'
     })
   }
 };

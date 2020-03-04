@@ -1,23 +1,29 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/install/paypal', function () {
         return view('install.paypal');
     });
-    // SPA
-    Route::get('/dashboard/{path}', function () {
-        return view('dashboard');
-    })->where('path', '(.*)');
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
+    Route::group(['middleware' => 'shopifycharge'], function () {
+        Route::get('/dashboard/{path}', function () {
+            return view('dashboard');
+        })->where('path', '(.*)');
+
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        });
+
+        // API for dashboard
+        Route::get('/me', 'DashboardController@index');
+        Route::get('/me/orders', 'DashboardController@getOrders');
+        Route::get('/me/count', 'DashboardController@getFulfilledOrders');
     });
 
-    // API for dashboard
-    Route::get('/me', 'DashboardController@index');
-    Route::get('/me/orders', 'DashboardController@getOrders');
-    Route::get('/me/count', 'DashboardController@getFulfilledOrders');
+    Route::get('/charges', 'ShopifyWebhooksController@chargeConfirmationHandler');
 });
 
 Route::get('/me/logout', 'DashboardController@logout');
@@ -59,9 +65,7 @@ Route::group(['prefix' => "woocommerce"], function () {
 
 
 // shopify webhooks
-Route::group(['middleware' => 'shopify'], function () {
+Route::group(['middleware' => ['shopify', 'checkshopify']], function () {
     Route::post('/webhooks/fulfillment', 'ShopifyWebhooksController@orderFulfilledCallback');
     Route::post('/webhooks/transaction', 'ShopifyWebhooksController@transactionCreatedCallback');
 });
-
-Route::get('/charges', 'ShopifyWebhooksController@chargeConfirmationHandler');

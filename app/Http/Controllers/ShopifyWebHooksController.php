@@ -6,9 +6,12 @@ use App\User;
 use App\Order;
 use App\Store;
 use App\Transaction;
+use App\UserProvider;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use GuzzleHttp\Exception\ClientException;
+use Illuminate\Foundation\Auth\RedirectsUsers;
 
 class ShopifyWebhooksController extends Controller
 {
@@ -140,10 +143,52 @@ class ShopifyWebhooksController extends Controller
     {
         $chargePlan =  $request->getContent();
 
-        dump($chargePlan);
 
-        // TODO: update store_charge record
-        // TODO: redirect back to dashboard
+        $user = Auth::user();
+        $shop = $user->name;
+        $id = $user->id;
+
+        $token = UserProvider::find($id)->provider_token;
+
+        $client = new Client([
+            'headers' => ['Content-Type' => 'application/json', 'X-Shopify-Access-Token' => $token],
+        ]);
+        $url = 'https://' . $shop . '/admin/api/2020-01/recurring_application_charges/' . $request->get('charge_id') . '/activate.json';
+
+        // TODO: change test charge
+
+        try {
+            $res = $client->post($url, [
+                "json" => [
+                    "recurring_application_charge" => [
+                        "name" => "Standard Plan",
+                        "price" => 10.0,
+                        "status" => "accepted",
+                        "return_url" => env("APP_URL") . "charges",
+                        "trial_days" => 1,
+                        "test" => true
+                    ]
+                ]
+            ]);
+
+
+            $data =  json_decode($res->getBody()->getContents())->recurring_application_charge;
+            $user->storeCharge()->update([
+                'name' => $data->name,
+                'status' => $data->status,
+                'trial_ends_at' => $data->trial_ends_on,
+                'ends_at' => $data->billing_on,
+            ]);
+
+            return redirect('dashboard');
+        } catch (ClientException $e) {
+
+            if ($e->getCode() == 422) {
+                return redirect('install/choose');
+            }
+        }
+
+
 
         return response()->json(json_decode($chargePlan));
     }

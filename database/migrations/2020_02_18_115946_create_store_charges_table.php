@@ -17,7 +17,7 @@ class CreateStoreChargesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('name');
-            $table->string('confirmation_url');
+            $table->string('confirmation_url')->nullable();
             $table->string('status');
             $table->timestamp('trial_ends_at')->nullable();
             $table->timestamp('ends_at')->nullable();

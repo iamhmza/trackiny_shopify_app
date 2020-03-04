@@ -2383,6 +2383,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Billing',
@@ -2390,7 +2391,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     name: 'getPlan',
     status: 'getStatus',
     trailEndsAt: 'getTrailEnds',
-    confirmUrl: 'getUrl'
+    confirmUrl: 'getUrl',
+    error: 'error'
   }))
 });
 
@@ -59444,16 +59446,18 @@ var render = function() {
           _c("td", [_vm._v(_vm._s(_vm.trailEndsAt))]),
           _vm._v(" "),
           _c("td", [
-            _c("button", { staticClass: "cta primary" }, [
-              _c(
-                "a",
-                {
-                  staticStyle: { color: "white" },
-                  attrs: { href: _vm.confirmUrl }
-                },
-                [_vm._v("Confirm")]
-              )
-            ])
+            _vm.error
+              ? _c("button", { staticClass: "cta primary" }, [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { color: "white" },
+                      attrs: { href: _vm.confirmUrl }
+                    },
+                    [_vm._v("Confirm")]
+                  )
+                ])
+              : _c("span", [_vm._v("Confirmed")])
           ])
         ])
       ])
@@ -59471,7 +59475,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("status")]),
         _vm._v(" "),
-        _c("th", [_vm._v("trail")]),
+        _c("th", [_vm._v("trail ends")]),
         _vm._v(" "),
         _c("th", [_vm._v("confirm")])
       ])

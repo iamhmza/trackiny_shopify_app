@@ -427,7 +427,9 @@ label {
     z-index: 1;
     bottom: 0;
     width: 100% !important;
-    padding: 16px !important;
+    padding: 8px !important;
+    background-color: whitesmoke !important;
+    border-top: 1px solid #ccc;
   }
 
   .dashboard .main_wrapper aside ul {
@@ -465,7 +467,7 @@ label {
 
   .dashboard .main_wrapper aside ul li a:hover, .dashboard .main_wrapper aside ul li a.router-link-active {
     color: #016fff;
-    border-right: none;
+    border-right: none !important;
   }
 
   .dashboard .main_wrapper aside ul li a:hover svg, .dashboard .main_wrapper aside ul li a.router-link-active svg {
@@ -473,7 +475,7 @@ label {
   }
 
   .dashboard .main_wrapper main {
-    padding: 1.4rem 1rem !important;
+    padding: 64px 1rem !important;
   }
 }
 
