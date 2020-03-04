@@ -33,6 +33,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 // authentication
 Route::group(['prefix' => 'install'], function () {
     Route::get('/choose', function () {
