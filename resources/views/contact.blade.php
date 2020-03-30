@@ -13,7 +13,7 @@
   <h4 class="main-text mt-4">Whether you have questions or you would just like to say hello, contact us.</h4>
 </div>
 
-<main class="main-gradient py-8">
+<main class="py-8 bg-no-repeat bg-cover" style="background-image:url('{{asset('/images/contact.svg')}}')">
 
   <form action="">
     <div class="container m-auto my-16 px-6 md:px-0 text-center">

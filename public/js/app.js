@@ -77359,9 +77359,9 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\laragon\www\anotherapp\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! c:\laragon\www\anotherapp\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! c:\laragon\www\anotherapp\resources\sass\main.scss */"./resources/sass/main.scss");
+__webpack_require__(/*! C:\laragon\www\anotherapp\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\laragon\www\anotherapp\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\laragon\www\anotherapp\resources\sass\main.scss */"./resources/sass/main.scss");
 
 
 /***/ })

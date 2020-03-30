@@ -6,13 +6,17 @@
 <link rel="stylesheet" href=" {{ asset('css/glider.min.css')}}">
 <script defer src="{{ asset('js/glider.min.js') }}"></script>
 
+<script defer src="{{ asset('js/main.js') }}"></script>
+
+
 @endsection
 
 
 @section('main')
 
 
-<header class="text-white bg-no-repeat bg-cover" style="background-image: url('{{asset('images/test.png ')}}'); ">
+<header class="text-white bg-no-repeat bg-cover bg-center pb-20"
+  style="background-image: url('{{asset('images/hero.svg')}}'); ">
   @component('components.navbar')
   <img class="w-full" src="./images/logo_w.png" alt="trackiny logo">
   @endcomponent
@@ -47,10 +51,13 @@
   </section>
 </header>
 
-<section class="pb-32  lg:-mt-32">
+<section class="pb-32  lg:-mt-40">
   <div class="w-4/5 mx-auto text-center shadow-lg">
-    <h2 class="title lg:text-white">Discover our suite of dicesion enablers</h2>
-    <h4 class="title-helper lg:text-white">Discover our suite of dicesion enablers</h4>
+    <div class="py-8">
+      <h2 class="title lg:text-white">Discover our suite of dicesion enablers</h2>
+      <h4 class="title-helper lg:text-white">Discover our suite of dicesion enablers</h4>
+
+    </div>
     <div class="md:flex flex-wrap mt-6 p-10">
 
       {{-- stopwatch --}}
@@ -937,33 +944,47 @@
 
   <div class="w-11/12 md:w-2/3 mx-auto mt-6 shadow-lg">
 
-    <div v-for="quest in quests" class="accordion-item">
-
-      <a href="#" @click.prevent="toggleClass(quest.id)">
-        <div class="flex justify-between items-center border-b border-main border-solid">
-          <span class="text-lg text-main pl-6 py-6">#{ quest.question }</span>
-
-          <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
-            <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
-              stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
-              <tspan x="-14.243" y="0"></tspan>
-            </text>
-          </svg>
-
-        </div>
-      </a>
-
-      <div :class="quest.open ? 'block p-5 max-h-full opacity-100 accordion-transition': 'accordion-item-closed'"
-        class="main-text bg-gray-100">
-        #{ quest.answer }
+    <div class="accordion-item" data-index="1" data-state="hidden">
+      <div class="flex justify-between items-center border-b border-main border-solid">
+        <span class="text-lg text-main pl-6 py-6">question 1</span>
+        <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
+          <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
+            stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
+            <tspan x="-14.243" y="0"></tspan>
+          </text>
+        </svg>
       </div>
+      <div class="answer main-text bg-gray-100">answer</div>
+    </div>
+
+    <div class="accordion-item" data-index="2" data-state="hidden">
+      <div class="flex justify-between items-center border-b border-main border-solid">
+        <span class="text-lg text-main pl-6 py-6">question 1</span>
+        <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
+          <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
+            stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
+            <tspan x="-14.243" y="0"></tspan>
+          </text>
+        </svg>
+      </div>
+      <div class="answer main-text bg-gray-100">answer</div>
+    </div>
+    <div class="accordion-item" data-index="3" data-state="hidden">
+      <div class="flex justify-between items-center border-b border-main border-solid">
+        <span class="text-lg text-main pl-6 py-6">question 1</span>
+        <svg class="w-10 h-10 fill-current text-main mr-6" viewBox="0 0 32 52">
+          <text id="down001_-_E049" data-name="down001 - E049" transform="translate(16 50)" fill="#225dfe"
+            stroke="#225dfe" stroke-width="1" font-size="27" font-family="IkonoDemoL-4, Ikono Demo L">
+            <tspan x="-14.243" y="0"></tspan>
+          </text>
+        </svg>
+      </div>
+      <div class="answer main-text bg-gray-100">answer</div>
     </div>
 
   </div>
 
 </section>
-
-
 
 
 @endsection

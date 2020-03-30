@@ -1,0 +1,673 @@
+/* shopify paypal*/
+
+$companies = [
+
+4PX => "FOUR_PX_EXPRESS",
+APC => "APC_OVERNIGHT",
+Amazon Logistics UK => "",
+Amazon Logistics US => "",
+Anjun Logistics => "",
+Australia Post => "AUSTRALIA_POST",
+Bluedart => "BLUEDART",
+Canada Post => "CANADA_POST",
+Canpar => "CANPAR",
+China Post => "CHINA_POST",
+Chukou1 => "",
+Correios => "",
+DHL Express => "DHL",
+DHL eCommerce => "DHL_GLOBAL_ECOMMERCE",
+DHL eCommerce Asia => "DHL_GLOBAL_MAIL_ASIA",
+DPD => "DPD",
+DPD Local => "DPD_LOCAL",
+DPD UK => "DPD_UK",
+Delhivery => "",
+Eagle => "",
+FSC => "",
+FedEx => "FEDEX",
+GLS => "GLS",
+GLS (US) => "GLS",
+Globegistics => "GLOBEGISTICS",
+Japan Post (EN) => "JAPAN_POST",
+Japan Post (JA) => "JAPAN_POST",
+La Poste => "LAPOSTE",
+New Zealand Post => "NZ_POST",
+Newgistics => "",
+PostNL => "POSTNL",
+PostNord => "",
+Purolator => "PUROLATOR",
+Royal Mail => "ROYAL_MAIL",
+SF Express => "SF_EXPRESS",
+SFC Fulfillment => "SFC_EXPRESS",
+Sagawa (EN) => "SAGAWA",
+Sagawa (JA) => "SAGAWA_JP",
+Sendle => "SENDLE",
+Singapore "Post ",
+TNT => "TNT",
+UPS => "UPS",
+USPS => "USPS",
+Whistl => "",
+Yamato (EN) => "YAMATO",
+Yamato (JA) => "YAMATO",
+YunExpress => "", 
+
+]
+
+
+
+
+
+
+/* payal tracking companies */
+ABC_PACKAGE. ABC Package Express.
+AN_POST. An Post Ireland.
+APC_OVERNIGHT. APC Overnight.
+ASM_ES. ASM Tracking Spain.
+AUPOST_CN. Logistics in China.
+AXL. AXL Express & Logistics.
+ACOMMMERCE. aCommerce.
+ADICIONAL_PT. Adicional Logistics Portugal.
+ADSONE. ADSone Cumulus.
+AIR_21. Air 21.
+AIRBORNE_EXPRESS_UK. Airborne Express UK.
+AIRBORNE_EXPRESS. Airborne Express.
+AIRPAK_MY. Airpak Malaysia.
+AIRSPEED. Airspeed.
+AIRSURE. Airsure.
+ALPHAFAST. Alphafast.
+ARAMEX. Aramex.
+ASENDIA_DE. Asendia Germany.
+ASENDIA_HK. Asendia Hong Kong.
+ASENDIA_UK. Asendia UK.
+ASENDIA_US. Asendia USA.
+AUSTRALIA_POST. Australia Post.
+TOLL_AU. Toll Australia.
+AUSTRIAN_POST_EXPRESS. Austrian Post Express.
+AUSTRIAN_POST. Austrian Post Registered.
+B_TWO_C_EUROPE. B2C Europe.
+BERT. Groupe Bert.
+BPOST. BPost.
+BQC_EXPRESS. BQC Express.
+BRT_IT. BRT Bartolini.
+BLUEDART. Bluedart.
+BONDS_COURIERS. Bonds Couriers.
+BPOST_INT. bpost International.
+BULGARIAN_POST. Bulgarian Post.
+BUYLOGIC. Buylogic.
+CBL_LOGISTICA. CBL Logística.
+CJ_LOGISTICS. CJ Logistics.
+CJ_INT_MY. CJ Malaysia International.
+CJ_MY. CJ Malaysia.
+CJ_TH. CJ Thailand.
+CNEXPS. CN Express China.
+CANADA_POST. Canada Post.
+CANPAR. Canpar Express.
+CESKA_CZ. Česká Pošta.
+CHINA_POST. China Post.
+CHRONOPOST_FR. Chronopost France.
+CHRONOPOST_PT. Chronopost Portugal.
+CHUNGHWA_POST. Chunghwa Post.
+CITYLINK_MY. CityLink Malaysia.
+COLIPOSTE. Coliposte.
+COLIS. Colis France.
+COLLECTPLUS. CollectPlus.
+CONTINENTAL. Continental.
+CORREOS_AG. Correos Argentina.
+CORREOS_BR. Correos Brazil.
+CORREOS_CL. Correos Chile.
+CORREOS_CR. Correos De Costa Rica.
+CORREOS_MX. Correos De Mexico.
+CORREOS_ES. Correos De Spain.
+CORREOS_EXPRESS. Correos Express.
+COURIERPLUS. Courier Plus.
+COURIER_POST. Courier Post.
+COURIERS_PLEASE. Couriers Please.
+CPACKET. Cpacket.
+CUCKOOEXPRESS. Cuckoo Express.
+CYPRUS_POST_CYP. Cyprus Post.
+DBSCHENKER_SE. DB Schenker Sweden.
+DHL_ES. DHL Spain.
+DHL_ACTIVE_TRACING. DHL Active Tracing.
+DHL_AU. DHL Australia.
+DHL_BENELUX. DHL Benelux.
+DHL_DEUTSCHE_POST. DHL Deutsche Post.
+DHL. DHL Express.
+DHL_FR. DHL France.
+DHL_GLOBAL_ECOMMERCE. DHL Global eCommerce.
+DHL_HK. DHL Hong Kong.
+DHL_IT. DHL Italy.
+DHL_JP. DHL Japan.
+DHL_NL. DHL Netherlands.
+DHL_PACKET. DHL Packet.
+DHL_PARCEL_NL. DHL Parcel Netherlands.
+DHL_PARCEL_ES. DHL Parcel Spain.
+DHL_PL. DHL Poland.
+DHL_SG. DHL Singapore.
+DHL_UK. DHL UK.
+DHL_GLOBAL_MAIL_ASIA. DHL eCommerce Asia.
+DHL_GLOBAL_MAIL. DHL eCommerce US.
+DHL_AT. DHL Austria.
+DMM_NETWORK. DMM Network.
+DPD_DELISTRACK. DPD Delistrack.
+DPD_FR. DPD France.
+DPD_DE. DPD Germany.
+DPD. DPD Global.
+DPD_HK. DPD Hong Kong.
+DPD_IR. DPD Ireland.
+DPD_LOCAL_REF. DPD Local Reference.
+DPD_LOCAL. DPD Local.
+DPD_PL. DPD Poland.
+DPD_RO. DPD Romania.
+DPD_RU. DPD Russia.
+DPD_UK. DPD UK.
+DPE_EXPRESS. DPE Express.
+DPEX. DPEX Worldwide.
+DTDC_AU. DTDC Australia.
+DTDC_EXPRESS. DTDC Express Global.
+DTDC_IN. DTDC India.
+DAWN_WING. Dawn Wing.
+DELHIVERY_IN. Delhivery India.
+DELTEC_DE. Deltec Germany.
+DELTEC_UK. Deltec UK.
+DEUTSCHE_DE. Deutsche Post.
+DIRECTLINK_SE. Direct Link Sweden.
+DIRECTLOG_BR. Directlog.
+DOTZOT. Dotzot.
+EC_CN. EC China.
+EFS. Enterprise Freight Systems (EFS).
+ELTA_GR. ELTA Greece.
+EMPS_CN. EMPS China.
+EMS_CN. EMS China.
+EPARCEL_KR. EParcel Korea.
+ESHOPWORLD. EShopWorld.
+ECARGO. Ecargo.
+EKART. Ekart.
+EMIRATES_POST. Emirates Post.
+ENSENDA. Ensenda USA.
+ESTAFETA. Estafeta.
+ESTES. Estes.
+FERCAM_IT. FERCAM Logistics & Transport.
+FLYT_EXPRESS. FLYT Express.
+FASTRACK. FastTrack Thailand.
+FASTWAY_US. Fastway USA.
+FASTWAY_ZA. Fastway South Africa.
+FASTWAY_UK. Fastway UK.
+FASTWAY_AU. Fastway Australia.
+FASTWAY_NZ. Fastway New Zealand.
+FEDEX. FedEx.
+FIRST_LOGISITCS. First Logistics.
+FOUR_PX_EXPRESS. 4PX Express.
+GEODIS. GEODIS - Distribution & Express.
+GLS_CZ. GLS Czech Republic.
+GLS_FR. GLS France.
+GLS_DE. GLS Germany.
+GLS_IT. GLS Italy.
+GLS_NL. GLS Netherlands.
+GLS_ES. GLS Spain.
+GLS. GLS.
+ACS_GR. Parcel Monitor Greece.
+GENIKI_GR. Geniki Greece.
+GLOBEGISTICS. Globegistics USA.
+GREYHOUND. Greyhound.
+HERMES_DE. Hermes Germany.
+HERMES_IT. Hermes Italy.
+HERMESWORLD_UK. HermesWorld UK.
+HK_POST. Hong Kong Post.
+HRVATSKA_HR. Hrvatska Pošta.
+HUAHAN_EXPRESS. Huahan Express.
+HUNTER_EXPRESS. Hunter Express.
+IMX. IMX France.
+IT IS. ITIS International Courier Tracking.
+INPOST_PACZKOMATY. InPost Paczkomaty.
+INDIA_POST. India Post.
+INTERLINK. Interlink Express.
+INTERNATIONAL_BRIDGE. International Bridge.
+INT_SEUR. International Seur.
+INT_SUER. International Seur.
+ISRAEL_POST. Israel Post.
+JNE_IDN. JNE Indonesia.
+JAMEXPRESS_PH. Jam Express.
+JAPAN_POST. Japan Post.
+JP_POST. Japan Post.
+JETSHIP_MY. Jet Ship Malaysia.
+JETSHIP_SG. JetShip Singapore.
+KERRY_EXPRESS_VN. Kerry Express Vietnam.
+KANGAROO_MY. Kangaroo Express Malaysia.
+KERRY_EXPRESS_HK. Kerry Express Hong Kong.
+KERRY_EXPRESS_TH. Kerry Express Thailand.
+KIALA. Kiala.
+KOREA_POST. Korea Post.
+CJ_KR. CJ Logistics Korea.
+LAPOSTE. LA Poste.
+LBC_PH. LBC Express.
+LANDMARK_GLOBAL. Landmark Global.
+LIETUVOS_LT. Lietuvos Pastas.
+LION_PARCEL. Lion Parcel.
+LOGISTICSWORLDWIDE_HK. Logistics Worldwide Hong Kong.
+LOGISTICSWORLDWIDE_KR. Logistics Worldwide Korea.
+LOGISTICSWORLDWIDE_MY. Logistics Worldwide Malaysia.
+LOOMIS. Loomis.
+MONDIAL. Mondial Relay.
+MAGYAR_HU. Magyar Posta.
+MALAYSIA_POST. Pos Malaysia Berhad.
+MASTERLINK. Masterlink.
+MATKAHUOLTO. Matkahuoloto.
+AEROFLASH. Mexico Aeroflash.
+REDPACK. Mexico Redpack.
+SENDA_MX. Mexico Senda Express.
+MONDIAL_BE. Mondial Belgium.
+MYHERMES. MyHermes UK.
+NIM_EXPRESS. Nim Express.
+NACEX_ES. Nacex Spain.
+NATIONWIDE. Nationwide Carrier and Logistics Services.
+NZ_POST. New Zealand Post.
+NIPOST_NG. Nigerian Postal Service.
+NIGHTLINE_UK. Nightline UK.
+NINJAVAN_ID. Ninjavan Indonesia.
+NINJAVAN_MY. Ninjavan Malaysia.
+NINJAVAN_PH. Ninjavan Philippines.
+NINJAVAN_SG. Ninjavan Singapore.
+NINJAVAN_THAI. Ninjavan Thailand.
+NOVA_POSHTA_INT. Nova Poshta International.
+NOVA_POSHTA. Nova Poshta.
+OCA_AR. OCA Argentina.
+OTHER. Other.
+OMNIPARCEL. Omni Parcel.
+ONTRAC. OnTrac.
+ONE_WORLD. One World.
+PTT_POST. PTT Posta.
+PANDU. Pandu Logistics.
+PANTOS. Pantos.
+PARCELFORCE. Parcel Force.
+PARCELPOST_SG. Parcel Post Singapore.
+POCZTA_POLSKA. Poczta Polska.
+POCZTEX. Pocztex.
+CTT_PT. CTT Expresso Portugal.
+SEUR_PT. Seur Portugal.
+POS_ID. Pos Indonesia Domestic.
+POS_INT. Pos Indonesia International.
+POSTNL_INT_3_S. Koninklijke PostNL.
+POSTNL. PostNL.
+POSTNL_INT. PostNl International.
+POSTNORD_LOGISTICS_DK. PostNord Logistics Denmark.
+POSTNORD_LOGISTICS_SE. PostNord Logistics Sweden.
+POSTNORD_LOGISTICS_GLOBAL. PostNord Logistics.
+POSTA_RO. Posta Romana.
+POSTE_ITALIANE. Poste Italiane.
+POSTEN_NORGE. Posten Norge.
+POSTI. Posti.
+POSTUR_IS. Postur.
+PROFESSIONAL_COURIERS. Professional Couriers.
+PUROLATOR. Purolator.
+QUANTIUM. Quantium.
+RAF_PH. RAF Philippines.
+RL_US. RL Carriers.
+RPD_2_MAN. RPD2man Deliveries.
+RPX_ID. RPX Indonesia.
+RPX. RPX International.
+RRDONNELLEY. RR Donnelley.
+RABEN_GROUP. Raben Group.
+RAM. JP RAM Shipping.
+REDEXPRESS. Red Express.
+REDUR_ES. Redur Spain.
+REGISTER_MAIL_IT. Registered Mail Italy.
+RELAIS_COLIS_FR. Relais Colis.
+RINCOS. Rincos.
+ROCKET_PARCEL. Rocket Parcel International.
+ROYAL_MAIL. Royal Mail.
+RUSSIAN_POST. Russian Post.
+SDA_IT. SDA Italy.
+SF_EXPRESS. SF Express.
+SFC_EXPRESS. SFC Express.
+SGT_IT. SGT Corriere Espresso.
+SRE_KOREA. SRE Korea.
+SAGAWA. Sagawa.
+SAGAWA_JP. Sagawa.
+SEKOLOGISTICS. Seko Logistics.
+SENDIT. SendIt.
+SENDLE. Sendle.
+POST_SERBIA_CS. Serbia Post.
+SINGPOST. Singapore Post.
+SIODEMKA. Siodemka.
+SKYNET_WORLDWIDE. SkyNet Worldwide Express.
+SKYNET_MY. Skynet Malaysia.
+SKYNET_UAE. SkyNet Worldwide Express Dubai, UAE.
+SKYNET_UK. SkyNet Worldwide Express UK.
+SEUR_ES. Seur Spain.
+SPREADEL. Spreadel.
+STARTRACK_EXPRESS. Star Track Express.
+STARTRACK. Star Track.
+SWIFTAIR. Swift Air.
+SWISS_POST. Swiss Post.
+TNT_AU. TNT Australia.
+TNT_CN. TNT China.
+TNT_CLICK_IT. TNT Click Italy.
+TNT_FR. TNT France.
+TNT_DE. TNT Germany.
+TNT. TNT Global.
+TNT_IT. TNT Italy.
+TNT_JP. TNT Japan.
+TNT_NL. TNT Netherlands.
+TNT_PL. TNT Poland.
+TNT_ES. TNT Spain.
+TNT_UK. TNT UK.
+TPG. TPG International & Domestic Express.
+TAIWAN_POST_TW. Taiwan Post.
+TAQBIN_HK. TA-Q-BIN Parcel Hong Kong.
+TAQBIN_MY. TA-Q-BIN Parcel Malaysia.
+TAQBIN_SG. TA-Q-BIN Parcel Singapore.
+TAXIPOST. TaxiPost.
+TELIWAY. Teliway.
+THAILAND_POST. Thailand Post.
+THE_COURIER_GUY. The Courier Guy.
+TIKI_ID. Tiki.
+TOLL_IPEC. Toll IPEC.
+TOLL. Toll.
+TWO_GO. 2GO.
+TRANSMISSION. Transmission Netherlands.
+UBI_LOGISTICS. UBI Logistics.
+UK_MAIL. UK Mail.
+UPS_MI. UPS Mail Innovations.
+UPS. United Parcel Service of America, Inc..
+USPS. United States Postal Service (USPS).
+VNPOST_EMS. Post EMS Vietnam.
+VIETNAM_POST. Vietnam Post.
+WAHANA_ID. Wahana Express Indonesia.
+WEBINTERPRET. WebInterpret.
+WINIT. WinIt.
+WISELOADS. Wiseloads.
+XEND_EXPRESS_PH. Xend Express.
+XPRESSBEES. Xpress Bees.
+YAMATO. Yamato Japan.
+YANWEN_CN. Yanwen China.
+YODEL. Yodel.
+UPS_CANADA. UPS Canada.
+UPS_MAIL_INNOVATIONS. UPS Mail Innovations.
+UK_AIRBORNE_EXPRESS. Airborne Express UK.
+UK_DHL. DHL UK.
+UK_OTHER. Other - UK.
+UK_CANNOT_PROVIDE_TRACKING. Cannot provide tracking - UK.
+CA_OTHER. Other - Canada.
+CA_CANNOT_PROVIDE_TRACKING. Cannot provide tracking - Canada.
+DE_GLS. General Logistics Systems (GLS) Germany.
+DE_TNT. TNT Germany.
+DE_DELTEC. Deltec Germany.
+DE_OTHER. Other - Germany.
+DE_INTERNATIONALSEUR. International Seur Germany.
+FR_DHL. DHL France.
+FR_GLS. General Logistics Systems (GLS) France.
+FR_DPD. DPD France.
+FR_IMX. IMX France.
+FR_OTHER. Other - France.
+IT_DHL. DHL Italy.
+IT_IMX. IMX Italy.
+IT_OTHER. Other - Italy.
+AU_DHL. DHL Australia.
+AU_TNT. TNT Australia.
+AU_DTDC. DTDC Australia.
+AU_SENDLE. Sendle Australia.
+AU_SKYNET. Skynet Australia.
+AU_OTHER. Other - Australia.
+ES_TNT. TNT Spain.
+ES_GLS. General Logistics Systems (GLS) Spain.
+ES_INTERNATIONALSEUR. Seur International Spain.
+ES_IMX. IMX Spain.
+ES_OTHER. Other - Spain.
+BE_CHRONOPOST. Chronopost Belgium.
+CN_TNT. TNT China.
+CN_HUAHANEXPRESS. Huahan Express China.
+CN_OTHER. Other - China.
+NL_TNT. TNT Netherlands.
+TNT. TNT Portugal.
+PL_DHL. DHL Portugal.
+JP_TNT. TNT Japan.
+JP_DHL. DHL Japan.
+LOCAL_PICKUP. Local Pickup.
+HK_DPEX. DPEX Worldwide Hong Kong.
+HK_KERRYEXPRESS. Kerry Express Hong Kong.
+HK_LOGISTICSWORLDWIDEEXPRESS. Logistics Worldwide Express Hong Kong.
+HK_RPX. RPX Hong Kong.
+HK_SPREADEL. Spreadel Hong Kong.
+IN_SPREADEL. Spreadel IN.
+TH_CJ. CJ Thailand.
+KR_LOGISTICSWORLDWIDE. Logistics Worldwide Korea.
+AT_DHL. DHL Austria.
+BE_IMX. IMX Belgium.
+MY_LOGISTICSWORLDWIDE. Logistics Worldwide Malaysia.
+MY_JETSHIP. Jetship Malaysia.
+SG_DHL. DHL Singapore.
+SG_SPREADEL. Spreadel Singapore.
+POSTAROMANA. Romanian Post.
+US_PUROLATOR. Purolator US.
+US_FASTWAY. Fastway US.
+CHRONOPOST. Chronopost.
+CORREOS_DE_ESPANA. Correos de Espana.
+DEUTSCHE_POST_DHL. Deutsche Post DHL.
+EBOOST_SDA. Posteitaliane.
+HONGKONG_POST. Hong Kong Post.
+INTANGIBLE_DIGITAL_SERVICES. Intangible Digital Services.
+LA_POSTE. La Poste.
+LA_POSTE_SUIVI. La Poste Suivi.
+NEKO_YAMATO_UNYUU. Yamato Transport Co..
+NITTSU_PELICAN_BIN. Nippon Express.
+POSTE_ITALIA. Posteitaliane.
+SAGAWA_KYUU_BIN. Sagawa Express Co..
+STAR_TRACK_EXPRESS. Star Track Express.
+US_ASCENDIA. Ascendia US.
+US_DTDC. DTDC US.
+US_ENSENDA. Ensenda US.
+US_GLOBEGISTICS. Globeistics US.
+US_ONTRAC. Ontrac US.
+US_RL. RL US.
+US_STARTRACK. Star Track US.
+UK_COLLECTPLUS. CollectPlus UK.
+UK_DELTEC. Deltec UK.
+UK_DPD. DPD UK.
+UK_HERMESWORLD. Hermesworld UK.
+UK_INTERLINK_EXPRESS. Interlink Express UK.
+UK_PARCELFORCE. Parcelforce UK.
+UK_TNT. TNT UK.
+UK_UK_MAIL. UK Mail.
+UK_YODEL. Yodel UK.
+CN_EMS. EMS China.
+CN_EC. EC China.
+CN_EMPS. EMPS China.
+DE_ASENDIA. Asendia Germany.
+DE_DEUTSCHE. Deutsche Germany.
+DE_DPD. DPD Germany.
+DE_HERMES. Hermes Germany.
+GLOBAL_TNT. TNT Global.
+AU_AU_POST. Australian Postal Corporation.
+BONDSCOURIERS. Bonds Couriers.
+AU_FASTWAY. Fastway Australia.
+AUS_TOLL. Toll Australia.
+HK_HONGKONG_POST. Hong Kong Post.
+CN_SF_EXPRESS. SF Express China.
+HK_TAQBIN. TA-Q-BIN Parcel Hong Kong.
+GB_APC. APC Overnight UK.
+CA_CANADA_POST. Canada Post.
+CA_CANPAR_COURIER. Canpar Courier Canada.
+GLOBAL_ESTES. Estes Global.
+CA_GREYHOUND. Greyhound Canada.
+IT_BRT. BRT Corriere Espresso Italy.
+IT_FERCAM. Fercam Italy.
+IT_GLS. General Logistics Systems (GLS) Italy.
+IT_POSTE_ITALIANE. Poste Italiane.
+IT_SDA. SDA Express Courier.
+IT_SGT. SGT Corriere Espresso Italy.
+GLOBAL_SKYNET. Skynet Global.
+IT_TNT. TNT Italy.
+FR_BERT. Bert France.
+FR_CHRONOPOST. Chronopost France.
+FR_COLIS. Colis France.
+FR_GEODIS. Geodis France.
+FR_LAPOSTE. Laposte France.
+FR_MONDIAL. Mondial France.
+FR_TELIWAY. Teliway France.
+FR_TNT. TNT France.
+DPD_POLAND. DPD Poland.
+POL_POCZTA. Poczta Poland.
+POL_SIODEMKA. Siodemka Poland.
+ESP_CORREOS. Sociedad Estatal Correos y Telégrafos.
+ES_CORREOS. Sociedad Estatal Correos y Telégrafos.
+ESP_NACEX. Nacex Spain.
+ESP_ASM. Parcel Monitor Spain.
+ESP_REDUR. Redur Spain.
+ES_DHL. DHL Spain.
+IND_DELHIVERY. Delhivery India.
+IND_BLUEDART. Blue Dart Express DHL.
+IND_DTDC. DTDC India.
+IND_PROFESSIONAL_COURIERS. Professional Couriers India.
+IND_REDEXPRESS. Red Express India.
+IND_XPRESSBEES. XpressBees India.
+IND_DOTZOT. DotZot India.
+ISR_ISRAEL_POST. Israel Post.
+THA_KERRY. Kerry Thailand.
+ACOMMERCE. aCommerce.
+THA_THAILAND_POST. Thailand Post.
+THA_DYNAMIC_LOGISTICS. Dynamic Logistics Thailand.
+FASTRAK_TH. Fastrak Thailand.
+CJ_KOREA_THAI. CJ Logistics in Thailand.
+KOR_KOREA_POST. Korea Post.
+KOR_CJ. CJ Korea.
+KOR_ECARGO. Ecargo Korea.
+SREKOREA. SRE Korea.
+ROCKETPARCEL. Rocket Parcel International.
+BG_BULGARIAN_POST. Bulgarian Post.
+JPN_JAPAN_POST. Japan Post.
+JPN_YAMATO. Yamato Japan.
+JPN_SAGAWA. Sagawa Japan.
+TUR_PTT. PTT Turkey.
+AUT_AUSTRIAN_POST. Austrian Post.
+AU_AUSTRIAN_POST. Austrian Post.
+BEL_DHL. DHL Belgium.
+BE_MONDIAL. Mondial Belgium.
+EU_BPOST. bpost.
+B_2_CEUROPE. B2C Europe.
+IDN_POS. Indonesia Post.
+IDN_POS_INT. Indonesia Post International.
+IDN_JNE. JNE Indonesia.
+IDN_PANDU. Pandu Indonesia.
+IDN_TIKI. Tiki Indonesia.
+IDN_LION_PARCEL. Lion Parcel Indonesia.
+IDN_WAHANA. Wahana Indonesia.
+IDN_FIRST_LOGISTICS. First Logistics Indonesia.
+UK_AN_POST. AddressPay UK.
+UK_FASTWAY. Fastway UK.
+UK_NIGHTLINE. Nightline UK.
+GR_ELTA. Elta Greece.
+GRC_ACS. ACS Greece.
+GR_GENIKI. Geniki Greece.
+NINJAVAN_PHILIPPINES. Ninja Van Philippines.
+PHL_2_GO. 2GO Shipping Philippines.
+PHL_XEND_EXPRESS. Xend Express Philippines.
+PHL_LBC. LBC Philippines.
+PHL_AIR_21. Air 21 Philippines.
+PHL_JAMEXPRESS. JamExpress Philippines.
+PHL_AIRSPEED. Airspeed Philippines.
+PHL_RAF. RAF Philippines.
+DIRECTLOG. Directlog.
+BRA_CORREIOS. Correios Brazil.
+NLD_DHL. DHL Netherlands.
+NLD_POSTNL. PostNL Netherlands.
+NLD_GLS. General Logistics Systems (GLS) Netherlands.
+NLD_TRANSMISSION. Transmission Netherlands.
+CORREOS_DE_MEXICO. Mex Post Correos de Mexico.
+MEX_ESTAFETA. Estafeta Mexico.
+MEX_SENDA. Senda Mexico.
+MEX_REDPACK. Redpack Mexico.
+MEX_AEROFLASH. Aeroflash Mexico.
+NATIONWIDE_MY. Nationwide Malaysia.
+MYS_MYS_POST. Pos Malaysia.
+MYS_TAQBIN. TA-Q-BIN Parcel Malaysia.
+MYS_SKYNET. Skynet Malaysia.
+MYS_CITYLINK. Citylink Malaysia.
+MYS_AIRPAK. Airpak Malaysia.
+VNM_VIETNAM_POST. Vietnam Post.
+PRT_INT_SEUR. Internationational Seur Portugal.
+PT_SPANISH_SEUR. Internationational Seur Spanish Portugal.
+ES_SPANISH_SEUR. Seur Spain.
+PRT_CTT. CTT Expresso Portugal.
+PRT_CHRONOPOST. Chronopost Portugal.
+PRT_SEUR. Seur Portugal.
+ADICIONAL. Adicional.
+LTU_LIETUVOS. Lietuvos paštas Lithuania.
+SG_DPEX. DPEX Worldwide Singapore.
+LWE_HK. LWE Hong Kong.
+SG_SG_POST. Singapore Post.
+SG_TAQBIN. TA-Q-BIN Parcel Singapore.
+SG_NINJAVAN. Ninjavan Singapore.
+SG_ZALORA. Zalora Singapore.
+JET_SHIP. Jetship.
+SG_PARCELPOST. Parcel Post Singapore.
+CHE_SWISS_POST. Swiss Post.
+CH_IMX. IMX Switzerland.
+HUN_MAGYAR. Magyar Posta.
+POSTNORD_LOGISTICS. Post Nord Logistics.
+SWE_DIRECTLINK. Direct Link Sweden.
+SWE_POSTNORD. PostNord Sverige.
+SWE_DB. DB Schenker Sweden.
+CZE_CESKA. Česká pošta.
+NZ_NZ_POST. New Zealand Post Limited (NZ).
+NZ_COURIER_POST. CourierPost New Zealand.
+TW_TAIWAN_POST. Chunghwa Post.
+ARE_EMIRATES_POST. Emirates Post Group.
+CYP_CYPRUS_POST. Cyprus Post.
+HRV_HRVATSKA. Hrvatska Pošta.
+NOR_POSTEN. Posten Norge.
+THECOURIERGUY. The Courier Guy.
+ZA_FASTWAY. Fastway Couriers (South Africa).
+GLOBAL_DHL. DHL Global.
+ARG_CORREO. Correo Argentino.
+ARG_OCA. OCA Argentia.
+POST_SERBIA. Post of Serbia.
+BH_POSTA. BH POŠTA.
+CORREOS_CHILE. CorreosChile.
+APR_72. APR 72.
+CORREOS_DE_COSTA_RICA. Correos de Costa Rica.
+SPEEDEXCOURIER. Speedex Courier.
+ROU_POSTA. Poșta Română.
+UKR_NOVA. Nova Poshta.
+UKR_POSHTA. Ukrposhta - Ukraine's National Post.
+NGA_NIPOST. Nigerian Postal Service.
+NG_COURIERPLUS. Courier Plus Nigeria.
+HERMES. Hermes.
+ABC_MAIL. ABC Mail.
+DHLG. DHLG.
+YANWEN. Yanwen Express.
+SFC_LOGISTICS. SFC Logistics.
+IT_REGISTER_MAIL. Registered Mail Italy.
+RELAIS_COLIS. Relais Colis.
+US_DHL_EXPRESS. DHL Express US.
+US_DHL_PARCEL. DHL Parcel US.
+US_DHL_ECOMMERCE. DHL eCommerce US.
+US_DHL_GLOBALFORWARDING. DHL Global Forwarding US.
+UK_DHL_EXPRESS. DHL Express UK.
+UK_DHL_PARCEL. DHL Parcel UK.
+UK_DHL_GLOBALFORWARDING. DHL Global Forwarding UK.
+CN_DHL_EXPRESS. DHL Express Canada.
+CN_DHL_ECOMMERCE. DHL eCommerce China.
+CN_DHL_GLOBALFORWARDING. DHL Global Forwarding China.
+DE_DHL_EXPRESS. DHL Express Germany.
+DE_DHL_PARCEL. DHL Parcel Germany.
+DE_DHL_PACKET. DHL Packet Germany.
+DE_DHL_ECOMMERCE. DHL eCommerce Germany.
+DE_DHL_GLOBALFORWARDING. DHL Global Forwarding Germany.
+DE_DHL_DEUTSCHEPOST. DHL Deutschepost Germany.
+AU_DHL_EXPRESS. DHL Express Australia.
+AU_DHL_ECOMMERCE. DHL eCommerce Australia.
+AU_DHL_GLOBALFORWARDING. DHL Global Forwarding Australia.
+HK_DHL_EXPRESS. DHL Express Hong Kong.
+HK_DHL_ECOMMERCE. DHL eCommerce Hong Kong.
+HK_DHL_GLOBALFORWARDING. DHL Global Forwarding Hong Kong.
+CA_DHL_EXPRESS. DHL Express Canada.
+CA_DHL_ECOMMERCE. DHL eCommerce Canada.
+CA_DHL_GLOBALFORWARDING. DHL Global Forwarding Canada.
+IT_DHL_EXPRESS. DHL Express Italy.
+IT_DHL_ECOMMERCE. DHL eCommerce Italy.
+IT_DHL_GLOBALFORWARDING. DHL Global Forwarding Italy.
+FR_DHL_EXPRESS. DHL Express France.
+FR_DHL_PARCEL. DHL Parcel France.
+FR_DHL_GLOBALFORWARDING. DHL Global Forwarding France.
+PL_DHL_EXPRESS. DHL Express Poland.
+PL_DHL_PARCEL. DHL Parcel Poland.
+PL_DHL_GLOBALFORWARDING. DHL Global Forwarding Poland

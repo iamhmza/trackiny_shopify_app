@@ -798,16 +798,41 @@ video {
 
 /* Accordion section */
 
-.accordion-item-closed {
-  overflow: hidden;
-  padding: 0;
-  opacity: 0;
-  max-height: 0;
+.accordion-item {
+  cursor: pointer;
 }
 
-.accordion-transition {
-  -webkit-transition: all 150ms ease;
-  transition: all 150ms ease;
+.accordion-item svg {
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.accordion-item[data-state=show] > .answer {
+  overflow: hidden;
+  height: auto;
+  padding: 1rem;
+  -webkit-transition: max-height 10ms linear, -webkit-transform 200ms ease-out;
+  transition: max-height 10ms linear, -webkit-transform 200ms ease-out;
+  transition: transform 200ms ease-out, max-height 10ms linear;
+  transition: transform 200ms ease-out, max-height 10ms linear, -webkit-transform 200ms ease-out;
+  max-height: 400px;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+
+.accordion-item[data-state=show] svg {
+  -webkit-transform: rotate(0.5turn);
+          transform: rotate(0.5turn);
+}
+
+.accordion-item[data-state=hidden] > .answer {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  max-height: 0;
 }
 
 /* auth section */

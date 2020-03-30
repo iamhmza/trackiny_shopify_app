@@ -82,14 +82,30 @@
 
 /* Accordion section */
 
-.accordion-item-closed {
-  @apply overflow-hidden p-0 opacity-0;
-  max-height: 0;
+.accordion-item {
+  @apply cursor-pointer;
+  svg {
+    transition: transform 250ms ease-in-out;
+  }
 }
-.accordion-transition {
-  transition: all 150ms ease;
+.accordion-item[data-state='show'] {
+  > .answer {
+    @apply overflow-hidden h-auto p-4;
+    transition: transform 250ms ease-in-out, max-height 150ms ease-out;
+    max-height: 400px;
+    transform-origin: top;
+    transform: scaleY(1);
+  }
+  svg {
+    transform: rotate(0.5turn);
+  }
 }
-
+.accordion-item[data-state='hidden'] {
+  > .answer {
+    transform: scaleY(0);
+    max-height: 0;
+  }
+}
 /* auth section */
 .auth {
   @apply overflow-y-hidden;

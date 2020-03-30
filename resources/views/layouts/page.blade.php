@@ -58,7 +58,7 @@
   @yield('main')
 
 
-  <footer class="mt-16">
+  <footer class="pt-16 pb-8">
 
     <div class="w-32 m-auto">
       <img class="w-full" src="./images/logo.png" alt="trackiny logo">
@@ -66,14 +66,13 @@
 
 
     <ul class="flex justify-center mt-4">
-      <li><a class="link text-main " href="#">Home</a></li>
-      <li><a class="link text-main " href="#">Features</a></li>
-      <li><a class="link text-main " href="#">Pricing</a></li>
-      <li><a class="link text-main " href="#">Support</a></li>
-      <li><a class="link text-main " href="#">Contact</a></li>
+      <li><a class="link text-main" href="#">Features</a></li>
+      <li><a class="link text-main" href="#">Home</a></li>
+      <li><a class="link text-main" href="#">Pricing</a></li>
+      <li><a class="link text-main" href="#">Support</a></li>
+      <li><a class="link text-main" href="#">Contact</a></li>
     </ul>
   </footer>
-  <script defer src="{{ mix('js/main.js') }}"></script>
 
 </body>
 
