@@ -813,15 +813,15 @@ video {
   overflow: hidden;
   height: auto;
   padding: 1rem;
-  -webkit-transition: max-height 10ms linear, -webkit-transform 200ms ease-out;
-  transition: max-height 10ms linear, -webkit-transform 200ms ease-out;
-  transition: transform 200ms ease-out, max-height 10ms linear;
-  transition: transform 200ms ease-out, max-height 10ms linear, -webkit-transform 200ms ease-out;
+  -webkit-transition: max-height 150ms ease-out, -webkit-transform 250ms ease-in-out;
+  transition: max-height 150ms ease-out, -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, max-height 150ms ease-out;
+  transition: transform 250ms ease-in-out, max-height 150ms ease-out, -webkit-transform 250ms ease-in-out;
   max-height: 400px;
-  -webkit-transform: scaleY(1);
-          transform: scaleY(1);
   -webkit-transform-origin: top;
           transform-origin: top;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
 }
 
 .accordion-item[data-state=show] svg {

@@ -180,7 +180,7 @@ class ShopifyWebhooksController extends Controller
                 'ends_at' => $data->billing_on,
             ]);
 
-            return redirect('dashboard');
+            return redirect('dashboard/stats');
         } catch (ClientException $e) {
 
             if ($e->getCode() == 422) {

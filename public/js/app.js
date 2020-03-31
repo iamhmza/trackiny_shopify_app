@@ -77311,16 +77311,23 @@ var store = {
       var _this = this;
 
       this.state.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_2___default()('/me').then(function (res) {
-        _this.commit('SET_USER', Object(lodash__WEBPACK_IMPORTED_MODULE_3__["pick"])(res.data, ['city', 'email', 'phone', 'zip', 'country']));
+      axios__WEBPACK_IMPORTED_MODULE_2___default()('/me').then(function (_ref) {
+        var data = _ref.data;
 
-        _this.commit('SET_STORE', res.data.store);
+        _this.commit('SET_USER', Object(lodash__WEBPACK_IMPORTED_MODULE_3__["pick"])(data, ['city', 'email', 'phone', 'zip', 'country']));
 
-        _this.commit('SET_ACCOUNT', Object(lodash__WEBPACK_IMPORTED_MODULE_3__["pick"])(res.data.store.account, ['api_key', 'api_secret']));
+        _this.commit('SET_STORE_CHARGE', Object(lodash__WEBPACK_IMPORTED_MODULE_3__["pick"])(data.store_charge, ['name', 'confirmation_url', 'status', 'trial_ends_at', 'ends_at']));
+      });
+      axios__WEBPACK_IMPORTED_MODULE_2___default()('/me/store').then(function (_ref2) {
+        var data = _ref2.data;
 
-        _this.commit('SET_STORE_CHARGE', Object(lodash__WEBPACK_IMPORTED_MODULE_3__["pick"])(res.data.store_charge, ['name', 'confirmation_url', 'status', 'trial_ends_at', 'ends_at']));
+        _this.commit('SET_STORE', data);
+      });
+      axios__WEBPACK_IMPORTED_MODULE_2___default()('/me/account').then(function (_ref3) {
+        var data = _ref3.data;
 
-        console.log('fetching done!');
+        _this.commit('SET_ACCOUNT', Object(lodash__WEBPACK_IMPORTED_MODULE_3__["pick"])(data, ['api_key', 'api_secret']));
+
         _this.state.isLoading = false;
       });
     }

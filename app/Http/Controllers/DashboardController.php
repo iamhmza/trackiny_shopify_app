@@ -16,7 +16,21 @@ class DashboardController extends Controller
     public function index()
     {
         // get current user's store
-        $data = Auth::user()->withStore();
+        $data = Auth::user();
+        return response()->json($data);
+    }
+
+    public function account()
+    {
+        // get current user's store
+        $data = Auth::user()->store->account;
+        return response()->json($data);
+    }
+
+    public function shop()
+    {
+        // get current user's store
+        $data = Auth::user()->store;
         return response()->json($data);
     }
 
@@ -42,9 +56,6 @@ class DashboardController extends Controller
 
             return 'server Error';
         }
-
-
-
 
         return response()->json($data);
     }

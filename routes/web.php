@@ -19,6 +19,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         // API for dashboard
         Route::get('/me', 'DashboardController@index');
+        Route::get('/me/store', 'DashboardController@shop');
+        Route::get('/me/account', 'DashboardController@account');
         Route::get('/me/orders', 'DashboardController@getOrders');
         Route::get('/me/count', 'DashboardController@getFulfilledOrders');
     });

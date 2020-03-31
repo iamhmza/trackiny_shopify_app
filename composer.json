@@ -15,8 +15,7 @@
         "laravel/socialite": "^4.3",
         "laravel/telescope": "^2.1",
         "laravel/tinker": "^2.0",
-        "socialiteproviders/shopify": "^1.0",
-        "tymon/jwt-auth": "1.0.0-rc.5.1"
+        "socialiteproviders/shopify": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

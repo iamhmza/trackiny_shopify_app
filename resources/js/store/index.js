@@ -99,19 +99,15 @@ const store = {
   actions: {
     getData() {
       this.state.isLoading = true;
-      Axios('/me').then(res => {
+      Axios('/me').then(({ data }) => {
         this.commit(
           'SET_USER',
-          pick(res.data, ['city', 'email', 'phone', 'zip', 'country'])
+          pick(data, ['city', 'email', 'phone', 'zip', 'country'])
         );
-        this.commit('SET_STORE', res.data.store);
-        this.commit(
-          'SET_ACCOUNT',
-          pick(res.data.store.account, ['api_key', 'api_secret'])
-        );
+
         this.commit(
           'SET_STORE_CHARGE',
-          pick(res.data.store_charge, [
+          pick(data.store_charge, [
             'name',
             'confirmation_url',
             'status',
@@ -119,8 +115,13 @@ const store = {
             'ends_at'
           ])
         );
+      });
 
-        console.log('fetching done!');
+      Axios('/me/store').then(({ data }) => {
+        this.commit('SET_STORE', data);
+      });
+      Axios('/me/account').then(({ data }) => {
+        this.commit('SET_ACCOUNT', pick(data, ['api_key', 'api_secret']));
         this.state.isLoading = false;
       });
     }
