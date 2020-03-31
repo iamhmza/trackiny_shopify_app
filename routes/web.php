@@ -71,5 +71,7 @@ Route::group(['prefix' => "woocommerce"], function () {
 
 
 // shopify webhooks
-Route::post('/webhooks/fulfillment', 'ShopifyWebhooksController@orderFulfilledCallback');
-Route::post('/webhooks/transaction', 'ShopifyWebhooksController@transactionCreatedCallback');
+Route::group(['middleware' => ['shopify', 'checkshopify']], function () {
+    Route::post('/webhooks/fulfillment', 'ShopifyWebhooksController@orderFulfilledCallback');
+    Route::post('/webhooks/transaction', 'ShopifyWebhooksController@transactionCreatedCallback');
+});
