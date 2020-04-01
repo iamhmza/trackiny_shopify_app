@@ -48,7 +48,7 @@ class RecurringApplicationCharge
                         "name" => "Standard Plan",
                         "price" => 10.0,
                         "return_url" => env("APP_URL") . "charges",
-                        "trial_days" => 1,
+                        "trial_days" => 10,
                         "test" => true
                     ]
                 ]

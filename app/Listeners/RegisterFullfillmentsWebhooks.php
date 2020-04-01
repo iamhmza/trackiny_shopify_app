@@ -30,7 +30,12 @@ class RegisterFullfillmentsWebhooks
         $url = 'https://' . $shop . '/admin/api/2020-01/webhooks.json';
 
         $addressUrlForOrderFulfilled = env('APP_URL') . 'webhooks/fulfillment';
+        $addressUrlForOrderUpdate = env('APP_URL') . 'webhooks/fulfillment/update';
         $addressUrlForTransaction = env('APP_URL') . 'webhooks/transaction';
+        $addressUrlForAppUninstall = env('APP_URL') . 'webhooks/uninstall';
+
+
+        // TODO: webhooks array with types and urls
 
 
         try {
@@ -48,6 +53,8 @@ class RegisterFullfillmentsWebhooks
                 )]
             );
 
+            dump($response);
+
             $response = $client->post(
                 $url,
                 ['body' => json_encode(
@@ -60,6 +67,32 @@ class RegisterFullfillmentsWebhooks
                     ]
                 )]
             );
+
+            $response = $client->post(
+                $url,
+                ['body' => json_encode(
+                    [
+                        "webhook" => [
+                            "topic" => "orders/updated",
+                            "address" => $addressUrlForOrderUpdate,
+                            "format" => "json",
+                        ],
+                    ]
+                )]
+            );
+            $response = $client->post(
+                $url,
+                ['body' => json_encode(
+                    [
+                        "webhook" => [
+                            "topic" => "app/uninstalled",
+                            "address" => $addressUrlForAppUninstall,
+                            "format" => "json",
+                        ],
+                    ]
+                )]
+            );
+            dump($response);
         } catch (ClientException $e) {
 
             // dump($e->getResponse()->getBody()->getContents());

@@ -19,6 +19,7 @@ class CheckShopifyCharge
 
         $charge = Auth::user()->storeCharge;
 
+
         if ($charge->onTrial() || $charge->active()) {
 
             return $next($request);

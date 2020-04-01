@@ -96,11 +96,12 @@ class ShopifyWebhooksController extends Controller
     }
 
 
+
     public function orderUpdatedCallback()
     {
         // if order already exist
         $updatedOrder = json_decode(request()->getContent());
-        $order = Order::where('order_id', $updatedOrder->id);
+        $order = Order::where('id', $updatedOrder->id);
 
         if ($order->exists()) {
 
@@ -191,5 +192,15 @@ class ShopifyWebhooksController extends Controller
 
 
         return response()->json(json_decode($chargePlan));
+    }
+
+    public function appUninstallCallback()
+    {
+        # code...
+        $uninstallInfo = json_decode(request()->getContent());
+
+        // TODO: delete user's data
+
+        return $uninstallInfo;
     }
 }

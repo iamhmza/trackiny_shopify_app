@@ -24,7 +24,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/me/orders', 'DashboardController@getOrders');
         Route::get('/me/count', 'DashboardController@getFulfilledOrders');
     });
-
     Route::get('/charges', 'ShopifyWebhooksController@chargeConfirmationHandler');
 });
 
@@ -71,7 +70,10 @@ Route::group(['prefix' => "woocommerce"], function () {
 
 
 // shopify webhooks
-Route::group(['middleware' => ['shopify', 'checkshopify']], function () {
+// TODO: add middleware 'shopifycharge'
+Route::group(['middleware' => 'shopify'], function () {
     Route::post('/webhooks/fulfillment', 'ShopifyWebhooksController@orderFulfilledCallback');
+    Route::post('/webhooks/fulfillment/update', 'ShopifyWebhooksController@orderUpdatedCallback');
     Route::post('/webhooks/transaction', 'ShopifyWebhooksController@transactionCreatedCallback');
+    Route::post('/webhooks/uninstall', 'ShopifyWebhooksController@appUninstallCallback');
 });

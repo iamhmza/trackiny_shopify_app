@@ -97,33 +97,36 @@ const store = {
   },
 
   actions: {
-    getData() {
+    async getData() {
       this.state.isLoading = true;
-      Axios('/me').then(({ data }) => {
-        this.commit(
-          'SET_USER',
-          pick(data, ['city', 'email', 'phone', 'zip', 'country'])
-        );
 
-        this.commit(
-          'SET_STORE_CHARGE',
-          pick(data.store_charge, [
-            'name',
-            'confirmation_url',
-            'status',
-            'trial_ends_at',
-            'ends_at'
-          ])
-        );
-      });
+      const user = await Axios('/me');
 
-      Axios('/me/store').then(({ data }) => {
-        this.commit('SET_STORE', data);
-      });
-      Axios('/me/account').then(({ data }) => {
-        this.commit('SET_ACCOUNT', pick(data, ['api_key', 'api_secret']));
-        this.state.isLoading = false;
-      });
+      this.commit(
+        'SET_USER',
+        pick(user.data, ['city', 'email', 'phone', 'zip', 'country'])
+      );
+
+      this.commit(
+        'SET_STORE_CHARGE',
+        pick(user.data.store_charge, [
+          'name',
+          'confirmation_url',
+          'status',
+          'trial_ends_at',
+          'ends_at'
+        ])
+      );
+
+      const store = await Axios('/me/store');
+      console.log('store', store.data);
+      this.commit('SET_STORE', store.data);
+
+      const account = await Axios('/me/account');
+      console.log('account', account.data);
+      this.commit('SET_ACCOUNT', pick(account.data, ['api_key', 'api_secret']));
+
+      this.state.isLoading = false;
     }
   }
 };
