@@ -4,7 +4,11 @@
 
 @section('install')
 <main class="auth">
-    <section class="doorway">
+    {{-- background: #66953F;
+    background: -webkit-linear-gradient(left, #66953F, #94BC46);
+    background: -moz-linear-gradient(left, #66953F, #94BC46); --}}
+
+    <section class="doorway" style="background: linear-gradient(to right, #66953F, #94BC46) ;">
         {{-- layer_1 --}}
         <div class="absolute inset-0 md:-ml-8 z-0">
             <svg class="fill-current w-full h-full" viewbox="0 0 1149.342 1042" xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +18,7 @@
                         y2="0.931">
                         <stop offset="0" stop-color="#95bf47">
                         </stop>
-                        <stop offset="1" stop-color="#016fff" stop-opacity="0">
+                        <stop offset="1" stop-color="#66953F">
                         </stop>
                     </lineargradient>
                 </defs>
