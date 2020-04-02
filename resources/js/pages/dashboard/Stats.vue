@@ -4,7 +4,13 @@
 
     <div class="chart-container">
       <div class="heading">
-        <h3 class="title-3">Orders synced</h3>
+        <h3 class="title-3">Fullfiled orders</h3>
+      </div>
+      <div class="chart-wrapper">{{ getOrdersCount }}</div>
+    </div>
+    <div class="chart-container">
+      <div class="heading">
+        <h3 class="title-3">Synced Orders</h3>
       </div>
       <div class="chart-wrapper">{{ count }}</div>
     </div>
@@ -42,13 +48,17 @@
         <h3 class="title-3">synced Orders</h3>
       </div>
       <div class="chart-wrapper">
-        <column-chart :data="[['orders synced', count]]" width="111px"></column-chart>
+        <column-chart
+          :data="[['Synced orders', count], ['Fullfiled orders', getOrdersCount]]"
+          width="111px"
+        ></column-chart>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'stats',
   data() {
@@ -57,6 +67,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(['getOrdersCount']),
     count() {
       return this.orders.length;
     }

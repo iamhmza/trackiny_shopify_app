@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use App\Account;
+use App\User;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\Request;
@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-
 
     public function index()
     {
@@ -43,13 +42,13 @@ class DashboardController extends Controller
     public function getFulfilledOrders()
     {
         $user = Auth::user();
-        $token  = $user->provider->provider_token;
+        $token = $user->provider->provider_token;
         $client = new Client(['headers' => ['Content-Type ' => 'application/json', 'X-Shopify-Access-Token' => $token]]);
-        $url = 'https://' . $user->name . '/admin/api/2020-01/orders/count.json?fulfillment_status=shipped';
+        $url = 'https://' . $user->name . '/admin/api/2020-01/orders/count.json?fulfillment_status=fulfilled';
 
         try {
 
-            $res  = $client->request('get', $url);
+            $res = $client->request('get', $url);
             $data = json_decode($res->getBody()->getContents());
         } catch (ClientException $e) {
             dump($e->getResponse()->getBody()->getContents());
@@ -59,8 +58,6 @@ class DashboardController extends Controller
 
         return response()->json($data);
     }
-
-
 
     public function logout()
     {

@@ -10,6 +10,7 @@ const store = {
   state: {
     isLoading: true,
     isError: false,
+    orders_count: 0,
     user: {
       city: '',
       country: '',
@@ -78,6 +79,9 @@ const store = {
       return isNull(state.charge.trial_ends_at)
         ? '-'
         : state.charge.trial_ends_at;
+    },
+    getOrdersCount(state) {
+      return state.orders_count;
     }
   },
 
@@ -93,6 +97,9 @@ const store = {
     },
     SET_ACCOUNT(state, account) {
       state.account = account;
+    },
+    SET_FULLFILED_ORDERS_COUNT(state, count) {
+      state.orders_count = count;
     }
   },
 
@@ -119,12 +126,17 @@ const store = {
       );
 
       const store = await Axios('/me/store');
-      console.log('store', store.data);
       this.commit('SET_STORE', store.data);
 
       const account = await Axios('/me/account');
-      console.log('account', account.data);
       this.commit('SET_ACCOUNT', pick(account.data, ['api_key', 'api_secret']));
+
+      const fullfiledOrdersCount = await Axios('/me/count');
+      console.log(fullfiledOrdersCount.data);
+      this.commit(
+        'SET_FULLFILED_ORDERS_COUNT',
+        fullfiledOrdersCount.data.count
+      );
 
       this.state.isLoading = false;
     }
