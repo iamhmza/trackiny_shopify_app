@@ -53,7 +53,6 @@ class RegisterFullfillmentsWebhooks
                 )]
             );
 
-            dump($response);
 
             $response = $client->post(
                 $url,
@@ -92,7 +91,6 @@ class RegisterFullfillmentsWebhooks
                     ]
                 )]
             );
-            dump($response);
         } catch (ClientException $e) {
 
             // dump($e->getResponse()->getBody()->getContents());

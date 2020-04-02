@@ -95,8 +95,6 @@ class ShopifyWebhooksController extends Controller
         return response()->json(["message" => "not a paypal transaction"]);
     }
 
-
-
     public function orderUpdatedCallback()
     {
         // if order already exist
@@ -139,7 +137,6 @@ class ShopifyWebhooksController extends Controller
         }
     }
 
-
     public function chargeConfirmationHandler(Request $request)
     {
         $chargePlan =  $request->getContent();
@@ -167,6 +164,7 @@ class ShopifyWebhooksController extends Controller
                         "status" => "accepted",
                         "return_url" => env("APP_URL") . "charges",
                         "trial_days" => 1,
+
                         "test" => true
                     ]
                 ]
@@ -177,6 +175,7 @@ class ShopifyWebhooksController extends Controller
             $user->storeCharge()->update([
                 'name' => $data->name,
                 'status' => $data->status,
+                'confirmation_url' => null,
                 'trial_ends_at' => $data->trial_ends_on,
                 'ends_at' => $data->billing_on,
             ]);
@@ -198,7 +197,7 @@ class ShopifyWebhooksController extends Controller
     {
         # code...
         $uninstallInfo = json_decode(request()->getContent());
-
+        dump($uninstallInfo);
         // TODO: delete user's data
 
         return $uninstallInfo;
