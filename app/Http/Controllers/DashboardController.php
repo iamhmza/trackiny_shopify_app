@@ -45,7 +45,7 @@ class DashboardController extends Controller
         $user = Auth::user();
         $token  = $user->provider->provider_token;
         $client = new Client(['headers' => ['Content-Type ' => 'application/json', 'X-Shopify-Access-Token' => $token]]);
-        $url = $user->name . '/admin/api/2020-01/orders/count.json?fulfillment_status=shipped';
+        $url = 'https://' . $user->name . '/admin/api/2020-01/orders/count.json?fulfillment_status=shipped';
 
         try {
 
