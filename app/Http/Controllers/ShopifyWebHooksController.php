@@ -39,15 +39,85 @@ class ShopifyWebhooksController extends Controller
                 ],
             ]);
 
+            // companies array 
+            $companies = array(
+
+                "4PX" => "FOUR_PX_EXPRESS",
+                "APC" => "APC_OVERNIGHT",
+                "Amazon Logistics UK" => "",
+                "Amazon Logistics US" => "",
+                "Anjun Logistics" => "",
+                "Australia Post" => "AUSTRALIA_POST",
+                "Bluedart" => "BLUEDART",
+                "Canada Post" => "CANADA_POST",
+                "Canpar" => "CANPAR",
+                "China Post" => "CHINA_POST",
+                "Chukou1" => "",
+                "Correios" => "",
+                "DHL Express" => "DHL",
+                "DHL eCommerce" => "DHL_GLOBAL_ECOMMERCE",
+                "DHL eCommerce Asia" => "DHL_GLOBAL_MAIL_ASIA",
+                "DPD" => "DPD",
+                "DPD Local" => "DPD_LOCAL",
+                "DPD UK" => "DPD_UK",
+                "Delhivery" => "",
+                "Eagle" => "",
+                "FSC" => "",
+                "FedEx" => "FEDEX",
+                "GLS" => "GLS",
+                "GLS (US)" => "GLS",
+                "Globegistics" => "GLOBEGISTICS",
+                "Japan Post (EN)" => "JAPAN_POST",
+                "Japan Post (JA)" => "JAPAN_POST",
+               "La Poste" => "LAPOSTE",
+                "New Zealand Post" => "NZ_POST",
+               "Newgistics" => "",
+                "PostNL" => "POSTNL",
+                "PostNord" => "",
+                "Purolator" => "PUROLATOR",
+                "Royal Mail" => "ROYAL_MAIL",
+                "SF Express" => "SF_EXPRESS",
+                "SFC Fulfillment" => "SFC_EXPRESS",
+                "Sagawa (EN)" => "SAGAWA",
+                "Sagawa (JA)" => "SAGAWA_JP",
+                "Sendle" => "SENDLE",
+                "Singapore" =>"Post ",
+                "TNT" => "TNT",
+                "UPS" => "UPS",
+                "USPS" => "USPS",
+                "Whistl" => "",
+                "Yamato (EN)" => "YAMATO",
+                "Yamato (JA)" => "YAMATO",
+                "YunExpress" => "", 
+                
+            );
 
 
-            $tracker = array(
+
+
+
+        // transaction id and tracking number are required
+            $tracker = 
+                        array(
                 "transaction_id" => $transaction->transaction_number,
                 "tracking_number" => $order->fulfillments[0]->tracking_number,
                 "status" => "SHIPPED",
-                "carrier" => str_replace(" ",  "_", strtoupper($order->fulfillments[0]->tracking_company))
+                
+
             );
 
+            
+            if (!empty($companies[$order->fulfillments[0]->tracking_company]) || ($companies[$order->fulfillments[0]->tracking_company] !== "") ) {
+
+                $tracker['carrier'] = $companies[$order->fulfillments[0]->tracking_company]; 
+                 // paypal company => YAMATO
+                }
+
+     
+
+
+
+            
             try {
                 $client->request('POST', $paypalUrlForTracking, [
                     'json' => [
@@ -198,6 +268,7 @@ class ShopifyWebhooksController extends Controller
         # code...
         $uninstallInfo = json_decode(request()->getContent());
         dump($uninstallInfo);
+        // delete user with stores and charges and accounts and orders and transactions with weebhooks
         // TODO: delete user's data
 
         return $uninstallInfo;
