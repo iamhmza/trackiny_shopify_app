@@ -70,7 +70,8 @@ Route::group(['prefix' => "woocommerce"], function () {
 
 
 // shopify webhooks
-// TODO: add middleware 'shopifycharge'
+// TODO: add middleware 'shopifycharge' 
+// TODO: implement uninstall app func
 Route::group(['middleware' => 'shopify'], function () {
     Route::post('/webhooks/fulfillment', 'ShopifyWebhooksController@orderFulfilledCallback');
     Route::post('/webhooks/fulfillment/update', 'ShopifyWebhooksController@orderUpdatedCallback');
