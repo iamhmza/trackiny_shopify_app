@@ -18,11 +18,11 @@ class CheckShopifyCharge
     public function handle($request, Closure $next)
     {
 
-        // $charge = Auth::user()->storeCharge;
-        $shop = request()->header('X-Shopify-Shop-Domain');
+        $charge = Auth::user()->storeCharge;
+        //$shop = request()->header('X-Shopify-Shop-Domain');
 
-        $charge = User::where('name', $shop)->get()->first()->storeCharge;
-        dump($charge);
+        //$charge = User::where('name', $shop)->get()->first()->storeCharge;
+        //dump($charge);
 
         // paid or on trail subscription 
         if ($charge->onTrial() || $charge->active()) {
