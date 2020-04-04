@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Account;
 use App\Order;
 use App\Store;
+use App\StoreCharge;
 use App\Transaction;
 use App\User;
 use App\UserProvider;
+use App\Webhook;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\Request;
@@ -244,9 +247,45 @@ class ShopifyWebhooksController extends Controller
     {
         # code...
         $uninstallInfo = json_decode(request()->getContent());
-        dump($uninstallInfo);
+
+        $user = User::where('name', $uninstallInfo->name)
+            ->orWhere('name', $uninstallInfo->domain)
+            ->get()
+            ->first();
+        $id = $user->id;
+        $storeId = $user->store->id;
+
+        $webhooks = Webhook::where("store_id", $storeId)->get()->first()->hooks;
+        $hooks = json_decode($webhooks);
+
+        $token = UserProvider::find($id)->provider_token;
+        $shop = $user->store->domain;
+
+        $client = new Client([
+            'headers' => ['Content-Type' => 'application/json', 'X-Shopify-Access-Token' => $token],
+        ]);
+
+        foreach ($hooks as $id => $address) {
+            try {
+                $client->delete('https://' . $shop . '/admin/api/2020-01/webhooks/' . $id . '.json');
+            } catch (\Throwable $th) {
+                dump('deleting webhooks failed');
+            }
+
+        }
+
+        Account::where("store_id", $storeId)->delete();
+        Order::where("store_id", $storeId)->delete();
+        Webhook::where("store_id", $storeId)->delete();
+        $user->store()->delete();
+
+        StoreCharge::where("user_id", $id)->delete();
+        UserProvider::where("user_id", $id)->delete();
+
+        $user->delete();
+
         // delete user with stores and charges and accounts and orders and transactions with weebhooks
         // TODO: delete user's data
-        return $uninstallInfo;
+        return "done";
     }
 }

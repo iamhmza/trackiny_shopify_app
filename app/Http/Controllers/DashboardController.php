@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Account;
+use App\Mail\SupportFormMail;
 use App\User;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class DashboardController extends Controller
 {
@@ -57,6 +59,21 @@ class DashboardController extends Controller
         }
 
         return response()->json($data);
+    }
+
+    public function supportCallback()
+    {
+        $data = request()->validate([
+            "subject" => "required",
+            "email" => "required|email",
+            "message" => "required",
+        ]);
+
+        //TODO: Send mail
+
+        Mail::to('test@test.com')->send(new SupportFormMail($data));
+
+        return $data;
     }
 
     public function logout()

@@ -1,10 +1,12 @@
 import './bootstrap';
 import Vue from 'vue';
 
-import Chartkick from 'vue-chartkick';
-import Chart from 'chart.js';
+// import Chartkick from 'vue-chartkick';
+// import Chart from 'chart.js';
+import SvgVue from 'svg-vue';
 
-Vue.use(Chartkick.use(Chart));
+Vue.use(SvgVue);
+// Vue.use(Chartkick.use(Chart));
 
 import router from './router';
 import store from './store';

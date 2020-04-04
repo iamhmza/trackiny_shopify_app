@@ -29,4 +29,9 @@ class Store extends Model
     {
         return $this->hasMany('App\Order');
     }
+
+    public function webhooks()
+    {
+        return $this->hasMany('App\Webhook');
+    }
 }

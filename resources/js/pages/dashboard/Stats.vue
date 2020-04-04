@@ -48,10 +48,10 @@
         <h3 class="title-3">synced Orders</h3>
       </div>
       <div class="chart-wrapper">
-        <column-chart
+        <!-- <column-chart
           :data="[['Synced orders', count], ['Fullfiled orders', getOrdersCount]]"
           width="111px"
-        ></column-chart>
+        ></column-chart> -->
       </div>
     </div>
   </div>

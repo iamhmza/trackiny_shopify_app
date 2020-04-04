@@ -23,7 +23,7 @@ class CreateStoreTable extends Migration
 
         Schema::create('user_providers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->unsignedBigInteger('user_id');
             $table->string('provider');
             $table->string('provider_user_id');
             $table->string('provider_token')->nullable();

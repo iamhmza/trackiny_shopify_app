@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Store;
 use App\UserProvider;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
@@ -23,74 +24,48 @@ class RegisterFullfillmentsWebhooks
         $id = $user->id;
 
         $token = UserProvider::find($id)->provider_token;
+        $store = Store::find($id);
 
         $client = new Client([
             'headers' => ['Content-Type' => 'application/json', 'X-Shopify-Access-Token' => $token],
         ]);
         $url = 'https://' . $shop . '/admin/api/2020-01/webhooks.json';
 
-        $addressUrlForOrderFulfilled = env('APP_URL') . 'webhooks/fulfillment';
-        $addressUrlForOrderUpdate = env('APP_URL') . 'webhooks/fulfillment/update';
-        $addressUrlForTransaction = env('APP_URL') . 'webhooks/transaction';
-        $addressUrlForAppUninstall = env('APP_URL') . 'webhooks/uninstall';
+        $webhooks = [
+            "orders/fulfilled" => env('APP_URL') . 'webhooks/fulfillment',
+            "order_transactions/create" => env('APP_URL') . 'webhooks/transaction',
+            "orders/updated" => env('APP_URL') . 'webhooks/fulfillment/update',
+            "app/uninstalled" => env('APP_URL') . 'webhooks/uninstall',
 
-
-        // TODO: webhooks array with types and urls
+        ];
 
 
         try {
 
-            $response = $client->post(
-                $url,
-                ['body' => json_encode(
-                    [
-                        "webhook" => [
-                            "topic" => "orders/fulfilled",
-                            "address" => $addressUrlForOrderFulfilled,
-                            "format" => "json",
-                        ],
-                    ]
-                )]
-            );
+            $hooks = [];
 
+            foreach ($webhooks as $topic => $address) {
 
-            $response = $client->post(
-                $url,
-                ['body' => json_encode(
-                    [
-                        "webhook" => [
-                            "topic" => "order_transactions/create",
-                            "address" => $addressUrlForTransaction,
-                            "format" => "json",
-                        ],
-                    ]
-                )]
-            );
+                $response = $client->post(
+                    $url,
+                    ['body' => json_encode(
+                        [
+                            "webhook" => [
+                                "topic" => $topic,
+                                "address" => $address,
+                                "format" => "json",
+                            ],
+                        ]
+                    )]
+                );
+                $data = json_decode($response->getBody()->getContents());
+                $hooks[$data->webhook->id] = $data->webhook->topic;
+            }
 
-            $response = $client->post(
-                $url,
-                ['body' => json_encode(
-                    [
-                        "webhook" => [
-                            "topic" => "orders/updated",
-                            "address" => $addressUrlForOrderUpdate,
-                            "format" => "json",
-                        ],
-                    ]
-                )]
-            );
-            $response = $client->post(
-                $url,
-                ['body' => json_encode(
-                    [
-                        "webhook" => [
-                            "topic" => "app/uninstalled",
-                            "address" => $addressUrlForAppUninstall,
-                            "format" => "json",
-                        ],
-                    ]
-                )]
-            );
+            $store->webhooks()->create([
+                'hooks' => json_encode($hooks),
+            ]);
+
         } catch (ClientException $e) {
 
             // dump($e->getResponse()->getBody()->getContents());
