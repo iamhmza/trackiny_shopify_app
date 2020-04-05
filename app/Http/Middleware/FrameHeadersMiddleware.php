@@ -16,7 +16,7 @@ class FrameHeadersMiddleware
     public function handle($request, Closure $next)
     {
         $response = $next($request);
-        $request->header('X-Frame-Options', 'ALLOW FROM https://shopify.com/');
+        $request->header('X-Frame-Options', 'ALLOW FROM https://www.shopify.com/');
         return $response;
        
     }
