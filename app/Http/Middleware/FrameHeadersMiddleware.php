@@ -17,7 +17,7 @@ class FrameHeadersMiddleware
     {
 
         $response = $next($request);
-        $response->header('X-Frame-Options', 'SAMEORIGIN');
+        $response->header('X-Frame-Options', '*');
         return $response;
        
     }
