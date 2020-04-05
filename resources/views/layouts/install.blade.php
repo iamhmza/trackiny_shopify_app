@@ -19,6 +19,7 @@
     </div> --}}
   </div>
 
+  <script defer src="{{ mix('js/main.js') }}"></script>
 
 </body>
 

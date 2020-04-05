@@ -6,7 +6,7 @@
 <link rel="stylesheet" href=" {{ asset('css/glider.min.css')}}">
 <script defer src="{{ asset('js/glider.min.js') }}"></script>
 
-<script defer src="{{ asset('js/main.js') }}"></script>
+<script defer src="{{ mix('js/main.js') }}"></script>
 
 
 @endsection
