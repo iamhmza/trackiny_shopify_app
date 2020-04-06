@@ -17,7 +17,7 @@ class FrameHeadersMiddleware
     {
 
         $response = $next($request);
-        $response->header('X-Frame-Options', '*');
+        $response->header('X-Frame-Options', 'www.shopify.com');
         return $response;
 
     }
