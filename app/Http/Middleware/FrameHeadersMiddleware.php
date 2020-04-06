@@ -17,7 +17,7 @@ class FrameHeadersMiddleware
     {
 
         $response = $next($request);
-        $response->header('X-Frame-Options', 'ALLOW FROM https://trackiny.com/');
+        $response->header('X-Frame-Options', 'SAMEORIGIN');
         return $response;
        
     }
