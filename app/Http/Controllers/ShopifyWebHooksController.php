@@ -245,9 +245,10 @@ class ShopifyWebhooksController extends Controller
 
     public function appUninstallCallback()
     {
-        # code...
+        # unistall app data
         $uninstallInfo = json_decode(request()->getContent());
 
+        // get the user who deleted the app
         $user = User::where('name', $uninstallInfo->name)
             ->orWhere('name', $uninstallInfo->domain)
             ->get()
@@ -255,6 +256,7 @@ class ShopifyWebhooksController extends Controller
         $id = $user->id;
         $storeId = $user->store->id;
 
+        // delete webhooks from shopify
         $webhooks = Webhook::where("store_id", $storeId)->get()->first()->hooks;
         $hooks = json_decode($webhooks);
 
@@ -274,6 +276,7 @@ class ShopifyWebhooksController extends Controller
 
         }
 
+        // delete user with stores and charges and accounts and orders and transactions
         Account::where("store_id", $storeId)->delete();
         Order::where("store_id", $storeId)->delete();
         Webhook::where("store_id", $storeId)->delete();
@@ -284,8 +287,6 @@ class ShopifyWebhooksController extends Controller
 
         $user->delete();
 
-        // delete user with stores and charges and accounts and orders and transactions with weebhooks
-        // TODO: delete user's data
         return "done";
     }
 }

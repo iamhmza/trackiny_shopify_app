@@ -2,7 +2,7 @@
   <div class="stats page">
     <h2 class="title-2">Board</h2>
 
-    <div class="chart-container">
+    <!-- <div class="chart-container">
       <div class="heading">
         <h3 class="title-3">Fullfiled orders</h3>
       </div>
@@ -13,45 +13,22 @@
         <h3 class="title-3">Synced Orders</h3>
       </div>
       <div class="chart-wrapper">{{ count }}</div>
-    </div>
+    </div>-->
 
-    <!-- <div class="chart-container">
+    <div class="chart-container">
       <div class="heading">
         <h3 class="title-3">Orders</h3>
       </div>
       <div class="chart-wrapper">
-        <table class="charging">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>transaction number</th>
-              <th>status</th>
-              <th>synced</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="order in orders" :key="order.id">
-              <td>{{ order.id }}</td>
-              <td>{{ order.tracking_number }}</td>
-              <td>{{ order.status }}</td>
-              <td>
-                <span class="synced">success</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <pie-chart :data="[['Synced orders', count], ['Fullfiled orders', getOrdersCount]]"></pie-chart>
       </div>
-    </div>-->
-
+    </div>
     <div class="chart-container">
       <div class="heading">
         <h3 class="title-3">synced Orders</h3>
       </div>
       <div class="chart-wrapper">
-        <!-- <column-chart
-          :data="[['Synced orders', count], ['Fullfiled orders', getOrdersCount]]"
-          width="111px"
-        ></column-chart> -->
+        <line-chart :data="{'2017-05-13': 2, '2017-05-14': 5}"></line-chart>
       </div>
     </div>
   </div>
@@ -70,11 +47,19 @@ export default {
     ...mapGetters(['getOrdersCount']),
     count() {
       return this.orders.length;
+    },
+    lineChartData() {
+      return this.orders.reduce(function(obj, current, i) {
+        let newObj = { ...obj };
+        newObj[current['created_at']] = i;
+        return newObj;
+      }, {});
     }
   },
   mounted() {
     axios('/me/orders').then(res => {
       this.orders = res.data;
+      console.log(res.data);
     });
   }
 };

@@ -2,7 +2,7 @@
   <div>
     <div class="support page">
       <div v-if="loading">
-        <Loading />
+        <div class="loading"></div>
       </div>
 
       <div v-if="success" class="message success">
@@ -10,46 +10,27 @@
           <li>message sent with success</li>
         </ul>
       </div>
-      <div v-if="error">
-        <div class="message error">
-          <ul>
-            <li
-              v-for="(msg, i) in errors"
-              :key="i"
-              style="padding-bottom:0.5rem"
-            >
-              {{ msg[0] }}
-            </li>
-          </ul>
-        </div>
+
+      <div v-if="!loading">
+        <h2 class="title-2">Support</h2>
+        <h4 class="title-3">Please provide your details below, our team will connect to you shortly.</h4>
+
+        <form class="form">
+          <div class="input-container" :data-state="state">
+            <label for="subject">Subject</label>
+            <input v-model="subject" id="subject" type="text" placeholder="Subject..." />
+            <span v-if="errors['subject']" class="feedback-text">{{ errors['subject'][0] }}</span>
+          </div>
+
+          <div class="input-container" :data-state="state">
+            <label for="message">Message</label>
+            <textarea v-model="message" id="subject" placeholder="Message..." cols="30" rows="8"></textarea>
+            <span v-if="errors['message']" class="feedback-text">{{ errors['subject'][0] }}</span>
+          </div>
+
+          <button class="cta primary" @click.prevent="sendSupportForm">Send</button>
+        </form>
       </div>
-      <h2 class="title-2">Support</h2>
-      <h4 class="title-3">
-        Please provide your details below, our team will connect to you shortly.
-      </h4>
-
-      <form class="form">
-        <label for="subject">Subject</label>
-        <input
-          v-model="subject"
-          class="input"
-          type="text"
-          placeholder="Subject..."
-        />
-
-        <label for="message">Message</label>
-        <textarea
-          v-model="message"
-          class="input"
-          placeholder="Message..."
-          cols="30"
-          rows="8"
-        ></textarea>
-
-        <button class="cta primary" @click.prevent="sendSupportForm">
-          Send
-        </button>
-      </form>
     </div>
   </div>
 </template>
@@ -69,7 +50,7 @@ export default {
       subject: '',
       message: '',
       state: 'idle',
-      errors: []
+      errors: {}
     };
   },
   computed: {
@@ -82,6 +63,12 @@ export default {
     },
     error() {
       return this.state === 'error';
+    },
+    isOnErrors() {
+      if (this.errors && this.errors['subject']) {
+        return this.errors['subject'];
+      }
+      return false;
     }
   },
   methods: {

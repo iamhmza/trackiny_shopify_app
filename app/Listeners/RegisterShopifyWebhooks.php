@@ -7,7 +7,7 @@ use App\UserProvider;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 
-class RegisterFullfillmentsWebhooks
+class RegisterShopifyWebhooks
 {
 
     /**
@@ -38,7 +38,6 @@ class RegisterFullfillmentsWebhooks
             "app/uninstalled" => env('APP_URL') . 'webhooks/uninstall',
 
         ];
-
 
         try {
 

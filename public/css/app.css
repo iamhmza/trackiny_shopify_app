@@ -68,7 +68,7 @@
 /* page laoding */
 
 .loading_wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -87,7 +87,7 @@
           align-items: center;
 }
 
-.loading_wrapper .loading {
+.loading {
   width: 100px;
   height: 100px;
   margin: 8rem auto;
@@ -276,56 +276,73 @@
   width: 70%;
 }
 
-.input {
+.input-container {
+  font-size: 12px;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  margin-bottom: 2rem;
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 6px;
+  color: #016fff;
+}
+
+.input-container input,
+.input-container textarea {
   display: block;
   width: 100%;
-  padding: 0.6rem;
-  color: #8e8ea8;
-  border-radius: 3px;
-  margin-bottom: 1.5rem;
-  border: 1px solid #d5d5e3;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   outline: none;
-  text-indent: 7px;
+  padding: 12px 0;
+  text-indent: 8px;
 }
 
-.input:focus {
-  outline: 1px solid #016fff;
+.input-container textarea::-webkit-input-placeholder {
+  font-family: "Josefin Sans", sans-serif;
 }
 
-.input.textarea {
+.input-container textarea::-moz-placeholder {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.input-container textarea:-ms-input-placeholder {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.input-container textarea::-ms-input-placeholder {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.input-container input,
+.input-container textarea::placeholder {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.input-container textarea {
   resize: none;
 }
 
-::-webkit-input-placeholder {
-  /* Most modern browsers support this now. */
-  color: #8e8ea8;
+.input-container .feedback-text {
+  display: none;
+  margin-top: 8px;
+  color: red;
 }
 
-::-moz-placeholder {
-  /* Most modern browsers support this now. */
-  color: #8e8ea8;
+.input-container:focus-within input,
+.input-container:focus-within textarea {
+  border: 1px solid #016fff;
 }
 
-:-ms-input-placeholder {
-  /* Most modern browsers support this now. */
-  color: #8e8ea8;
+.input-container[data-state=error] input,
+.input-container[data-state=error] textarea {
+  border-color: red;
 }
 
-::-ms-input-placeholder {
-  /* Most modern browsers support this now. */
-  color: #8e8ea8;
-}
-
-::placeholder {
-  /* Most modern browsers support this now. */
-  color: #8e8ea8;
-}
-
-label {
+.input-container[data-state=error] .feedback-text {
   display: block;
-  color: #016fff;
-  font-size: 14px;
-  margin-bottom: 0.5rem;
 }
 
 /* tiny flex system */
