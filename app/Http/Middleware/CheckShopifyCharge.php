@@ -25,10 +25,10 @@ class CheckShopifyCharge
         //dump($charge);
 
         // paid or on trail subscription 
-        if ($charge->onTrial() || $charge->active()) {
+        // if ($charge->onTrial() || $charge->active()) {
 
-            return $next($request);
-        }
+        //     return $next($request);
+        // }
 
         if (is_null($charge->confirmation_url)) {
 
