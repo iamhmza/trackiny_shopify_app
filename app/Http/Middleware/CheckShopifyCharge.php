@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use App\User;
+use Closure;
 use Illuminate\Support\Facades\Auth;
 
 class CheckShopifyCharge
@@ -24,7 +24,7 @@ class CheckShopifyCharge
         //$charge = User::where('name', $shop)->get()->first()->storeCharge;
         //dump($charge);
 
-        // paid or on trail subscription 
+        // paid or on trail subscription
         // if ($charge->onTrial() || $charge->active()) {
 
         //     return $next($request);
@@ -32,7 +32,7 @@ class CheckShopifyCharge
 
         if (is_null($charge->confirmation_url)) {
 
-            return redirect('/dashboard');
+            return $next($request);
         }
 
         return redirect($charge->confirmation_url);
