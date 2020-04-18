@@ -16,7 +16,10 @@ class FrameHeadersMiddleware
     public function handle($request, Closure $next)
     {
 
-
+        /*
+        $response = $next($request);
+        $response->header('X-Frame-Options', '*');
+        return $response;*/
 
     }
 }
