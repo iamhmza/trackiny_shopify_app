@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Axios from 'axios';
 
 import { isNull, pick } from 'lodash';
 
@@ -107,7 +106,7 @@ const store = {
     async getData() {
       this.state.isLoading = true;
 
-      const user = await Axios('/me');
+      const user = await axios('/me');
 
       this.commit(
         'SET_USER',
@@ -125,13 +124,13 @@ const store = {
         ])
       );
 
-      const store = await Axios('/me/store');
+      const store = await axios('/me/store');
       this.commit('SET_STORE', store.data);
 
-      const account = await Axios('/me/account');
+      const account = await axios('/me/account');
       this.commit('SET_ACCOUNT', pick(account.data, ['api_key', 'api_secret']));
 
-      const fullfiledOrdersCount = await Axios('/me/count');
+      const fullfiledOrdersCount = await axios('/me/count');
       console.log(fullfiledOrdersCount.data);
       this.commit(
         'SET_FULLFILED_ORDERS_COUNT',

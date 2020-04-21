@@ -62,11 +62,11 @@
             Please log in to woocommerce dashboard and provide your API consumer key and secret here!
             <br />
             Need Help ? Click
-            <a href="#" style="text-decoration: underline;">
+            <button id="open" style="text-decoration: underline;">
                 <b>
                     the link
                 </b>
-            </a>
+            </button>
             to see Video!
         </p>
         @if (session('error'))
@@ -97,5 +97,29 @@
         </form>
     </section>
 </main>
+
+<div id="modal" class="modal fixed w-full h-full top-0 left-0 z-50 items-center overflow-y-auto"
+    style="background-color:rgba(0,0,0,0.6);"  data-state="closed">
+
+    <div class="mx-auto lg:p-32 overflow-y-auto">
+        <div class="bg-main rounded">
+
+            <div class="flex pr-4 pt-2 justify-end">
+                <button id="close" class="text-white text-3xl hover:opacity-50 hover:text-red-300">&times;</button>
+            </div>
+
+            <div class="px-8 py-8 text-white">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/iQoRh_9LkjU" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 @endsection

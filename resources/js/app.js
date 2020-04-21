@@ -3,7 +3,9 @@ import Vue from 'vue';
 
 import Chartkick from 'vue-chartkick';
 import Chart from 'chart.js';
+import SvgVue from 'svg-vue';
 
+Vue.use(SvgVue);
 Vue.use(Chartkick.use(Chart));
 
 import router from './router';
@@ -15,5 +17,5 @@ const app = new Vue({
   store,
   created() {
     this.$store.dispatch('getData');
-  }
+  },
 });

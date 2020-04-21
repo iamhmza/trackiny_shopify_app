@@ -28,7 +28,7 @@ class ShopifyAuthController extends Controller
 
         return Socialite::with('shopify')
             ->setConfig($config)
-            ->scopes(['read_orders', 'write_orders', 'read_fulfillments', 'write_fulfillments'])
+            ->scopes(['read_orders', 'write_orders', 'read_fulfillments', 'write_fulfillments','read_products'])
             ->redirect();
     }
 

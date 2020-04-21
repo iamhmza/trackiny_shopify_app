@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/install/paypal', function () {
         return view('install.paypal');
@@ -23,6 +22,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/me/account', 'DashboardController@account');
         Route::get('/me/orders', 'DashboardController@getOrders');
         Route::get('/me/count', 'DashboardController@getFulfilledOrders');
+        Route::post('/me/support', 'DashboardController@supportCallback');
+        
     });
     Route::get('/charges', 'ShopifyWebhooksController@chargeConfirmationHandler');
 });
@@ -68,10 +69,8 @@ Route::group(['prefix' => "woocommerce"], function () {
     Route::post('/webhooks', 'WooCommerceAuthController@getWebHooks');
 });
 
-
 // shopify webhooks
-// TODO: add middleware 'shopifycharge' 
-// TODO: implement uninstall app func
+// TODO: add middleware 'shopifycharge'
 Route::group(['middleware' => 'shopify'], function () {
     Route::post('/webhooks/fulfillment', 'ShopifyWebhooksController@orderFulfilledCallback');
     Route::post('/webhooks/fulfillment/update', 'ShopifyWebhooksController@orderUpdatedCallback');

@@ -6,11 +6,16 @@
       <SideBar></SideBar>
       <main>
         <div class="container">
-          <alertBox v-if="error"></alertBox>
-          <transition
-            name="route-anim"
-            enter-active-class="animated fadeInDown"
-          >
+          <alertBox v-if="error">
+            <p>
+              you have to confirm shopify billing so you'll be able to use the
+              application click the link
+              <a
+                href="/dashborad/billing"
+              >here</a>
+            </p>
+          </alertBox>
+          <transition name="route-anim" enter-active-class="animated fadeInDown">
             <router-view />
           </transition>
         </div>

@@ -1,12 +1,7 @@
 <template>
   <div class="alert danger">
     <div class="icon">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="30"
-        height="50"
-        viewBox="0 0 30 50"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="50" viewBox="0 0 30 50">
         <text
           transform="translate(15 48)"
           fill="#fff"
@@ -19,11 +14,9 @@
         </text>
       </svg>
     </div>
-    <p>
-      you have to confirm shopify billing so you'll be able to use the
-      application click the link
-      <a href="/dashborad/billing">here</a>
-    </p>
+    <div>
+      <slot></slot>
+    </div>
   </div>
 </template>
 

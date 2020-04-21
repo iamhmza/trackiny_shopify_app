@@ -4,7 +4,8 @@
       <li>
         <router-link to="/dashboard/stats">
           <div class="icon-container">
-            <DashboardIcon></DashboardIcon>
+            <!-- resources/svg/dashboard.svg -->
+            <svg-vue icon="dashboard"></svg-vue>
           </div>
           <span>Dashboard</span>
         </router-link>
@@ -12,7 +13,7 @@
       <li>
         <router-link to="/dashboard/billing">
           <div class="icon-container">
-            <DashboardIcon></DashboardIcon>
+            <svg-vue icon="dashboard"></svg-vue>
           </div>
           <span>Billing</span>
         </router-link>
@@ -20,7 +21,7 @@
       <li>
         <router-link to="/dashboard/account">
           <div class="icon-container">
-            <LinkIcon />
+            <svg-vue icon="link"></svg-vue>
           </div>
           <span>Account</span>
         </router-link>
@@ -28,7 +29,7 @@
       <li>
         <router-link to="/dashboard/setting">
           <div class="icon-container">
-            <SettingIcon />
+            <svg-vue icon="setting"></svg-vue>
           </div>
           <span>Setting</span>
         </router-link>
@@ -36,7 +37,7 @@
       <li>
         <router-link to="/dashboard/tutorials">
           <div class="icon-container">
-            <VideoTutorialIcon></VideoTutorialIcon>
+            <svg-vue icon="tuts"></svg-vue>
           </div>
           <span>Tutorials</span>
         </router-link>
@@ -44,7 +45,7 @@
       <li>
         <router-link to="/dashboard/support">
           <div class="icon-container">
-            <SupportIcon></SupportIcon>
+            <svg-vue icon="support"></svg-vue>
           </div>
           <span>Support</span>
         </router-link>
@@ -54,19 +55,7 @@
 </template>
 
 <script>
-import DashboardIcon from './icons/DashboardIcon';
-import LinkIcon from './icons/LinkIcon';
-import SettingIcon from './icons/SettingIcon';
-import SupportIcon from './icons/SupportIcon';
-import VideoTutorialIcon from './icons/VideoTutorialIcon';
 export default {
-  name: 'sidebar',
-  components: {
-    DashboardIcon,
-    LinkIcon,
-    SettingIcon,
-    SupportIcon,
-    VideoTutorialIcon
-  }
+  name: 'sidebar'
 };
 </script>
