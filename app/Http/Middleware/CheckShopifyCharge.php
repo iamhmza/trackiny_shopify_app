@@ -33,7 +33,7 @@ class CheckShopifyCharge
         if (is_null($charge->confirmation_url)) {
 
             return $next($request);
-        }
+        } else {}
 
         return redirect($charge->confirmation_url);
     }

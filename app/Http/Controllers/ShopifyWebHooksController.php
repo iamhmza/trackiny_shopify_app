@@ -232,7 +232,7 @@ class ShopifyWebhooksController extends Controller
                 'ends_at' => $data->billing_on,
             ]);
 
-            return redirect('dashboard/stats');
+            return redirect('dashboard');
         } catch (ClientException $e) {
 
             if ($e->getCode() == 422) {

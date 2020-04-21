@@ -21,41 +21,41 @@ const routes = [
     children: [
       {
         path: 'stats',
-        component: Stats
+        component: Stats,
       },
       {
         path: 'billing',
-        component: Billing
+        component: Billing,
       },
       {
         path: 'support',
-        component: Support
+        component: Support,
       },
       {
         path: 'account',
-        component: Account
+        component: Account,
       },
       {
         path: 'setting',
-        component: Setting
+        component: Setting,
       },
       {
         path: 'tutorials',
-        component: Tuts
-      }
-    ]
+        component: Tuts,
+      },
+    ],
   },
   {
     path: '**',
     name: 'not found',
-    component: NotFound
-  }
+    component: NotFound,
+  },
 ];
 
 const router = new VueRouter({
   mode: 'history',
   // base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 export default router;

@@ -15,23 +15,23 @@ const store = {
       country: '',
       phone: '',
       email: '',
-      zip: ''
+      zip: '',
     },
     store: {
       domain: '',
-      name: ''
+      name: '',
     },
     charge: {
       name: '',
       confirmation_url: '',
       status: '',
       trial_ends_at: null,
-      ends_at: null
+      ends_at: null,
     },
     account: {
       api_key: '',
-      api_secret: ''
-    }
+      api_secret: '',
+    },
   },
 
   getters: {
@@ -81,7 +81,7 @@ const store = {
     },
     getOrdersCount(state) {
       return state.orders_count;
-    }
+    },
   },
 
   mutations: {
@@ -99,47 +99,55 @@ const store = {
     },
     SET_FULLFILED_ORDERS_COUNT(state, count) {
       state.orders_count = count;
-    }
+    },
   },
 
   actions: {
-    async getData() {
+    getData() {
       this.state.isLoading = true;
 
-      const user = await axios('/me');
+      const user = axios('/me');
 
-      this.commit(
-        'SET_USER',
-        pick(user.data, ['city', 'email', 'phone', 'zip', 'country'])
+      const store = axios('/me/store');
+
+      const account = axios('/me/account');
+
+      const fullfiledOrdersCount = axios('/me/count');
+
+      Promise.all([user, store, account, fullfiledOrdersCount]).then(
+        (values) => {
+          console.log(values);
+
+          this.commit(
+            'SET_USER',
+            pick(values[0].data, ['city', 'email', 'phone', 'zip', 'country'])
+          );
+
+          this.commit(
+            'SET_STORE_CHARGE',
+            pick(values[0].data.store_charge, [
+              'name',
+              'confirmation_url',
+              'status',
+              'trial_ends_at',
+              'ends_at',
+            ])
+          );
+
+          this.commit('SET_STORE', values[1].data);
+
+          this.commit(
+            'SET_ACCOUNT',
+            pick(values[2].data, ['api_key', 'api_secret'])
+          );
+
+          this.commit('SET_FULLFILED_ORDERS_COUNT', values[3].data.count);
+
+          this.state.isLoading = false;
+        }
       );
-
-      this.commit(
-        'SET_STORE_CHARGE',
-        pick(user.data.store_charge, [
-          'name',
-          'confirmation_url',
-          'status',
-          'trial_ends_at',
-          'ends_at'
-        ])
-      );
-
-      const store = await axios('/me/store');
-      this.commit('SET_STORE', store.data);
-
-      const account = await axios('/me/account');
-      this.commit('SET_ACCOUNT', pick(account.data, ['api_key', 'api_secret']));
-
-      const fullfiledOrdersCount = await axios('/me/count');
-      console.log(fullfiledOrdersCount.data);
-      this.commit(
-        'SET_FULLFILED_ORDERS_COUNT',
-        fullfiledOrdersCount.data.count
-      );
-
-      this.state.isLoading = false;
-    }
-  }
+    },
+  },
 };
 
 export default new Vuex.Store(store);
