@@ -182,52 +182,6 @@
     min-height: calc(100vh - 66px);
     display: flex;
 
-    // sidebar
-    aside {
-      width: 240px;
-      padding: 40px 0;
-      background-color: #fff;
-      box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
-      ul {
-        display: block;
-        padding-left: 32px;
-
-        li {
-          display: block;
-          margin-bottom: 32px;
-
-          a {
-            display: flex;
-            align-items: center;
-            position: relative;
-            text-decoration: none;
-            font-size: $font-3;
-            color: #525252;
-            transition: all 100ms ease-out;
-
-            .icon-container {
-              margin-right: 16px;
-            }
-
-            svg {
-              width: 18px;
-              fill: currentColor;
-            }
-
-            &:hover,
-            &.router-link-active {
-              color: $mainColor;
-              border-right: 2px solid $mainColor;
-
-              svg {
-                color: $mainColor;
-              }
-            }
-          }
-        }
-      }
-    }
-
     main {
       height: 100%;
       width: 100%;
@@ -239,6 +193,56 @@
         max-width: 992px;
         width: 100%;
         margin: auto;
+      }
+    }
+  }
+}
+
+// sidebar
+aside {
+  width: 240px;
+  padding: 40px 0;
+  background-color: #fff;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+  ul {
+    display: block;
+    // padding-left: 32px;
+
+    li {
+      display: block;
+      margin-bottom: 0.4rem;
+
+      a {
+        display: flex;
+        align-items: center;
+        position: relative;
+        text-decoration: none;
+        font-size: $font-3;
+        color: #525252;
+        padding: 0.6rem 0;
+        transition: all 200ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
+        .icon-container {
+          margin-right: 16px;
+          padding-left: 24px;
+        }
+
+        svg {
+          width: 18px;
+          fill: currentColor;
+          // padding-left: 1rem;
+        }
+
+        &:hover,
+        &.router-link-active {
+          color: $mainColor;
+          border-right: 2px solid $mainColor;
+          background-color: #016fff11;
+
+          svg {
+            color: $mainColor;
+          }
+        }
       }
     }
   }

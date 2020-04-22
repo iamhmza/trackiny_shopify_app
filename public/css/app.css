@@ -75,7 +75,7 @@
   right: 0;
   z-index: 500;
   color: white;
-  background-color: #258ffbaa;
+  background-color: #258ffbee;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -88,11 +88,11 @@
 }
 
 .loading {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   margin: 8rem auto;
-  border-top: 4px solid #258ffb;
-  border-left: 4px solid #258ffb;
+  border-top: 5px solid #7bed9f;
+  border-left: 5px solid #7bed9f;
   border-bottom: 4px solid transparent;
   border-right: 4px solid transparent;
   border-radius: 50%;
@@ -662,54 +662,6 @@
   display: flex;
 }
 
-.dashboard .main_wrapper aside {
-  width: 240px;
-  padding: 40px 0;
-  background-color: #fff;
-  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.dashboard .main_wrapper aside ul {
-  display: block;
-  padding-left: 32px;
-}
-
-.dashboard .main_wrapper aside ul li {
-  display: block;
-  margin-bottom: 32px;
-}
-
-.dashboard .main_wrapper aside ul li a {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  position: relative;
-  text-decoration: none;
-  font-size: 16px;
-  color: #525252;
-  -webkit-transition: all 100ms ease-out;
-  transition: all 100ms ease-out;
-}
-
-.dashboard .main_wrapper aside ul li a .icon-container {
-  margin-right: 16px;
-}
-
-.dashboard .main_wrapper aside ul li a svg {
-  width: 18px;
-  fill: currentColor;
-}
-
-.dashboard .main_wrapper aside ul li a:hover, .dashboard .main_wrapper aside ul li a.router-link-active {
-  color: #016fff;
-  border-right: 2px solid #016fff;
-}
-
-.dashboard .main_wrapper aside ul li a:hover svg, .dashboard .main_wrapper aside ul li a.router-link-active svg {
-  color: #016fff;
-}
-
 .dashboard .main_wrapper main {
   height: 100%;
   width: 100%;
@@ -722,6 +674,56 @@
   max-width: 992px;
   width: 100%;
   margin: auto;
+}
+
+aside {
+  width: 240px;
+  padding: 40px 0;
+  background-color: #fff;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+aside ul {
+  display: block;
+}
+
+aside ul li {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+aside ul li a {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  position: relative;
+  text-decoration: none;
+  font-size: 16px;
+  color: #525252;
+  padding: 0.6rem 0;
+  -webkit-transition: all 200ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: all 200ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+aside ul li a .icon-container {
+  margin-right: 16px;
+  padding-left: 24px;
+}
+
+aside ul li a svg {
+  width: 18px;
+  fill: currentColor;
+}
+
+aside ul li a:hover, aside ul li a.router-link-active {
+  color: #016fff;
+  border-right: 2px solid #016fff;
+  background-color: #016fff11;
+}
+
+aside ul li a:hover svg, aside ul li a.router-link-active svg {
+  color: #016fff;
 }
 
 /*  charing table */

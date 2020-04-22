@@ -59,7 +59,6 @@ export default {
   mounted() {
     axios('/me/orders').then(res => {
       this.orders = res.data;
-      console.log(res.data);
     });
   }
 };

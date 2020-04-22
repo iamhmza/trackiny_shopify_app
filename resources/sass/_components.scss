@@ -62,7 +62,7 @@
   z-index: 500;
   color: white;
 
-  background-color: #258ffbaa;
+  background-color: #258ffbee;
 
   display: flex;
   flex-direction: column;
@@ -71,11 +71,11 @@
 }
 
 .loading {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   margin: 8rem auto;
-  border-top: 4px solid #258ffb;
-  border-left: 4px solid #258ffb;
+  border-top: 5px solid #7bed9f;
+  border-left: 5px solid #7bed9f;
   border-bottom: 4px solid transparent;
   border-right: 4px solid transparent;
   border-radius: 50%;

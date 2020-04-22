@@ -2519,7 +2519,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     axios('/me/orders').then(function (res) {
       _this.orders = res.data;
-      console.log(res.data);
     });
   }
 });
