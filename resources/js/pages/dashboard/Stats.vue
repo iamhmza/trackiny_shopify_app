@@ -28,7 +28,7 @@
         <h3 class="title-3">synced Orders</h3>
       </div>
       <div class="chart-wrapper">
-        <line-chart :data="{'2017-05-13': 2, '2017-05-14': 5}"></line-chart>
+        <line-chart :data="lineChartData"></line-chart>
       </div>
     </div>
   </div>
