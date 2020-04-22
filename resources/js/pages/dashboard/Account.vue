@@ -12,17 +12,15 @@
     </p>
 
     <form class="form">
-      <label for="token">Token</label>
-      <input v-model="apiKey" type="text" class="input" :placeholder="apiKey" />
+      <div class="input-container">
+        <label for="token">Token</label>
+        <input v-model="apiKey" type="text" class="input" :placeholder="apiKey" />
+      </div>
 
-      <label for="secret">Secret</label>
-      <input
-        v-model="apiSecret"
-        type="password"
-        class="input"
-        :placeholder="apiSecret"
-      />
-
+      <div class="input-container">
+        <label for="secret">Secret</label>
+        <input v-model="apiSecret" type="password" class="input" :placeholder="apiSecret" />
+      </div>
       <button class="cta primary">Update</button>
     </form>
   </div>
@@ -32,6 +30,7 @@
 import { mapGetters } from 'vuex';
 export default {
   name: 'Acoount',
+
   computed: {
     ...mapGetters({
       apiKey: 'getKey',

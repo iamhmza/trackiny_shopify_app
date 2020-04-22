@@ -4,15 +4,12 @@
       <img src="../../images/logo_w.png" alt="logo" />
     </a>
 
-    <div class="search">
+    <!-- <div class="search">
       <input class="input" type="text" placeholder="Search..." />
-    </div>
+    </div>-->
 
     <div class="admin">
-      <span
-        class="notification_wrapper"
-        @click="show_notification = !show_notification"
-      >
+      <span class="notification_wrapper" @click="show_notification = !show_notification">
         <img src="../../images/admin.png" alt="admin" />
         {{ name }}
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 30">

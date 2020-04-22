@@ -17,7 +17,7 @@ class DashboardController extends Controller
     public function index()
     {
         // get current user's store
-        $data = Auth::user();
+        $data = Auth::user()->getCharge()->get();
         return response()->json($data);
     }
 

@@ -1947,15 +1947,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'alert_box'
+  name: 'alert_box',
+  props: ['type'],
+  data: function data() {
+    return {
+      off: false
+    };
+  },
+  computed: {
+    icon: function icon() {
+      if (this.type == 'success') {
+        return 'lnr-checkmark-circle';
+      } else if (this.type == 'warning') {
+        return 'lnr-warning';
+      } else {
+        return 'lnr-cross-circle';
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -2080,9 +2090,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2143,6 +2150,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -2157,7 +2165,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     AlertBox: _components_AlertBox__WEBPACK_IMPORTED_MODULE_2__["default"],
     Loading: _components_Loading__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapGetters"])(['error'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapGetters"])(['error', 'isActive', 'getUrl'])),
+  methods: {},
   mounted: function mounted() {
     this.$router.push('/dashboard/stats');
   }
@@ -2217,8 +2226,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
 //
 //
 //
@@ -2413,20 +2420,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'setting',
+  data: function data() {
+    return {
+      state: ''
+    };
+  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
     domain: 'getDomain',
     name: 'getStoreName',
@@ -2579,7 +2580,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -2628,7 +2628,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.subject = '';
         _this.message = '';
       })["catch"](function (err) {
-        console.log(JSON.stringify(err.response.data.errors));
         _this.errors = err.response.data.errors;
         _this.state = 'error';
       });
@@ -58575,39 +58574,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "alert danger" }, [
-    _c("div", { staticClass: "icon" }, [
-      _c(
-        "svg",
-        {
-          attrs: {
-            xmlns: "http://www.w3.org/2000/svg",
-            width: "30",
-            height: "50",
-            viewBox: "0 0 30 50"
-          }
-        },
-        [
-          _c(
-            "text",
-            {
-              attrs: {
-                transform: "translate(15 48)",
-                fill: "#fff",
-                stroke: "#fff",
-                "stroke-width": "1",
-                "font-size": "26",
-                "font-family": "IkonoDemoL-4, Ikono Demo L"
+  return !_vm.off
+    ? _c("div", { staticClass: "alert", class: _vm.type }, [
+        _c("div", { staticClass: "icon" }, [
+          _c("span", { staticClass: "lnr", class: _vm.icon })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "body" }, [_vm._t("default")], 2),
+        _vm._v(" "),
+        _c("div", { staticClass: "action" }, [
+          _c("span", {
+            staticClass: "lnr lnr-cross",
+            on: {
+              click: function($event) {
+                _vm.off = true
               }
-            },
-            [_c("tspan", { attrs: { x: "-13.715", y: "0" } }, [_vm._v("")])]
-          )
-        ]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", [_vm._t("default")], 2)
-  ])
+            }
+          })
+        ])
+      ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -58797,8 +58783,6 @@ var render = function() {
   return _c("nav", [
     _vm._m(0),
     _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
     _c("div", { staticClass: "admin" }, [
       _c(
         "span",
@@ -58851,7 +58835,7 @@ var render = function() {
               ],
               staticClass: "notification"
             },
-            [_vm._m(2)]
+            [_vm._m(1)]
           )
         ]
       )
@@ -58866,17 +58850,6 @@ var staticRenderFns = [
     return _c("a", { staticClass: "logo", attrs: { href: "/dashboard" } }, [
       _c("img", {
         attrs: { src: __webpack_require__(/*! ../../images/logo_w.png */ "./resources/images/logo_w.png"), alt: "logo" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "search" }, [
-      _c("input", {
-        staticClass: "input",
-        attrs: { type: "text", placeholder: "Search..." }
       })
     ])
   },
@@ -58929,14 +58902,16 @@ var render = function() {
               "div",
               { staticClass: "container" },
               [
-                _vm.error
-                  ? _c("alertBox", [
+                !_vm.isActive
+                  ? _c("alertBox", { attrs: { type: "warning" } }, [
+                      _c("h4", [_vm._v("Uh oh, still one more thing")]),
+                      _vm._v(" "),
                       _c("p", [
                         _vm._v(
-                          "\n            you have to confirm shopify billing so you'll be able to use the\n            application click the link\n            "
+                          "\n            you have to confirm shopify billing so you'll be able to use the\n            application click the\n            "
                         ),
-                        _c("a", { attrs: { href: "/dashborad/billing" } }, [
-                          _vm._v("here")
+                        _c("a", { attrs: { href: _vm.getUrl } }, [
+                          _vm._v("link")
                         ])
                       ])
                     ])
@@ -59036,53 +59011,57 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("form", { staticClass: "form" }, [
-      _c("label", { attrs: { for: "token" } }, [_vm._v("Token")]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.apiKey,
-            expression: "apiKey"
-          }
-        ],
-        staticClass: "input",
-        attrs: { type: "text", placeholder: _vm.apiKey },
-        domProps: { value: _vm.apiKey },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+      _c("div", { staticClass: "input-container" }, [
+        _c("label", { attrs: { for: "token" } }, [_vm._v("Token")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.apiKey,
+              expression: "apiKey"
             }
-            _vm.apiKey = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "secret" } }, [_vm._v("Secret")]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.apiSecret,
-            expression: "apiSecret"
-          }
-        ],
-        staticClass: "input",
-        attrs: { type: "password", placeholder: _vm.apiSecret },
-        domProps: { value: _vm.apiSecret },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          ],
+          staticClass: "input",
+          attrs: { type: "text", placeholder: _vm.apiKey },
+          domProps: { value: _vm.apiKey },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.apiKey = $event.target.value
             }
-            _vm.apiSecret = $event.target.value
           }
-        }
-      }),
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-container" }, [
+        _c("label", { attrs: { for: "secret" } }, [_vm._v("Secret")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.apiSecret,
+              expression: "apiSecret"
+            }
+          ],
+          staticClass: "input",
+          attrs: { type: "password", placeholder: _vm.apiSecret },
+          domProps: { value: _vm.apiSecret },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.apiSecret = $event.target.value
+            }
+          }
+        })
+      ]),
       _vm._v(" "),
       _c("button", { staticClass: "cta primary" }, [_vm._v("Update")])
     ])
@@ -59205,101 +59184,160 @@ var render = function() {
     _c("form", { staticClass: "form" }, [
       _c("div", { staticClass: "flex" }, [
         _c("div", { staticClass: "item" }, [
-          _c("label", { attrs: { for: "Name" } }, [_vm._v("Name")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "First name..." },
-            domProps: { value: _vm.name }
-          })
+          _c(
+            "div",
+            {
+              staticClass: "input-container",
+              attrs: { "data-state": _vm.state }
+            },
+            [
+              _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { id: "name", type: "text", placeholder: "Name" },
+                domProps: { value: _vm.name }
+              })
+            ]
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "item" }, [
-          _c("label", { attrs: { for: "domain" } }, [_vm._v("Domain")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "Last name..." },
-            domProps: { value: _vm.domain }
-          })
+          _c(
+            "div",
+            {
+              staticClass: "input-container",
+              attrs: { "data-state": _vm.state }
+            },
+            [
+              _c("label", { attrs: { for: "domain" } }, [_vm._v("Domain")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "input",
+                attrs: { type: "text", placeholder: "Last name..." },
+                domProps: { value: _vm.domain }
+              })
+            ]
+          )
         ])
       ]),
       _vm._v(" "),
-      _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "input",
-        attrs: { type: "email", placeholder: "youremail@example.com" },
-        domProps: { value: _vm.email }
-      }),
+      _c("div", { staticClass: "input-container" }, [
+        _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "email", placeholder: "youremail@example.com" },
+          domProps: { value: _vm.email }
+        })
+      ]),
       _vm._v(" "),
       _c("h3", { staticClass: "title-3" }, [_vm._v("Additional Informations")]),
       _vm._v(" "),
       _c("div", { staticClass: "flex" }, [
         _c("div", { staticClass: "item" }, [
-          _c("label", { attrs: { for: "city" } }, [_vm._v("City")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "city..." },
-            domProps: { value: _vm.city }
-          })
+          _c(
+            "div",
+            {
+              staticClass: "input-container",
+              attrs: { "data-state": _vm.state }
+            },
+            [
+              _c("label", { attrs: { for: "city" } }, [_vm._v("City")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "input",
+                attrs: { type: "text", placeholder: "city..." },
+                domProps: { value: _vm.city }
+              })
+            ]
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "item" }, [
-          _c("label", { attrs: { for: "zip" } }, [_vm._v("Zip code")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "zip code..." },
-            domProps: { value: _vm.zip }
-          })
+          _c(
+            "div",
+            {
+              staticClass: "input-container",
+              attrs: { "data-state": _vm.state }
+            },
+            [
+              _c("label", { attrs: { for: "zip" } }, [_vm._v("Zip code")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "input",
+                attrs: { type: "text", placeholder: "zip code..." },
+                domProps: { value: _vm.zip }
+              })
+            ]
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "item" }, [
-          _c("label", { attrs: { for: "country" } }, [_vm._v("Country")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "country..." },
-            domProps: { value: _vm.country }
-          })
+          _c(
+            "div",
+            {
+              staticClass: "input-container",
+              attrs: { "data-state": _vm.state }
+            },
+            [
+              _c("label", { attrs: { for: "country" } }, [_vm._v("Country")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "input",
+                attrs: { type: "text", placeholder: "country..." },
+                domProps: { value: _vm.country }
+              })
+            ]
+          )
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "flex" }, [
         _c("div", { staticClass: "item" }, [
-          _c("label", { attrs: { for: "phone" } }, [_vm._v("Phone")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "Phone number..." },
-            domProps: { value: _vm.phone }
-          })
+          _c(
+            "div",
+            {
+              staticClass: "input-container",
+              attrs: { "data-state": _vm.state }
+            },
+            [
+              _c("label", { attrs: { for: "phone" } }, [_vm._v("Phone")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "input",
+                attrs: { type: "text", placeholder: "Phone number..." },
+                domProps: { value: _vm.phone }
+              })
+            ]
+          )
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _c("div", { staticClass: "item" }, [
+          _c(
+            "div",
+            {
+              staticClass: "input-container",
+              attrs: { "data-state": _vm.state }
+            },
+            [
+              _c("label", { attrs: { for: "business" } }, [
+                _vm._v("Company/Business")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "input",
+                attrs: { type: "text", placeholder: "Business name..." }
+              })
+            ]
+          )
+        ])
       ]),
       _vm._v(" "),
       _c("button", { staticClass: "cta primary" }, [_vm._v("Save")])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "item" }, [
-      _c("label", { attrs: { for: "business" } }, [_vm._v("Company/Business")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "input",
-        attrs: { type: "text", placeholder: "Business name..." }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -59400,142 +59438,144 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "support page" }, [
-      _vm.loading
-        ? _c("div", [_c("div", { staticClass: "loading" })])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.success
-        ? _c("div", { staticClass: "message success" }, [_vm._m(0)])
-        : _vm._e(),
-      _vm._v(" "),
-      !_vm.loading
-        ? _c("div", [
-            _c("h2", { staticClass: "title-2" }, [_vm._v("Support")]),
-            _vm._v(" "),
-            _c("h4", { staticClass: "title-3" }, [
-              _vm._v(
-                "Please provide your details below, our team will connect to you shortly."
-              )
-            ]),
-            _vm._v(" "),
-            _c("form", { staticClass: "form" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "input-container",
-                  attrs: { "data-state": _vm.state }
-                },
-                [
-                  _c("label", { attrs: { for: "subject" } }, [
-                    _vm._v("Subject")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.subject,
-                        expression: "subject"
-                      }
-                    ],
-                    attrs: {
-                      id: "subject",
-                      type: "text",
-                      placeholder: "Subject..."
-                    },
-                    domProps: { value: _vm.subject },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.subject = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.errors["subject"]
-                    ? _c("span", { staticClass: "feedback-text" }, [
-                        _vm._v(_vm._s(_vm.errors["subject"][0]))
-                      ])
-                    : _vm._e()
-                ]
-              ),
+    _c(
+      "div",
+      { staticClass: "support page" },
+      [
+        _vm.loading
+          ? _c("div", [_c("div", { staticClass: "loading" })])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.success
+          ? _c("alertBox", { attrs: { type: "success" } }, [
+              _c("h4", [_vm._v("success")]),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "input-container",
-                  attrs: { "data-state": _vm.state }
-                },
-                [
-                  _c("label", { attrs: { for: "message" } }, [
-                    _vm._v("Message")
-                  ]),
-                  _vm._v(" "),
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.message,
-                        expression: "message"
-                      }
-                    ],
-                    attrs: {
-                      id: "subject",
-                      placeholder: "Message...",
-                      cols: "30",
-                      rows: "8"
-                    },
-                    domProps: { value: _vm.message },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.message = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.errors["message"]
-                    ? _c("span", { staticClass: "feedback-text" }, [
-                        _vm._v(_vm._s(_vm.errors["subject"][0]))
-                      ])
-                    : _vm._e()
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "cta primary",
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.sendSupportForm($event)
-                    }
-                  }
-                },
-                [_vm._v("Send")]
-              )
+              _c("p", [_vm._v("message sent with success")])
             ])
-          ])
-        : _vm._e()
-    ])
+          : _vm._e(),
+        _vm._v(" "),
+        !_vm.loading
+          ? _c("div", [
+              _c("h2", { staticClass: "title-2" }, [_vm._v("Support")]),
+              _vm._v(" "),
+              _c("h4", { staticClass: "title-3" }, [
+                _vm._v(
+                  "Please provide your details below, our team will connect to you shortly."
+                )
+              ]),
+              _vm._v(" "),
+              _c("form", { staticClass: "form" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "input-container",
+                    attrs: { "data-state": _vm.state }
+                  },
+                  [
+                    _c("label", { attrs: { for: "subject" } }, [
+                      _vm._v("Subject")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.subject,
+                          expression: "subject"
+                        }
+                      ],
+                      attrs: {
+                        id: "subject",
+                        type: "text",
+                        placeholder: "Subject..."
+                      },
+                      domProps: { value: _vm.subject },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.subject = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors["subject"]
+                      ? _c("span", { staticClass: "feedback-text" }, [
+                          _vm._v(_vm._s(_vm.errors["subject"][0]))
+                        ])
+                      : _vm._e()
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "input-container",
+                    attrs: { "data-state": _vm.state }
+                  },
+                  [
+                    _c("label", { attrs: { for: "message" } }, [
+                      _vm._v("Message")
+                    ]),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.message,
+                          expression: "message"
+                        }
+                      ],
+                      attrs: {
+                        id: "subject",
+                        placeholder: "Message...",
+                        cols: "30",
+                        rows: "8"
+                      },
+                      domProps: { value: _vm.message },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.message = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors["message"]
+                      ? _c("span", { staticClass: "feedback-text" }, [
+                          _vm._v(_vm._s(_vm.errors["subject"][0]))
+                        ])
+                      : _vm._e()
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "cta primary",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.sendSupportForm($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Send")]
+                )
+              ])
+            ])
+          : _vm._e()
+      ],
+      1
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", [_c("li", [_vm._v("message sent with success")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -76755,6 +76795,7 @@ var store = {
   state: {
     isLoading: true,
     isError: false,
+    active: false,
     orders_count: 0,
     user: {
       city: '',
@@ -76780,6 +76821,13 @@ var store = {
     }
   },
   getters: {
+    isActive: function isActive(state) {
+      if (state.charge.confirmation_url == null) {
+        return true;
+      }
+
+      return false;
+    },
     error: function error(state) {
       return Object(lodash__WEBPACK_IMPORTED_MODULE_2__["isNull"])(state.charge.trial_ends_at) || Object(lodash__WEBPACK_IMPORTED_MODULE_2__["isNull"])(state.charge.ends_at);
     },
@@ -76853,11 +76901,11 @@ var store = {
       var account = axios('/me/account');
       var fullfiledOrdersCount = axios('/me/count');
       Promise.all([user, store, account, fullfiledOrdersCount]).then(function (values) {
-        console.log(values);
+        console.log(values[0].data);
 
-        _this.commit('SET_USER', Object(lodash__WEBPACK_IMPORTED_MODULE_2__["pick"])(values[0].data, ['city', 'email', 'phone', 'zip', 'country']));
+        _this.commit('SET_USER', Object(lodash__WEBPACK_IMPORTED_MODULE_2__["pick"])(values[0].data[0], ['city', 'email', 'phone', 'zip', 'country']));
 
-        _this.commit('SET_STORE_CHARGE', Object(lodash__WEBPACK_IMPORTED_MODULE_2__["pick"])(values[0].data.store_charge, ['name', 'confirmation_url', 'status', 'trial_ends_at', 'ends_at']));
+        _this.commit('SET_STORE_CHARGE', Object(lodash__WEBPACK_IMPORTED_MODULE_2__["pick"])(values[0].data[0].store_charge, ['name', 'confirmation_url', 'status', 'trial_ends_at', 'ends_at']));
 
         _this.commit('SET_STORE', values[1].data);
 

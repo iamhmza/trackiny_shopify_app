@@ -5,11 +5,10 @@
         <div class="loading"></div>
       </div>
 
-      <div v-if="success" class="message success">
-        <ul>
-          <li>message sent with success</li>
-        </ul>
-      </div>
+      <alertBox v-if="success" type="success">
+        <h4>success</h4>
+        <p>message sent with success</p>
+      </alertBox>
 
       <div v-if="!loading">
         <h2 class="title-2">Support</h2>
@@ -86,7 +85,6 @@ export default {
           this.message = '';
         })
         .catch(err => {
-          console.log(JSON.stringify(err.response.data.errors));
           this.errors = err.response.data.errors;
           this.state = 'error';
         });

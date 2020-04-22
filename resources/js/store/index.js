@@ -9,6 +9,7 @@ const store = {
   state: {
     isLoading: true,
     isError: false,
+    active: false,
     orders_count: 0,
     user: {
       city: '',
@@ -35,6 +36,13 @@ const store = {
   },
 
   getters: {
+    isActive(state) {
+      if (state.charge.confirmation_url == null) {
+        return true;
+      }
+      return false;
+    },
+
     error(state) {
       return isNull(state.charge.trial_ends_at) || isNull(state.charge.ends_at);
     },
@@ -116,16 +124,22 @@ const store = {
 
       Promise.all([user, store, account, fullfiledOrdersCount]).then(
         (values) => {
-          console.log(values);
+          console.log(values[0].data);
 
           this.commit(
             'SET_USER',
-            pick(values[0].data, ['city', 'email', 'phone', 'zip', 'country'])
+            pick(values[0].data[0], [
+              'city',
+              'email',
+              'phone',
+              'zip',
+              'country',
+            ])
           );
 
           this.commit(
             'SET_STORE_CHARGE',
-            pick(values[0].data.store_charge, [
+            pick(values[0].data[0].store_charge, [
               'name',
               'confirmation_url',
               'status',

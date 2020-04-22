@@ -6,13 +6,14 @@
       <SideBar></SideBar>
       <main>
         <div class="container">
-          <alertBox v-if="error">
+          <alertBox v-if="!isActive" type="warning">
+            <h4>Uh oh, still one more thing</h4>
             <p>
               you have to confirm shopify billing so you'll be able to use the
-              application click the link
+              application click the
               <a
-                href="/dashborad/billing"
-              >here</a>
+                :href="getUrl"
+              >link</a>
             </p>
           </alertBox>
           <transition name="route-anim" enter-active-class="animated fadeInDown">
@@ -39,8 +40,9 @@ export default {
     Loading
   },
   computed: {
-    ...mapGetters(['error'])
+    ...mapGetters(['error', 'isActive', 'getUrl'])
   },
+  methods: {},
 
   mounted() {
     this.$router.push('/dashboard/stats');

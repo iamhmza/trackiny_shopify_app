@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'city', 'phone', 'country', 'zip'
+        'name', 'email', 'password', 'city', 'phone', 'country', 'zip',
     ];
 
     /**
@@ -52,9 +52,13 @@ class User extends Authenticatable
         return $this->hasOne('App\UserProvider');
     }
 
-
     public function storeCharge()
     {
         return $this->hasOne('App\StoreCharge');
+    }
+
+    public function getCharge()
+    {
+        return $this->with('StoreCharge');
     }
 }

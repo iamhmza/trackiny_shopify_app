@@ -75,7 +75,7 @@
   right: 0;
   z-index: 500;
   color: white;
-  background-color: #258ffb88;
+  background-color: #258ffbaa;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -106,37 +106,6 @@
           animation-timing-function: linear;
   -webkit-animation-direction: forward;
           animation-direction: forward;
-}
-
-/* messages */
-
-.message {
-  padding: 1rem;
-  margin-bottom: 1rem;
-  font-size: 14px;
-  font-weight: bold;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
-}
-
-.message li:not(:last-of-type) {
-  margin-bottom: 0.8rem;
-  margin-left: 1rem;
-}
-
-.error {
-  background-color: #ff596422;
-  color: #ff5964;
-  border-top: 2px solid #ff5964;
-}
-
-.success {
-  background-color: #59cd9022;
-  color: #59cd90;
-  border-top: 2px solid #59cd90;
 }
 
 @-webkit-keyframes spinner {
@@ -395,57 +364,78 @@
 }
 
 .alert {
-  padding: 1rem;
   margin: 1rem 0;
-  width: 83%;
+  width: 80%;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
           align-items: center;
-  border-radius: 3px;
-}
-
-.alert .icon {
-  min-width: 30px;
-  min-height: 30px;
-  height: 30px;
-  margin-right: 12px;
-  background-color: #ff5964;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-  border-radius: 100%;
-}
-
-.alert .icon svg {
-  width: 12px;
-}
-
-.alert a {
-  margin-left: 5px;
-  color: #ff5964;
-  font-weight: 900;
+  background-color: #fff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: min(555px, 100%);
+  border-left: 4px solid var(--color);
 }
 
 .alert.danger {
-  color: #ff5964;
-  border: 1px solid #ff5964;
-  background-color: #ff596444;
+  --color: #ff5964;
 }
 
 .alert.warning {
-  color: #ffbc42;
-  border: 1px solid #ffbc42;
-  background-color: #ffbc4244;
+  --color: #ffbc42;
 }
 
 .alert.success {
-  color: #59cd90;
-  border: 1px solid #59cd90;
-  background-color: #59cd9044;
+  --color: #59cd90;
+}
+
+.alert .icon {
+  padding: 0 1.3rem;
+}
+
+.alert .icon span {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  font-size: 16px;
+  font-weight: 900;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: white;
+  box-shadow: 0px 0px 8px var(--color);
+  background-color: var(--color);
+}
+
+.alert .body {
+  padding: 1.5rem 0;
+  width: 80%;
+}
+
+.alert .body h4 {
+  color: var(--color);
+}
+
+.alert .body p {
+  font-size: 14px;
+  color: #a4b0be;
+  margin-top: 0.5rem;
+  line-height: 120%;
+}
+
+.alert .action {
+  padding: 0 1.3rem;
+  font-size: 20px;
+  font-weight: 900;
+  color: #ced6e0;
+  cursor: pointer;
+}
+
+.alert .action :hover {
+  color: #a4b0be;
 }
 
 .chart-container {

@@ -230,14 +230,15 @@ class ShopifyWebhooksController extends Controller
                 'status' => $data->status,
                 'trial_ends_at' => $data->trial_ends_on,
                 'ends_at' => $data->billing_on,
+                'confirmation_url' => null,
             ]);
 
             return redirect('dashboard');
         } catch (ClientException $e) {
 
-            if ($e->getCode() == 422) {
-                return redirect('install/choose');
-            }
+            // if ($e->getCode() == 422) {
+            return redirect('install/choose');
+            // }
         }
 
         return response()->json(json_decode($chargePlan));

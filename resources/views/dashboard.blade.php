@@ -8,6 +8,7 @@
   <title>Dashboard</title>
 
   <link rel="stylesheet" href=" {{ mix('css/app.css')}}">
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 </head>
 
 <body>
