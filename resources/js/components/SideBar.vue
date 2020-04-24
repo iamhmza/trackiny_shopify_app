@@ -10,14 +10,7 @@
           <span>Dashboard</span>
         </router-link>
       </li>
-      <li>
-        <router-link to="/dashboard/billing">
-          <div class="icon-container">
-            <svg-vue icon="dashboard"></svg-vue>
-          </div>
-          <span>Billing</span>
-        </router-link>
-      </li>
+
       <li>
         <router-link to="/dashboard/account">
           <div class="icon-container">

@@ -122,6 +122,11 @@
         }
 
         .notification {
+          &.opened {
+            // display: block;
+            transform: scale(1);
+          }
+          // display: none;
           width: 252px;
           position: absolute;
           top: 40px;
@@ -131,6 +136,9 @@
           border: 1px solid #d3d6df;
           border-radius: 5px;
           font-size: $font-4;
+          transform-origin: right;
+          transform: scale(0);
+          transition: transform 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 
           h4 {
             padding: 0.5rem;

@@ -21,7 +21,7 @@
             <tspan x="-9.633" y="0"></tspan>
           </text>
         </svg>
-        <div v-show="show_notification" class="notification">
+        <div :class="show_notification ? 'opened' : ''" class="notification">
           <div>
             <a href="/me/logout">Logout</a>
           </div>

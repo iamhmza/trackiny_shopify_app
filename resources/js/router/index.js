@@ -6,7 +6,6 @@ Vue.use(VueRouter);
 import Dashboard from '../pages/Dashboard.vue';
 import Stats from '../pages/dashboard/Stats.vue';
 import Account from '../pages/dashboard/Account.vue';
-import Billing from '../pages/dashboard/Billing.vue';
 import Setting from '../pages/dashboard/Setting.vue';
 import Tuts from '../pages/dashboard/Tuts.vue';
 import Support from '../pages/dashboard/Support.vue';
@@ -23,10 +22,7 @@ const routes = [
         path: 'stats',
         component: Stats,
       },
-      {
-        path: 'billing',
-        component: Billing,
-      },
+
       {
         path: 'support',
         component: Support,

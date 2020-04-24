@@ -233,7 +233,7 @@ class ShopifyWebhooksController extends Controller
                 'confirmation_url' => null,
             ]);
 
-            return redirect('dashboard');
+            return view('dashboard');
         } catch (ClientException $e) {
 
             // if ($e->getCode() == 422) {
