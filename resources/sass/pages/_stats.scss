@@ -73,6 +73,9 @@
   }
 }
 
+/* Dashboard
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 .dashboard {
   background-color: #f2f6f9;
 
@@ -94,78 +97,6 @@
       margin-right: 4rem;
     }
 
-    .admin {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: $font-3;
-
-      .notification_wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #09d5fe;
-        color: white;
-        padding: 8px;
-        border-radius: 30px;
-        position: relative;
-        z-index: 5;
-        margin-right: 2rem;
-        cursor: pointer;
-        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-
-        svg {
-          fill: currentColor;
-          color: white;
-          width: 12px;
-          margin-left: 7px;
-        }
-
-        .notification {
-          &.opened {
-            // display: block;
-            transform: scale(1);
-          }
-          // display: none;
-          width: 252px;
-          position: absolute;
-          top: 40px;
-          left: -103px;
-          color: #000;
-          background-color: #fff;
-          border: 1px solid #d3d6df;
-          border-radius: 5px;
-          font-size: $font-4;
-          transform-origin: right;
-          transform: scale(0);
-          transition: transform 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-
-          h4 {
-            padding: 0.5rem;
-            border-bottom: 1px solid #ddd;
-          }
-          > div {
-            padding: 1rem;
-            border-bottom: 1px solid #ddd;
-            font-size: 16px;
-            color: #abadb9;
-            transition: all 50ms linear;
-            cursor: pointer;
-          }
-          > div:hover {
-            background-color: #d3d6df20;
-          }
-        }
-      }
-
-      img {
-        width: 35px;
-        height: 35px;
-        margin-right: 1rem;
-        border: 1px solid #e4f4f7;
-        border-radius: 100%;
-      }
-    }
     .search {
       position: relative;
       margin-right: auto;
