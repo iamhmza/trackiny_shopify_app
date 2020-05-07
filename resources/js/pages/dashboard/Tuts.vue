@@ -4,11 +4,21 @@
 
     <div class="tuts_wrapper">
       <ul class="list">
-        <ul>Get paypal creditials</ul>
-        <ul>Get paypal creditials</ul>
-        <ul>Get paypal creditials</ul>
-        <ul>Get paypal creditials</ul>
-        <ul>Get paypal creditials</ul>
+        <li
+          v-for="(video, i) in videos"
+          :key="i"
+          :class="video.current ? 'current' : ''"
+          @click="setCurrentVideo(i)"
+        >
+          <div class="thumbnail">
+            <img :src=" `https://img.youtube.com/vi/${video.id}/default.jpg`" :alt="video.title" />
+          </div>
+
+          <div class="info">
+            <h3>{{video.title}}</h3>
+            <p>{{video.desc}}</p>
+          </div>
+        </li>
       </ul>
 
       <div class="video-container">
@@ -17,22 +27,84 @@
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/6qfE-lwRLuY"
+            :src="`https://www.youtube.com/embed/${currentID}`"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
         </div>
 
-        <h3 class="title-3">Get paypal cridentials</h3>
-
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium ipsam commodi incidunt, quibusdam sed accusamus saepe, ad, voluptas velit qui beatae hic nostrum officia! Odit tenetur voluptatem accusantium aliquid excepturi? Quia culpa dolores eveniet quasi. Earum culpa ratione soluta sint!</p>
+        <button class="cta primary">Next video</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'tuts',
+  data() {
+    return {
+      videos: [
+        {
+          current: true,
+          id: '6qfE-lwRLuY',
+          title: 'get paypal cridentials',
+          desc:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, laboriosam.'
+        },
+        {
+          current: false,
+          id: 'vy39yigro_8',
+          title: 'get paypal cridentials',
+          desc:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, laboriosam.'
+        },
+        {
+          current: false,
+          id: '6qfE-lwRLuY',
+          title: 'get paypal cridentials',
+          desc:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, laboriosam.'
+        },
+        {
+          current: false,
+          id: '6qfE-lwRLuY',
+          title: 'get paypal cridentials',
+          desc:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, laboriosam.'
+        },
+        {
+          current: false,
+          id: '6qfE-lwRLuY',
+          title: 'get paypal cridentials',
+          desc:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, laboriosam.'
+        }
+      ]
+    };
+  },
+  computed: {
+    currentID() {
+      return this.videos.find(v => v.current).id;
+    }
+  },
+  methods: {
+    setCurrentVideo(i) {
+      // toggle all to false
+      let vids = this.videos.map(v => ({ ...v, current: false }));
+      //set clicked element to current
+      vids[i].current = true;
+
+      this.videos = vids;
+    },
+
+    nextVideo(Index) {
+      // edges
+      // if (Index > this.videos.length) {
+      // }
+    }
+  }
+};
 </script>
 

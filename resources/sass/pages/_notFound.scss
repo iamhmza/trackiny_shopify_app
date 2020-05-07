@@ -31,6 +31,7 @@
     width: 331px !important;
     height: 61px !important;
     margin: 2rem auto !important;
+    box-shadow: 0px 3px 7px #2226;
 
     background-color: #fff !important;
     color: #0290fe !important;
@@ -40,6 +41,7 @@
 
   > h1 {
     font-size: 10rem;
+    text-shadow: 5px 6px 8px #2224;
   }
   > .title-2 {
     text-transform: uppercase;
@@ -58,5 +60,6 @@
   > p {
     width: 40%;
     margin: 1rem auto;
+    line-height: 120%;
   }
 }
