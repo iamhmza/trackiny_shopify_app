@@ -540,7 +540,7 @@ img {
 }
 
 .dashboard nav {
-  height: 66px;
+  height: 88px;
   padding: 0 3rem;
   background: #016fff;
   background: -webkit-gradient(linear, left top, right top, from(#0170ff), to(#09d8fe));
@@ -557,6 +557,10 @@ img {
 
 .dashboard nav .logo {
   margin-right: 4rem;
+}
+
+.dashboard nav .logo img {
+  width: 150px;
 }
 
 .dashboard nav .search {

@@ -116,14 +116,15 @@ export default {
     .admin_avatar {
       display: flex;
       align-items: center;
+      justify-content: center;
       // border: 1px solid #595959;
       background-color: #fff;
       border-radius: 50%;
       overflow: hidden;
       padding: 0.2rem;
       img {
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
       }
     }
 

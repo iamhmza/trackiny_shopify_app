@@ -2192,6 +2192,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -21335,7 +21339,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n\n/* Admin box\n  –––––––––––––––––––––––––––––––––––––––––––––––––– */\n.admin_box[data-v-43b87f60] {\n  display: inline-block;\n  position: relative;\n}\n.admin_box .admin_info[data-v-43b87f60] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  padding: 1rem;\n  cursor: pointer;\n}\n.admin_box .admin_info > *[data-v-43b87f60]:not(:last-child) {\n  margin-right: 0.6rem;\n}\n.admin_box .admin_info .admin_avatar[data-v-43b87f60] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  background-color: #fff;\n  border-radius: 50%;\n  overflow: hidden;\n  padding: 0.2rem;\n}\n.admin_box .admin_info .admin_avatar img[data-v-43b87f60] {\n  width: 25px;\n  height: 25px;\n}\n.admin_box .admin_info > svg[data-v-43b87f60] {\n  width: 20px;\n  height: 20px;\n  -webkit-transition: -webkit-transform 0.2s ease;\n  transition: -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease;\n  transition: transform 0.2s ease, -webkit-transform 0.2s ease;\n}\n.admin_box .admin_info > svg.fliped[data-v-43b87f60] {\n  -webkit-transform: rotate(0.5turn);\n          transform: rotate(0.5turn);\n}\n.admin_box .admin_options[data-v-43b87f60] {\n  position: absolute;\n  right: 1rem;\n  background-color: #fff;\n  border-radius: 5px;\n  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);\n  -webkit-transform-origin: top;\n          transform-origin: top;\n  -webkit-transform: scaley(0);\n          transform: scaley(0);\n  -webkit-transition: -webkit-transform 0.2s ease;\n  transition: -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease;\n  transition: transform 0.2s ease, -webkit-transform 0.2s ease;\n  z-index: 50;\n}\n.admin_box .admin_options.opened[data-v-43b87f60] {\n  -webkit-transform: scaley(1);\n          transform: scaley(1);\n}\n.admin_box .admin_options ul[data-v-43b87f60] {\n  display: block;\n  padding: 1rem 0.6rem;\n}\n.admin_box .admin_options ul li + li[data-v-43b87f60] {\n  margin-top: 0.6rem;\n}\n.admin_box .admin_options ul li[data-v-43b87f60] {\n  color: #016fff;\n}\n.admin_box .admin_options ul li a[data-v-43b87f60] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  padding: 0.6rem 1rem;\n  padding-right: 4rem;\n  border-radius: 5px;\n  color: inherit;\n}\n.admin_box .admin_options ul li a[data-v-43b87f60]:hover {\n  background-color: #016fff22;\n}\n.admin_box .admin_options ul li a svg[data-v-43b87f60] {\n  width: 20px;\n  height: 20px;\n  color: inherit;\n  fill: currentColor;\n  margin-right: 1rem;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n\n/* Admin box\n  –––––––––––––––––––––––––––––––––––––––––––––––––– */\n.admin_box[data-v-43b87f60] {\n  display: inline-block;\n  position: relative;\n}\n.admin_box .admin_info[data-v-43b87f60] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  padding: 1rem;\n  cursor: pointer;\n}\n.admin_box .admin_info > *[data-v-43b87f60]:not(:last-child) {\n  margin-right: 0.6rem;\n}\n.admin_box .admin_info .admin_avatar[data-v-43b87f60] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  background-color: #fff;\n  border-radius: 50%;\n  overflow: hidden;\n  padding: 0.2rem;\n}\n.admin_box .admin_info .admin_avatar img[data-v-43b87f60] {\n  width: 30px;\n  height: 30px;\n}\n.admin_box .admin_info > svg[data-v-43b87f60] {\n  width: 20px;\n  height: 20px;\n  -webkit-transition: -webkit-transform 0.2s ease;\n  transition: -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease;\n  transition: transform 0.2s ease, -webkit-transform 0.2s ease;\n}\n.admin_box .admin_info > svg.fliped[data-v-43b87f60] {\n  -webkit-transform: rotate(0.5turn);\n          transform: rotate(0.5turn);\n}\n.admin_box .admin_options[data-v-43b87f60] {\n  position: absolute;\n  right: 1rem;\n  background-color: #fff;\n  border-radius: 5px;\n  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);\n  -webkit-transform-origin: top;\n          transform-origin: top;\n  -webkit-transform: scaley(0);\n          transform: scaley(0);\n  -webkit-transition: -webkit-transform 0.2s ease;\n  transition: -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease;\n  transition: transform 0.2s ease, -webkit-transform 0.2s ease;\n  z-index: 50;\n}\n.admin_box .admin_options.opened[data-v-43b87f60] {\n  -webkit-transform: scaley(1);\n          transform: scaley(1);\n}\n.admin_box .admin_options ul[data-v-43b87f60] {\n  display: block;\n  padding: 1rem 0.6rem;\n}\n.admin_box .admin_options ul li + li[data-v-43b87f60] {\n  margin-top: 0.6rem;\n}\n.admin_box .admin_options ul li[data-v-43b87f60] {\n  color: #016fff;\n}\n.admin_box .admin_options ul li a[data-v-43b87f60] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  padding: 0.6rem 1rem;\n  padding-right: 4rem;\n  border-radius: 5px;\n  color: inherit;\n}\n.admin_box .admin_options ul li a[data-v-43b87f60]:hover {\n  background-color: #016fff22;\n}\n.admin_box .admin_options ul li a svg[data-v-43b87f60] {\n  width: 20px;\n  height: 20px;\n  color: inherit;\n  fill: currentColor;\n  margin-right: 1rem;\n}", ""]);
 
 // exports
 
@@ -59009,6 +59013,14 @@ var render = function() {
               "div",
               { staticClass: "container" },
               [
+                !!_vm.$store.state.message
+                  ? _c("alertBox", { attrs: { type: "danger" } }, [
+                      _c("h4", [_vm._v(_vm._s(_vm.$store.state.message.type))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.$store.state.message.text))])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
                 !_vm.isActive
                   ? _c("alertBox", { attrs: { type: "warning" } }, [
                       _c("h4", [_vm._v("Uh oh, still one more thing")]),
@@ -76781,6 +76793,7 @@ var store = {
     isLoading: true,
     isError: false,
     active: false,
+    message: null,
     orders_count: 0,
     user: {
       city: '',
@@ -76807,7 +76820,7 @@ var store = {
   },
   getters: {
     isActive: function isActive(state) {
-      if (state.charge.confirmation_url == null) {
+      if (!state.charge.confirmation_url) {
         return true;
       }
 
@@ -76897,7 +76910,13 @@ var store = {
         _this.commit('SET_ACCOUNT', Object(lodash__WEBPACK_IMPORTED_MODULE_2__["pick"])(values[2].data, ['api_key', 'api_secret']));
 
         _this.commit('SET_FULLFILED_ORDERS_COUNT', values[3].data.count);
-
+      })["catch"](function (err) {
+        // this.state.isError = true;
+        _this.state.message = {
+          type: 'error',
+          text: 'it looks like something went wrong! try to reload or sent message to support'
+        };
+      })["finally"](function () {
         _this.state.isLoading = false;
       });
     }

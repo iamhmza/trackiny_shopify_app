@@ -6,6 +6,10 @@
       <SideBar></SideBar>
       <main>
         <div class="container">
+          <alertBox v-if="!!$store.state.message" type="danger">
+            <h4>{{$store.state.message.type}}</h4>
+            <p>{{$store.state.message.text}}</p>
+          </alertBox>
           <alertBox v-if="!isActive" type="warning">
             <h4>Uh oh, still one more thing</h4>
             <p>

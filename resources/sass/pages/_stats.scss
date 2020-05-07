@@ -81,7 +81,7 @@
 
   // Toolbar
   nav {
-    height: 66px;
+    height: 88px;
     padding: 0 3rem;
     background: $mainColor;
     background: -webkit-linear-gradient(left, #0170ff, #09d8fe);
@@ -95,6 +95,10 @@
 
     .logo {
       margin-right: 4rem;
+
+      img {
+        width: 150px;
+      }
     }
 
     .search {

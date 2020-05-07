@@ -10,6 +10,7 @@ const store = {
     isLoading: true,
     isError: false,
     active: false,
+    message: null,
     orders_count: 0,
     user: {
       city: '',
@@ -37,12 +38,11 @@ const store = {
 
   getters: {
     isActive(state) {
-      if (state.charge.confirmation_url == null) {
+      if (!state.charge.confirmation_url) {
         return true;
       }
       return false;
     },
-
     error(state) {
       return isNull(state.charge.trial_ends_at) || isNull(state.charge.ends_at);
     },
@@ -122,8 +122,8 @@ const store = {
 
       const fullfiledOrdersCount = axios('/me/count');
 
-      Promise.all([user, store, account, fullfiledOrdersCount]).then(
-        (values) => {
+      Promise.all([user, store, account, fullfiledOrdersCount])
+        .then((values) => {
           console.log(values[0].data);
 
           this.commit(
@@ -156,10 +156,19 @@ const store = {
           );
 
           this.commit('SET_FULLFILED_ORDERS_COUNT', values[3].data.count);
+        })
+        .catch((err) => {
+          // this.state.isError = true;
 
+          this.state.message = {
+            type: 'error',
+            text:
+              'it looks like something went wrong! try to reload or sent message to support',
+          };
+        })
+        .finally(() => {
           this.state.isLoading = false;
-        }
-      );
+        });
     },
   },
 };
