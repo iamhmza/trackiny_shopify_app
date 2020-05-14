@@ -36,4 +36,10 @@ return [
         'redirect' => env('SHOPIFY_REDIRECT_URI'),
     ],
 
+    'freshdesk' => [
+        'url' => env('FRESHDESK_URL', 'https://shaham902.freshdesk.com/api/v2/tickets'),
+        'token' => env('FRESHDESK_TOKEN', 'ZvYiNAYCpegtads9OUmc'),
+        'email' => env('FRESHDESK_CC_EMAIL', 'shaham902@gmail.com'),
+    ],
+
 ];

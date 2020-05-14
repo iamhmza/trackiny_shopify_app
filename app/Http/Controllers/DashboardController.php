@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Account;
-use App\Mail\SupportFormMail;
 use App\User;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 class DashboardController extends Controller
 {
@@ -71,9 +69,31 @@ class DashboardController extends Controller
 
         //TODO: Send mail
 
-        Mail::to('test@test.com')->send(new SupportFormMail($data));
+        $client = new Client([
+            'headers' => ['Content-Type' => 'application/json'],
+        ]);
 
-        return $data;
+        $baseUrl = config('services.freshdesk.url');
+
+        $res = $client->request(
+            'POST',
+            $baseUrl,
+            [
+                'auth' => [config('services.freshdesk.token'), 'x'],
+                'body' => json_encode([
+                    "description" => $data["message"],
+                    "subject" => $data["subject"],
+                    "email" => $data["email"],
+                    "priority" => 1,
+                    "status" => 2,
+                    "cc_emails" => [config('services.freshdesk.email')],
+
+                ]),
+            ]);
+
+        // Mail::to('test@test.com')->send(new SupportFormMail($data));
+
+        return json_encode($res);
     }
 
     public function logout()
