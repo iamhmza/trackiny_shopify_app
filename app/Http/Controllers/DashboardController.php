@@ -7,6 +7,7 @@ use App\User;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -44,7 +45,13 @@ class DashboardController extends Controller
         $user = Auth::user();
         $token = $user->provider->provider_token;
         $client = new Client(['headers' => ['Content-Type ' => 'application/json', 'X-Shopify-Access-Token' => $token]]);
-        $url = 'https://' . $user->name . '/admin/api/2020-01/orders/count.json?fulfillment_status=fulfilled';
+
+        $queries = Arr::query([
+            'fulfillment_status' => 'fulfilled',
+            'status' => 'any',
+        ]);
+
+        $url = "https://$user->name/admin/api/2020-01/orders/count.json?$queries";
 
         try {
 
