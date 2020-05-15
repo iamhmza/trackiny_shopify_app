@@ -106,16 +106,20 @@ class ShopifyWebhooksController extends Controller
 
             }
 
-            try {
-                $client->request('POST', $paypalUrlForTracking, [
-                    'json' => [
-                        "trackers" => [0 => $tracker], // trackers [ max 20 trackings ]
-                    ],
-                ]);
-            } catch (ClientException $e) {
-                dump($e);
-                return;
-            }
+            dump($tracker);
+
+            // try {
+            $paypalResp = $client->request('POST', $paypalUrlForTracking, [
+                'json' => [
+                    "trackers" => [0 => $tracker], // trackers [ max 20 trackings ]
+                ],
+            ]);
+
+            dump($paypalResp);
+            // } catch (ClientException $e) {
+            //     dump($e);
+            //     return;
+            // }
 
             $data = array(
                 "id" => $order->id,
